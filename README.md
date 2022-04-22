@@ -1,4 +1,4 @@
-### &nbsp;Sleep Outside Build Link: https://jmmonjeremy.github.io/L02_Team_Activity_1/build/
+### &emsp; &nbsp;Sleep Outside Build Link: https://jmmonjeremy.github.io/L02_Team_Activity_1/build/
 
 ###### &emsp; &nbsp; &emsp; &emsp; &nbsp; &nbsp; &nbsp; (OR click on icon below)                                                       
 
