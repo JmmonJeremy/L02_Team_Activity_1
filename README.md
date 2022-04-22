@@ -1,8 +1,8 @@
-### &nbsp; Sleep Outside Build Link:
+### &nbsp; Sleep Outside Build Link: https://jmmonjeremy.github.io/L02_Team_Activity_1/build/
 
 ###### &emsp; &nbsp; &emsp; &emsp; &nbsp; &nbsp; &nbsp; (click on icon below)                                                       
 
-&emsp; &emsp; &nbsp; &nbsp;[<img src="sources/assignment_portal_icon_link.png" width="200">](https://jmmonjeremy.github.io/)
+&emsp; &emsp; &nbsp; &nbsp;[<img src="src/images/tents/the-north-face-alpine-guide-tent-3-person-4-season-in-canary-yellow-high-rise-grey~p~985pr_01~320.jpg" width="200">](https://jmmonjeremy.github.io/L02_Team_Activity_1/build/)
 
 # sleepoutside
 
