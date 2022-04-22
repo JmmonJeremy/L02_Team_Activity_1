@@ -1,8 +1,8 @@
 ### &emsp; &nbsp;Sleep Outside Build Link: https://jmmonjeremy.github.io/L02_Team_Activity_1/build/
 
-###### &emsp; &emsp; &nbsp; &nbsp; &nbsp; &emsp; &emsp; &nbsp; &nbsp; &emsp; &nbsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; &emsp; &nbsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; &emsp; &nbsp; &emsp;(OR click on icon LINK below)                                                       
+###### &emsp; &emsp; &nbsp; &nbsp; &nbsp; &emsp; &emsp; &nbsp; &nbsp; &emsp; &nbsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; &emsp; &nbsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; &emsp; &nbsp; (OR click on icon LINK below)                                                       
 
-&emsp; &emsp; &nbsp; &nbsp; &emsp; &nbsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; &emsp; &nbsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; &emsp; &nbsp; &emsp; [<img src="src/images/tents/the-north-face-alpine-guide-tent-3-person-4-season-in-canary-yellow-high-rise-grey~p~985pr_01~320.jpg" width="200">](https://jmmonjeremy.github.io/L02_Team_Activity_1/build/)
+ &emsp; &nbsp; &nbsp; &emsp; &nbsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; &emsp; &nbsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; &emsp; &nbsp; &emsp; [<img src="src/images/tents/the-north-face-alpine-guide-tent-3-person-4-season-in-canary-yellow-high-rise-grey~p~985pr_01~320.jpg" width="200">](https://jmmonjeremy.github.io/L02_Team_Activity_1/build/)
 
 # sleepoutside
 
