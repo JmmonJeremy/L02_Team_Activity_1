@@ -1,3 +1,9 @@
+### &nbsp; Sleep Outside Build Link:
+
+###### &emsp; &nbsp; &emsp; &emsp; &nbsp; &nbsp; &nbsp; (click on icon below)                                                       
+
+&emsp; &emsp; &nbsp; &nbsp;[<img src="sources/assignment_portal_icon_link.png" width="200">](https://jmmonjeremy.github.io/)
+
 # sleepoutside
 
 ## Description
