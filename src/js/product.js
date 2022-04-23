@@ -1,4 +1,5 @@
 let products = [];
+let checkout_items = [];
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -31,12 +32,17 @@ function getProductsData() {
 // add to cart button event handler
 function addToCart(e) {
   let previous_products = getLocalStorage("so-cart");
+  if (Array.isArray(previous_products)) {
+    checkout_items = previous_products;
+  } else if (previous_products != null) {
+    checkout_items.push(previous_products);
+  }
   //console.log(previous_products)
   //console.log(e.target.dataset.id)
   const product = products.find((item) => item.Id === e.target.dataset.id);
-  previous_products.push(product);
+  checkout_items.push(product);
   //console.log(previous_products);
-  setLocalStorage("so-cart", previous_products);
+  setLocalStorage("so-cart", checkout_items);
 }
 
 getProductsData();
