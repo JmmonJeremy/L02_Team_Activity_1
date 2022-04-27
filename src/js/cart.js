@@ -3,7 +3,7 @@ function getLocalStorage(key) {
 }
 
 function getCartContents() {
-  let markup = "";
+  // let markup = "";
   let cartItems = getLocalStorage("so-cart");
   if (cartItems == null) {
     cartItems = [];
