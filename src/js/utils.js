@@ -21,10 +21,20 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
-
+// get the parameter
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const product = urlParams.get(param);
   return product;
+}
+// make a template that can be used to render lists
+export function renderListWithTemplate(template, parentElement, list, callback) { 
+  // clone it once for each product in our list
+  list.forEach(item => {
+  const node = template.content.cloneNode(true);
+  const filledTemplate = callback(node, item);
+  // add it to the DOM
+  parentElement.appendChild(filledTemplate);
+  });
 }
