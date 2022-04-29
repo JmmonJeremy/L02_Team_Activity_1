@@ -29,12 +29,17 @@ export function getParam(param) {
   return product;
 }
 // make a template that can be used to render lists
-export function renderListWithTemplate(template, parentElement, list, callback) { 
+export function renderListWithTemplate(
+  template,
+  parentElement,
+  list,
+  callback
+) {
   // clone it once for each product in our list
-  list.forEach(item => {
-  const node = template.content.cloneNode(true);
-  const filledTemplate = callback(node, item);
-  // add it to the DOM
-  parentElement.appendChild(filledTemplate);
+  list.forEach((item) => {
+    const node = template.content.cloneNode(true);
+    const filledTemplate = callback(node, item);
+    // add it to the DOM
+    parentElement.appendChild(filledTemplate);
   });
 }
