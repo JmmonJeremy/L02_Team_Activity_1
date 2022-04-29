@@ -1,29 +1,26 @@
 import ProductData from "./productData.js";
+import { renderListWithTemplate } from "./utils.js";
 
 export default class ProductList {
   constructor(category, listElement, dataSource) {
     this.category = category;
     this.listElement = listElement;
-    // console.log(listElement)
-    // this.dataSource = {};
     this.dataSource = dataSource;
-    // this.list = {};
   }
   async init() {
-    // this.dataSource = await new ProductData(this.category).getData();
     const list = await this.dataSource.getData();
-    // console.log(this.dataSource);
-    // await this.renderList(this.dataSource);
-    await this.renderList(list);
+    const filteredList = this.filterTents(list);
+    // console.log(filteredList);
+    this.renderList(filteredList);
   }
   renderList(data) {
     const template = document.querySelector("#product-card-template");
-
-    data.forEach((product) => {
-      const clone = template.content.cloneNode(true);
-      const hydratedTemplate = this.prepareTemplate(clone, product);
-      this.listElement.appendChild(hydratedTemplate);
-    });
+    renderListWithTemplate(
+      template,
+      this.listElement,
+      data,
+      this.prepareTemplate
+    );
   }
   prepareTemplate(clone, product) {
     const link = clone.querySelector(".product-card>a");
@@ -42,5 +39,16 @@ export default class ProductList {
     name.innerHTML = product.NameWithoutBrand;
     price.innerHTML = price.innerHTML + product.FinalPrice;
     return clone;
+  }
+  filterTents(data) {
+    let tentList = [];
+    data.forEach((item) => {
+      const img = new Image();
+      img.src = item.Image;
+      if (img.complete) {
+        tentList.push(item);
+      }
+    });
+    return tentList;
   }
 }

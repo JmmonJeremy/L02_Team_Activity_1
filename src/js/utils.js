@@ -28,3 +28,16 @@ export function getParam(param) {
   const product = urlParams.get(param);
   return product;
 }
+
+export function renderListWithTemplate(
+  htmlTemplate,
+  parentElement,
+  list,
+  callback
+) {
+  list.forEach((product) => {
+    const clone = htmlTemplate.content.cloneNode(true);
+    const hydratedTemplate = callback(clone, product);
+    parentElement.appendChild(hydratedTemplate);
+  });
+}
