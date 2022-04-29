@@ -1,6 +1,9 @@
-import ProductData from "./productData.js";
+// import ProductData from "./productData.js";
 import ProductList from "./productList.js";
 
-const productData = new ProductData;
+// const productData = new ProductData("");
 
 
+const productList = new ProductList("tents", "none");
+
+productList.init();
