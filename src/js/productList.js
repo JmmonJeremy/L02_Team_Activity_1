@@ -1,18 +1,20 @@
-import ProductData from "./productData";
+import ProductData from "./productData.js";
 
 export default class ProductList {
   constructor(category, listElement, dataSource) {
     this.category = category;
     this.listElement = listElement;
     // console.log(listElement)
-    this.dataSource = {};
+    // this.dataSource = {};
+    this.dataSource = dataSource;
     // this.list = {};
   }
   async init() {
-    this.dataSource = await new ProductData(this.category).getData();
-    // const list = await this.dataSource.getData();
+    // this.dataSource = await new ProductData(this.category).getData();
+    const list = await this.dataSource.getData();
     // console.log(this.dataSource);
-    await this.renderList(this.dataSource);
+    // await this.renderList(this.dataSource);
+    await this.renderList(list);
   }
   renderList(data) {
     const template = document.querySelector("#product-card-template");
@@ -39,7 +41,6 @@ export default class ProductList {
     brand.innerHTML = product.Brand.Name;
     name.innerHTML = product.NameWithoutBrand;
     price.innerHTML = price.innerHTML + product.FinalPrice;
-
     return clone;
   }
 }
