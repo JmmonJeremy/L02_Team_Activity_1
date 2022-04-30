@@ -8,19 +8,22 @@ export default class ProductList {
 
     async init() {
         const products = await this.dataSource.getData();
-        this.render(products, "#product-card-template", this.prepareTemplate);
+        const filteredProducts = this.filterProducts(products);
+        this.render(filteredProducts, "#product-card-template", this.prepareTemplate);
     }
 
+    filterProducts(products) {
+        return products.filter((product) => {
+            return product.FinalPrice != '179.99';
+        });
+    }
 
     render(products, idTargetTemplate, templateBuilder) {
         const productCardTemplate = document.querySelector(idTargetTemplate);
-        const listerElement = document.querySelector(this.targetElement);
-        listerElement.innerHTML = "";
+        const parentElement = document.querySelector(this.targetElement);
+        parentElement.innerHTML = "";
 
-        products.forEach( product => {
-            const listItem = templateBuilder(product, productCardTemplate);
-            listerElement.appendChild(listItem);
-        });
+        renderListWithTemplate(productCardTemplate, parentElement, products, templateBuilder);
     }
 
     prepareTemplate(product, productCardTemplate) {

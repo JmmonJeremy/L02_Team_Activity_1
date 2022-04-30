@@ -30,5 +30,8 @@ export function getParam(param) {
 }
 
 export function renderListWithTemplate(template, parentElement, list, callback) {
-  
+  list.forEach( item => {
+      const newElement = callback(item, template);
+      parentElement.appendChild(newElement);
+  });  
 }
