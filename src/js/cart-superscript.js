@@ -20,5 +20,7 @@ function renderCartSuperscript(cart){
     }
   }
 
+// get the current cart total when the page loads.
+// This is also called in the productDetails class so it updates whenever something is added to the cart.
 let currentCart = getLocalStorage("so-cart");
 displayCart(currentCart);
