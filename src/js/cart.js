@@ -12,6 +12,8 @@ function getCartContents() {
   const htmlItems = cartItems.map((item) => renderCartItem(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
+  // console.log(cartItems)
+  renderCartItem(cartItems);
 }
 
 function renderCartItem(item) {
@@ -32,5 +34,6 @@ function renderCartItem(item) {
   //console.log(newItem);
   return newItem;
 }
+
 
 getCartContents();

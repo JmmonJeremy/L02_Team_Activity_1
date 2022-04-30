@@ -1,4 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils";
+import {displayCart} from "./cart-superscript.js";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -23,6 +24,7 @@ export default class ProductDetails {
     }
     checkout_items.push(this.product);
     setLocalStorage("so-cart", checkout_items);
+    displayCart();
   }
   renderProductDetails() {
     let product_title = document.querySelector(".product-detail>h3");
