@@ -19,9 +19,15 @@ export default class ProductData {
   // get product data
   getData() {
     // const data = null
-    return fetch(this.path)
+    let products = fetch(this.path)
       .then(convertToJson)
-      .then((data) => data);
+      .then((data) => {products = data; 
+        products.forEach(item => {
+        item.Count = 0;
+        }); 
+        return products});
+      console.log(products);
+      return products;
   }
 
   //   // Async version of the getData function

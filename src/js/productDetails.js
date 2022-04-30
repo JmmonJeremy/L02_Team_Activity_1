@@ -1,28 +1,56 @@
-import { getLocalStorage, setLocalStorage } from "./utils";
+import { getLocalStorage, setLocalStorage, filterList } from "./utils";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
     this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
+    this.countList = [];
   }
   async init() {
+    // Create a starting list for counting multiple purchases of the same item  
+    let startList = await this.dataSource.getData();
+    //console.log(startList);
+    // redude list to only the tents we are selling
+    this.countList = filterList(startList);
+    //console.log(this.countList);   
+    // Find the specific item that was clicked on
     this.product = await this.dataSource.findProductById(this.productId);
+    // Show the product page and add item to the cart
     this.renderProductDetails();
     document
       .getElementById("addToCart")
       .addEventListener("click", this.addToCart.bind(this));
   }
   addToCart() {
-    let checkout_items = [];
-    let previous_products = getLocalStorage("so-cart");
-    if (Array.isArray(previous_products)) {
-      checkout_items = previous_products;
-    } else if (previous_products != null) {
-      checkout_items.push(previous_products);
-    }
-    checkout_items.push(this.product);
-    setLocalStorage("so-cart", checkout_items);
+    // set list equal to the list of tents with a quantity of 0
+    let checkoutItems = this.countList;
+    //console.log(checkoutItems);
+    // set a list equal to the local storage
+    let previousProducts = getLocalStorage("so-cart");    
+   // add any count to the quantity of the local storage list  
+    if (previousProducts != null && previousProducts.length > 0){
+      checkoutItems = previousProducts;
+      //console.log(previousProducts);
+      previousProducts.forEach(product => {        
+          if (product.Count > 0) {
+            checkoutItems.forEach(item => {
+              if (product.Id == item.Id) {
+                item.Count = product.Count;
+              }
+            })       
+            }       
+      }); 
+    }  
+    // Then add one to the quantity of the selected tent  
+    checkoutItems.forEach(item => {
+      if (item.Id == this.product.Id) {
+        item.Count += 1;       
+        }  
+    }); 
+    //console.log(checkoutItems);
+    // Reset the local storage to the new quanty value   
+    setLocalStorage("so-cart", checkoutItems);
   }
   renderProductDetails() {
     let product_title = document.querySelector(".product-detail>h3");

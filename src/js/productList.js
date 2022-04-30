@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.js";
+import { renderListWithTemplate, filterList } from "./utils.js";
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {
@@ -13,7 +13,7 @@ export default class ProductList {
     // dataSource will return a Promise...so we can use await to resolve it
     const list = await this.dataSource.getData();
     // filter out unwanted items
-    const filteredList = this.filterList(list);
+    const filteredList = filterList(list);
     // render the list
     this.renderList(filteredList);
   }
@@ -56,7 +56,7 @@ export default class ProductList {
     return templateClone;
   }
 
-  filterList(list) {
+  /*filterList(list) {
     const filteredList = [];
     list.forEach((tent) => {
       if (tent.Id != "989CG" && tent.Id != "880RT") {
@@ -64,5 +64,5 @@ export default class ProductList {
       }
     });
     return filteredList;
-  }
+  }*/
 }
