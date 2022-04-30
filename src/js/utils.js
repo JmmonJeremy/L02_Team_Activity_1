@@ -28,3 +28,7 @@ export function getParam(param) {
   const product = urlParams.get(param);
   return product;
 }
+
+export function renderListWithTemplate(template, parentElement, list, callback) {
+  
+}

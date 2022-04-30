@@ -24,6 +24,10 @@ export default class ProductData {
       .then((data) => data);
   }
 
+  getCategory() {
+    return this.category;
+  }
+  
   //   // Async version of the getData function
   //   async getData1() {
   //     let thing =  await fetch(this.path)
