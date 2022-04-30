@@ -208,7 +208,7 @@ button {
 .hide {
   display: none;
 }
-.cart-total{
+.cart-total {
   grid-column: 2;
 }
 
