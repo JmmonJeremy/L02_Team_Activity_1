@@ -13,9 +13,6 @@ function getCartContents() {
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
 
-  // console.log(cartItems)
-  renderCartItem(cartItems);
-
   // Display the total in the cart if there are items in it.
   let cart_total = document.querySelector(".cart-footer");
   if (cartItems.length > 0) {
@@ -54,6 +51,5 @@ function getCartTotal(cart) {
   });
   return total;
 }
-
 
 getCartContents();
