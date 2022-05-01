@@ -81,6 +81,17 @@ header {
   color: var(--tertiary-color);
 }
 
+.cart-total-badge {
+  font-size: .8rem;
+  position: absolute;
+  top: 10px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
 button {
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
