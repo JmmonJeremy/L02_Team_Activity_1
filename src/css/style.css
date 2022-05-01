@@ -229,6 +229,17 @@ button.resume {
   grid-column: 3;
 }
 
+.cart-footer {
+  display: grid;
+  grid-template-columns: auto 25%;
+}
+.hide {
+  display: none;
+}
+.cart-total {
+  grid-column: 2;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
