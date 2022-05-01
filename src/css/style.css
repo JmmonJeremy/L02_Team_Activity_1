@@ -88,7 +88,16 @@ button {
   margin: auto;
   display: block;
   border: 0;
+  border-radius: .75rem;
   font-size: var(--large-font);
+}
+/*********************  START OF ADDED CSS TO ANIMATE THE CART AND BUTTON WHEN CLICKED   **************************/
+button.enlarge {
+  transition: .05s;
+  transform: scale(1.05);
+}
+button.resume {
+  transform: scale(1);
 }
 .divider {
   border-bottom: 2px solid var(--primary-color);
@@ -101,10 +110,29 @@ button {
   position: relative;
   text-align: center;
 }
+#resize__icon svg {
+  fill: orange;
+  background: grey;
+  outline: 10px solid grey;
+  border-radius: .25rem; 
+  transition: .85s;
+  transform: scale(2.15);
+  margin-left: -100px;
+  margin-bottom: -40px; 
+} 
+
+#cart__icon svg { 
+  transition: 2.85s;
+}
 
 .cart svg {
   width: 25px;
+  background-color: rgba(40, 79, 51, 0.912);
+  outline: 10px solid rgba(40, 79, 51, 0.912);
+  border-radius: .1rem;
+  fill: antiquewhite
 }
+/*********************  END OF ADDED CSS TO ANIMATE THE CART AND BUTTON WHEN CLICKED   **************************/
 .cart:hover svg {
   fill: gray;
 }
