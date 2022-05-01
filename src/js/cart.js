@@ -35,5 +35,4 @@ function renderCartItem(item) {
   return newItem;
 }
 
-
 getCartContents();

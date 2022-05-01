@@ -1,5 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils";
-import {displayCart} from "./cart-superscript.js";
+import { displayCart } from "./cart-superscript.js";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
