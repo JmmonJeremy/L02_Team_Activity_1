@@ -1,4 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils";
+import { displayCart } from "./cart-superscript.js";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -9,6 +10,7 @@ export default class ProductDetails {
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
     this.renderProductDetails();
+  
       // code to add items to the cart
       let addButt = document.getElementById("addToCart");
       addButt.addEventListener("click", () => {
@@ -42,6 +44,7 @@ export default class ProductDetails {
     }
     checkout_items.push(this.product);
     setLocalStorage("so-cart", checkout_items);
+    displayCart();
   }
   renderProductDetails() {
     let product_title = document.querySelector(".product-detail>h3");
