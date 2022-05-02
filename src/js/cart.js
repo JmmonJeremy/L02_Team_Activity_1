@@ -1,13 +1,19 @@
-function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
+import { getLocalStorage, setLocalStorage } from "./utils";
 
 function getCartContents() {
   // let markup = "";
+  let count = 1;
   let cartItems = getLocalStorage("so-cart");
   if (cartItems == null) {
     cartItems = [];
+  } else {
+    cartItems.forEach(item => {
+      item.HtmlId = item.Id + count;
+      console.log(item.HtmlId);
+      count++;
+    })
   }
+  setLocalStorage("so-cart", cartItems);
   //console.log(cartItems);
   const htmlItems = cartItems.map((item) => renderCartItem(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
@@ -27,10 +33,49 @@ function getCartContents() {
   } else {
     cart_total.classList.add("hide");
   }
+
+  // Add a unique id to each item
+  const deleteButtons = document.querySelectorAll(".card__delete");
+  // Reset count to match HtmlId
+  count = 1;
+  deleteButtons.forEach(dButton => {
+    dButton.id += count;
+    console.log(dButton.id);
+    count++;
+  });
+
+}
+
+function resetCartContents() {
+  let reCartItems = []
+  console.log(reCartItems);  
+  const deleteButtons = document.querySelectorAll(".card__delete");
+  deleteButtons.forEach(dButton => {
+    dButton.addEventListener("click", () =>{ 
+      const removeItem = dButton.getAttribute("id")     
+      console.log(removeItem);      
+      let reStartItems = getLocalStorage("so-cart");
+      reStartItems.forEach(item => {         
+        if (item.HtmlId != removeItem) {          
+          reCartItems.push(item);                   
+        }                
+      });
+      console.log(reCartItems); 
+      setLocalStorage("so-cart", reCartItems);
+      getCartContents()
+    });
+  });
+
 }
 
 function renderCartItem(item) {
   const newItem = `<li class="cart-card divider">
+  <div data-id="${item.Id}">
+    <img class="card__delete" id="${item.Id}" 
+    src="../images/delete_icon.svg"
+    alt="delete icon with a red x and the word remove"
+    />
+  </div>
   <a href="#" class="cart-card__image">
     <img
       src="${item.Image}"
@@ -57,3 +102,4 @@ function getCartTotal(cart) {
 }
 
 getCartContents();
+resetCartContents();

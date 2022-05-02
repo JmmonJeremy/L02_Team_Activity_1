@@ -110,9 +110,12 @@ button.enlarge {
 button.resume {
   transform: scale(1);
 }
+/************** START ADDED TO SYLE FOR DIVIDER BECAUSE OF (REMOVE FROM CART FEATURE) IMAGE ETC CHANGES ***************/
 .divider {
   border-bottom: 2px solid var(--primary-color);
+  width: 100%; /* changed to have it be the full width*/
 }
+/************** START ADDED TO SYLE FOR DIVIDER BECAUSE OF (REMOVE FROM CART FEATURE) IMAGE ETC CHANGES ***************/
 /* End utility classes */
 
 /* Cart icon styles */
@@ -213,16 +216,29 @@ button.resume {
   align-items: center;
 }
 
-.cart-card__image {
-  grid-row: 1/3;
+/*************** START ADDED TO SYLE THE REMOVE FROM CART IMAGE ETC ****************/
+.card__delete {
+  padding-top: .5rem;
+  max-width: 50px;  
+  grid-row: 1;
   grid-column: 1;
 }
-.cart-card p {
-  margin-top: 0;
+
+.cart-card__image {
+  grid-row: 2/3; /* Changed position */
+  grid-column: 1;
+  margin-top: -8px; /* Changed position */
 }
+
 .cart-card .card__name {
   grid-row: 1;
   grid-column: 2;
+  margin-left: -80px; /* Changed position */
+}
+/**************** END ADDED TO SYLE THE REMOVE FROM CART IMAGE ETC *****************/
+
+.cart-card p {
+  margin-top: 0;
 }
 
 .cart-card__color {
