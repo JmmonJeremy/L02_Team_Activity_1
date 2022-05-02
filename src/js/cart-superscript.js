@@ -6,11 +6,19 @@ function renderCartSuperscript(cart) {
   let badge = document.querySelector(".cart-total-badge");
   if (badge != null) {
     badge.innerHTML = total;
+
   } else {
     badge = document.createElement("span");
     badge.setAttribute("class", "cart-total-badge");
     cart_image.insertBefore(badge, cart_image.firstChild);
     badge.innerHTML = total;
+  }
+
+  if (total > 0) {
+    badge.classList.remove("hide");
+  } else {
+    badge.classList.add("hide");
+
   }
 }
 export function displayCart() {
