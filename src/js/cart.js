@@ -1,4 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils";
+import {displayCart} from "./cart-superscript.js";
 
 function getCartContents() {
   // let markup = "";
@@ -14,19 +15,22 @@ function getCartContents() {
     })
   }
   setLocalStorage("so-cart", cartItems);
-  //console.log(cartItems);
+  console.log(cartItems);
   const htmlItems = cartItems.map((item) => renderCartItem(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
-
-  // console.log(cartItems)
+  console.log(htmlItems);
+  console.log(cartItems);
   // renderCartItem(cartItems);
 
+  // update cart total
+  displayCart(cartItems);
   // Display the total in the cart if there are items in it.
   let cart_total = document.querySelector(".cart-footer");
   if (cartItems.length > 0) {
-    // console.log(cartItems);
+    console.log(cartItems);
     cart_total.classList.remove("hide");
+    cart_total.firstChild.innerHTML = "Total:"
     cart_total.firstChild.innerHTML = `${
       cart_total.firstChild.innerHTML
     } $${getCartTotal(cartItems)}`;
