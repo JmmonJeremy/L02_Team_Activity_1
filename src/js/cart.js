@@ -22,7 +22,7 @@ function getCartContents() {
   displayHTML(cartItems); 
 }
 // delete items when clicked to remove
-function ResetCartContents() {
+function resetCartContents() {
   let reCartItems = []
   console.log(reCartItems);  
   const deleteButtons = document.querySelectorAll(".card__delete");
@@ -112,6 +112,6 @@ function displayHTML(list) {
 }
 
 getCartContents();
-ResetCartContents();
+resetCartContents();
 
 
