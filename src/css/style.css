@@ -174,12 +174,14 @@ button {
   /* max-height: 120px; */
   align-items: center;
 }
+/*************** START ADDED TO SYLE THE REMOVE FROM CART IMAGE ETC ****************/
 .card__delete {
   padding-top: .5rem;
   max-width: 50px;  
   grid-row: 1;
   grid-column: 1;
 }
+/**************** END ADDED TO SYLE THE REMOVE FROM CART IMAGE ETC *****************/
 .cart-card__image {
   grid-row: 2/3;
   grid-column: 1;
