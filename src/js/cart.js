@@ -1,5 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils";
-import {displayCart} from "./cart-superscript.js";
+import { displayCart } from "./cart-superscript.js";
 
 function getCartContents() {
   // let markup = "";
@@ -7,19 +7,20 @@ function getCartContents() {
   let cartItems = getLocalStorage("so-cart");
   if (cartItems == null) {
     cartItems = [];
-  } else {  // Add Html category to each item object to match the HTML id
-    cartItems.forEach(item => {
+  } else {
+    // Add Html category to each item object to match the HTML id
+    cartItems.forEach((item) => {
       item.HtmlId = item.Id + count;
       //console.log(item.HtmlId);
       count++;
-    })
+    });
   }
   // Put those item objects with the HtmlId category in the local storage
   setLocalStorage("so-cart", cartItems);
   //console.log(cartItems);
   // Render the HTML to the page
   const htmlItems = cartItems.map((item) => renderCartItem(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");  
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
   //console.log(htmlItems);
   //console.log(cartItems);
   // update cart total when item is removed
@@ -31,7 +32,7 @@ function getCartContents() {
     //console.log(cartItems);
     cart_total.classList.remove("hide");
     // Update the total when item is removed
-    cart_total.firstChild.innerHTML = "Total:"
+    cart_total.firstChild.innerHTML = "Total:";
     cart_total.firstChild.innerHTML = `${
       cart_total.firstChild.innerHTML
     } $${getCartTotal(cartItems)}`;
@@ -42,7 +43,7 @@ function getCartContents() {
   const ButtonId = document.querySelectorAll(".card__delete");
   // Reset count to match HtmlId
   count = 1;
-  ButtonId.forEach(dButton => {
+  ButtonId.forEach((dButton) => {
     dButton.id += count;
     //console.log(dButton.id);
     count++;
@@ -51,22 +52,22 @@ function getCartContents() {
 
 function resetCartContents(removeItem) {
   // List to render without removed product
-  let reCartItems = []
+  let reCartItems = [];
   //console.log(reCartItems);
-      // Get current list from local storage and push items not removed to new list    
-      let reStartItems = getLocalStorage("so-cart");
-      reStartItems.forEach(product => {         
-        if (product.HtmlId != removeItem) {          
-          reCartItems.push(product);                   
-        }                
-      });
-      //console.log(reCartItems);
-      // reset local storage to the new list 
-      setLocalStorage("so-cart", reCartItems);
-      // render HTML
-      getCartContents()
-      // !!!RESET PAGE SO YOU CAN DELETE ANOTHER ITEM!!!
-      document.location.reload(true);
+  // Get current list from local storage and push items not removed to new list
+  let reStartItems = getLocalStorage("so-cart");
+  reStartItems.forEach((product) => {
+    if (product.HtmlId != removeItem) {
+      reCartItems.push(product);
+    }
+  });
+  //console.log(reCartItems);
+  // reset local storage to the new list
+  setLocalStorage("so-cart", reCartItems);
+  // render HTML
+  getCartContents();
+  // !!!RESET PAGE SO YOU CAN DELETE ANOTHER ITEM!!!
+  document.location.reload(true);
 }
 
 function renderCartItem(item) {
@@ -99,19 +100,18 @@ function getCartTotal(cart) {
   cart.forEach((element) => {
     total += element.FinalPrice;
   });
-  return total.toFixed(2);;
+  return total.toFixed(2);
 }
 
 getCartContents();
 // SET AN EVENT LISTER FOR EACH PRODUCT ITEM
 const deleteButtons = document.querySelectorAll(".card__delete");
-deleteButtons.forEach(dButton => {
-  dButton.addEventListener("click", () =>{ 
+deleteButtons.forEach((dButton) => {
+  dButton.addEventListener("click", () => {
     // identify the id of the product that was clicked
-    const removeItem = dButton.getAttribute("id")     
+    const removeItem = dButton.getAttribute("id");
     //console.log(removeItem);
     // call the resetCartContents function to delete the matching ID
     resetCartContents(removeItem);
-  });  
-});         
-
+  });
+});

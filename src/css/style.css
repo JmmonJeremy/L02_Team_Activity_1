@@ -99,12 +99,12 @@ button {
   margin: auto;
   display: block;
   border: 0;
-  border-radius: .75rem;
+  border-radius: 0.75rem;
   font-size: var(--large-font);
 }
 /*********************  START OF ADDED CSS TO ANIMATE THE CART AND BUTTON WHEN CLICKED   **************************/
 button.enlarge {
-  transition: .05s;
+  transition: 0.05s;
   transform: scale(1.05);
 }
 button.resume {
@@ -128,14 +128,14 @@ button.resume {
   fill: orange;
   background: grey;
   outline: 10px solid grey;
-  border-radius: .25rem; 
-  transition: .85s;
+  border-radius: 0.25rem;
+  transition: 0.85s;
   transform: scale(2.15);
   margin-left: -100px;
-  margin-bottom: -40px; 
-} 
+  margin-bottom: -40px;
+}
 
-#cart__icon svg { 
+#cart__icon svg {
   transition: 2.85s;
 }
 
@@ -143,8 +143,8 @@ button.resume {
   width: 25px;
   background-color: rgba(40, 79, 51, 0.912);
   outline: 10px solid rgba(40, 79, 51, 0.912);
-  border-radius: .1rem;
-  fill: antiquewhite
+  border-radius: 0.1rem;
+  fill: antiquewhite;
 }
 /*********************  END OF ADDED CSS TO ANIMATE THE CART AND BUTTON WHEN CLICKED   **************************/
 .cart:hover svg {
@@ -218,8 +218,8 @@ button.resume {
 
 /*************** START ADDED TO SYLE THE REMOVE FROM CART IMAGE ETC ****************/
 .card__delete {
-  padding-top: .5rem;
-  max-width: 50px;  
+  padding-top: 0.5rem;
+  max-width: 50px;
   grid-row: 1;
   grid-column: 1;
 }

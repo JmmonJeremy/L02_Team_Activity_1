@@ -6,7 +6,6 @@ function renderCartSuperscript(cart) {
   let badge = document.querySelector(".cart-total-badge");
   if (badge != null) {
     badge.innerHTML = total;
-
   } else {
     badge = document.createElement("span");
     badge.setAttribute("class", "cart-total-badge");
@@ -18,7 +17,6 @@ function renderCartSuperscript(cart) {
     badge.classList.remove("hide");
   } else {
     badge.classList.add("hide");
-
   }
 }
 export function displayCart() {
