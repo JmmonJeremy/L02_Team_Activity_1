@@ -99,20 +99,23 @@ button {
   margin: auto;
   display: block;
   border: 0;
-  border-radius: .75rem;
+  border-radius: 0.75rem;
   font-size: var(--large-font);
 }
 /*********************  START OF ADDED CSS TO ANIMATE THE CART AND BUTTON WHEN CLICKED   **************************/
 button.enlarge {
-  transition: .05s;
+  transition: 0.05s;
   transform: scale(1.05);
 }
 button.resume {
   transform: scale(1);
 }
+/************** START ADDED TO SYLE FOR DIVIDER BECAUSE OF (REMOVE FROM CART FEATURE) IMAGE ETC CHANGES ***************/
 .divider {
   border-bottom: 2px solid var(--primary-color);
+  width: 100%; /* changed to have it be the full width*/
 }
+/************** START ADDED TO SYLE FOR DIVIDER BECAUSE OF (REMOVE FROM CART FEATURE) IMAGE ETC CHANGES ***************/
 /* End utility classes */
 
 /* Cart icon styles */
@@ -125,14 +128,14 @@ button.resume {
   fill: orange;
   background: grey;
   outline: 10px solid grey;
-  border-radius: .25rem; 
-  transition: .85s;
+  border-radius: 0.25rem;
+  transition: 0.85s;
   transform: scale(2.15);
   margin-left: -100px;
-  margin-bottom: -40px; 
-} 
+  margin-bottom: -40px;
+}
 
-#cart__icon svg { 
+#cart__icon svg {
   transition: 2.85s;
 }
 
@@ -140,8 +143,8 @@ button.resume {
   width: 25px;
   background-color: rgba(40, 79, 51, 0.912);
   outline: 10px solid rgba(40, 79, 51, 0.912);
-  border-radius: .1rem;
-  fill: antiquewhite
+  border-radius: 0.1rem;
+  fill: antiquewhite;
 }
 /*********************  END OF ADDED CSS TO ANIMATE THE CART AND BUTTON WHEN CLICKED   **************************/
 .cart:hover svg {
@@ -213,16 +216,29 @@ button.resume {
   align-items: center;
 }
 
-.cart-card__image {
-  grid-row: 1/3;
+/*************** START ADDED TO SYLE THE REMOVE FROM CART IMAGE ETC ****************/
+.card__delete {
+  padding-top: 0.5rem;
+  max-width: 50px;
+  grid-row: 1;
   grid-column: 1;
 }
-.cart-card p {
-  margin-top: 0;
+
+.cart-card__image {
+  grid-row: 2/3; /* Changed position */
+  grid-column: 1;
+  margin-top: -8px; /* Changed position */
 }
+
 .cart-card .card__name {
   grid-row: 1;
   grid-column: 2;
+  margin-left: -80px; /* Changed position */
+}
+/**************** END ADDED TO SYLE THE REMOVE FROM CART IMAGE ETC *****************/
+
+.cart-card p {
+  margin-top: 0;
 }
 
 .cart-card__color {

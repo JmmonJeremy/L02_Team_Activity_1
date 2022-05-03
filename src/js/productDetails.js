@@ -10,29 +10,29 @@ export default class ProductDetails {
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
     this.renderProductDetails();
-  
-      // code to add items to the cart
-      let addButt = document.getElementById("addToCart");
-      addButt.addEventListener("click", () => {
-      this.addToCart(this);     
+
+    // code to add items to the cart
+    let addButt = document.getElementById("addToCart");
+    addButt.addEventListener("click", () => {
+      this.addToCart(this);
       // code to animate the cart when added to
-      let getPicDiv = document.getElementsByClassName("cart")[0]
-      getPicDiv.setAttribute("id", "resize__icon")
-      function delayedEnding () { 
-        getPicDiv.setAttribute("id", "cart__icon")
-      } 
-      setTimeout(delayedEnding, 4000); 
-      // code to make the add to cart button animated     
+      let getPicDiv = document.getElementsByClassName("cart")[0];
+      getPicDiv.setAttribute("id", "resize__icon");
+      function delayedEnding() {
+        getPicDiv.setAttribute("id", "cart__icon");
+      }
+      setTimeout(delayedEnding, 4000);
+      // code to make the add to cart button animated
       addButt.className = "enlarge";
-      function buttBack () { 
+      function buttBack() {
         addButt.className = "resume";
-      } 
-       setTimeout(buttBack, 250);
+      }
+      setTimeout(buttBack, 250);
     });
-     
-      //getPic.classList.toggle("respond");      
-      //let delayedEnding = getPic.classList.toggle("respond");
-      //setTimeout(delayedEnding, 5000);
+
+    //getPic.classList.toggle("respond");
+    //let delayedEnding = getPic.classList.toggle("respond");
+    //setTimeout(delayedEnding, 5000);
   }
   addToCart() {
     let checkout_items = [];

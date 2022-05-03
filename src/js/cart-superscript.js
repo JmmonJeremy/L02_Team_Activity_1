@@ -12,6 +12,12 @@ function renderCartSuperscript(cart) {
     cart_image.insertBefore(badge, cart_image.firstChild);
     badge.innerHTML = total;
   }
+
+  if (total > 0) {
+    badge.classList.remove("hide");
+  } else {
+    badge.classList.add("hide");
+  }
 }
 export function displayCart() {
   let cartItems = getLocalStorage("so-cart");
