@@ -74,7 +74,7 @@ function renderCartItem(item) {
   const newItem = `<li class="cart-card divider">
   <div data-id="${item.Id}">
     <img class="card__delete" id="${item.Id}" 
-    src="../images/delete_icon.svg"
+    src="./images/delete_icon.svg"
     alt="delete icon with a red x and the word remove"
     />
   </div>
