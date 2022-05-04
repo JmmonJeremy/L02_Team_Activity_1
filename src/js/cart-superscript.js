@@ -7,12 +7,12 @@ async function renderCartSuperscript(cart) {
   // console.log(badge)
   if (badge != null) {
     badge.innerHTML = total;
-  } 
+  }
   // else {
-    // badge = document.createElement("span");
-    // badge.setAttribute("class", "cart-total-badge");
-    // cart_image.insertBefore(badge, cart_image.firstChild);
-    // badge.innerHTML = total;
+  // badge = document.createElement("span");
+  // badge.setAttribute("class", "cart-total-badge");
+  // cart_image.insertBefore(badge, cart_image.firstChild);
+  // badge.innerHTML = total;
   // }
 
   if (total > 0) {
