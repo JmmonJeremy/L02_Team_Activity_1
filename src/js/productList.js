@@ -13,9 +13,11 @@ export default class ProductList {
     // dataSource will return a Promise...so we can use await to resolve it
     const list = await this.dataSource.getData();
     // filter out unwanted items
-    const filteredList = this.filterList(list);
+
+    // This code was doing something before individual lesson 4
+    // const filteredList = this.filterList(list);
     // render the list
-    this.renderList(filteredList);
+    // this.renderList(filteredList);
   }
 
   /*original renderList method before moving the template logic to utils.js

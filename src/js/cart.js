@@ -25,7 +25,7 @@ function getCartContents() {
   //console.log(cartItems);
   // update cart total when item is removed
 
-  displayCart(cartItems);
+  // displayCart(cartItems);
   // Display the total in the cart if there are items in it.
   let cart_total = document.querySelector(".cart-footer");
   if (cartItems.length > 0) {
