@@ -1,3 +1,5 @@
+import { displayCart } from "./cart-superscript";
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -42,4 +44,43 @@ export function renderListWithTemplate(
     // add it to the DOM
     parentElement.appendChild(filledTemplate);
   });
+}
+
+export function renderWithTemplate(template, parentElement, data, callback) {
+  // clone the template
+  let node = template.content.cloneNode(true);
+  // if there is a callback, call it on the node and the data
+  if (callback) {
+    node = callback(node, data);
+  }
+  // add it to the DOM
+  parentElement.appendChild(node);
+}
+
+function convertToText(res) {
+  if (res.ok) {
+    return res.text();
+  } else {
+    throw new Error("Bad Response");
+  }
+}
+
+export async function loadTemplate(path) {
+  const html = await fetch(path).then(convertToText);
+  const template = document.createElement("template");
+  template.innerHTML = html;
+  return template;
+}
+
+export async function loadHeaderFooter() {
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+
+  const header = document.querySelector("#main-header");
+  const footer = document.querySelector("#main-footer");
+
+  // console.log(headerTemplate, header)
+  renderWithTemplate(headerTemplate, header);
+  renderWithTemplate(footerTemplate, footer);
+  displayCart();
 }
