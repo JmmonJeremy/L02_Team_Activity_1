@@ -4,7 +4,7 @@ import {
   setLocalStorage,
   loadTemplate,
 } from "./utils";
-import { displayCart } from "./cart-superscript.js";
+// import { displayCart } from "./cart-superscript.js";
 
 export default class ShoppingCart {
   constructor(key, listElement) {
@@ -15,6 +15,9 @@ export default class ShoppingCart {
   async init() {
     const list = getLocalStorage(this.key);
     this.renderList(list);
+    this.displayCartTotal(list);
+    // this.deleteButton();
+
   }
 
   prepareTemplate(template, product) {
@@ -38,6 +41,64 @@ export default class ShoppingCart {
       list,
       this.prepareTemplate
     );
+    this.deleteButton();
+  }
+  deleteButton() {
+    const deleteButtons = document.querySelectorAll(".card__delete");
+    let count = 1;
+    deleteButtons.forEach((dButton) => {
+      dButton.id += count;
+      console.log(dButton)
+    
+      count++;
+      dButton.addEventListener("click", () => {
+        // identify the id of the product that was clicked
+        const removeItem = dButton.getAttribute("id");
+        // call the resetCartContents function to delete the matching ID
+        this.resetCartContents(removeItem);
+        // console.log(removeItem);
+      });
+    });
+  }
+
+    resetCartContents(removeItem) {
+      // List to render without removed product
+      let reCartItems = [];
+      //console.log(reCartItems);
+      // Get current list from local storage and push items not removed to new list
+      let reStartItems = getLocalStorage(this.key);
+      reStartItems.forEach((product) => {
+        if (product.HtmlId != removeItem) {
+          reCartItems.push(product);
+        }
+      });
+      console.log(reCartItems);
+      // reset local storage to the new list
+      setLocalStorage("so-cart", reCartItems);
+
+      // !!!RESET PAGE SO YOU CAN DELETE ANOTHER ITEM!!!
+      // document.location.reload(true)
+    }
+  
+  displayCartTotal(cartItems) {
+    let cart_total = document.querySelector(".cart-footer");
+    if (cartItems.length > 0) {
+      cart_total.classList.remove("hide");
+      // Update the total when item is removed
+      cart_total.firstChild.innerHTML = "Total:";
+      cart_total.firstChild.innerHTML = `${
+      cart_total.firstChild.innerHTML
+    } $${this.getCartTotal(cartItems)}`;
+    } else {
+      cart_total.classList.add("hide");
+    }
+  }
+  getCartTotal(cart) {
+    let total = 0.0;
+    cart.forEach((element) => {
+      total += element.FinalPrice;
+    });
+    return total.toFixed(2);
   }
 }
 
@@ -69,47 +130,47 @@ export default class ShoppingCart {
 // displayCart(cartItems);
 
 // Display the total in the cart if there are items in it.
-//   let cart_total = document.querySelector(".cart-footer");
-//   if (cartItems.length > 0) {
-//     //console.log(cartItems);
-//     cart_total.classList.remove("hide");
-//     // Update the total when item is removed
-//     cart_total.firstChild.innerHTML = "Total:";
-//     cart_total.firstChild.innerHTML = `${
-//       cart_total.firstChild.innerHTML
-//     } $${getCartTotal(cartItems)}`;
-//   } else {
-//     cart_total.classList.add("hide");
-//   }
-//   // Add a unique id to each item
-//   const ButtonId = document.querySelectorAll(".card__delete");
-//   // Reset count to match HtmlId
-//   count = 1;
-//   ButtonId.forEach((dButton) => {
-//     dButton.id += count;
-//     //console.log(dButton.id);
-//     count++;
-//   });
+// let cart_total = document.querySelector(".cart-footer");
+// if (cartItems.length > 0) {
+//   //console.log(cartItems);
+//   cart_total.classList.remove("hide");
+//   // Update the total when item is removed
+//   cart_total.firstChild.innerHTML = "Total:";
+//   cart_total.firstChild.innerHTML = `${
+//     cart_total.firstChild.innerHTML
+//   } $${getCartTotal(cartItems)}`;
+// } else {
+//   cart_total.classList.add("hide");
+// }
+// Add a unique id to each item
+// const ButtonId = document.querySelectorAll(".card__delete");
+// // Reset count to match HtmlId
+// let count = 1;
+// ButtonId.forEach((dButton) => {
+//   dButton.id += count;
+//   //console.log(dButton.id);
+//   count++;
+// });
 
-function resetCartContents(removeItem) {
-  // List to render without removed product
-  let reCartItems = [];
-  //console.log(reCartItems);
-  // Get current list from local storage and push items not removed to new list
-  let reStartItems = getLocalStorage("so-cart");
-  reStartItems.forEach((product) => {
-    if (product.HtmlId != removeItem) {
-      reCartItems.push(product);
-    }
-  });
+// function resetCartContents(removeItem) {
+//   // List to render without removed product
+//   let reCartItems = [];
+//   //console.log(reCartItems);
+//   // Get current list from local storage and push items not removed to new list
+//   let reStartItems = getLocalStorage("so-cart");
+//   reStartItems.forEach((product) => {
+//     if (product.HtmlId != removeItem) {
+//       reCartItems.push(product);
+//     }
+//   });
   //console.log(reCartItems);
   // reset local storage to the new list
-  setLocalStorage("so-cart", reCartItems);
-  // render HTML
-  //   getCartContents();
-  // !!!RESET PAGE SO YOU CAN DELETE ANOTHER ITEM!!!
-  document.location.reload(true);
-}
+//   setLocalStorage("so-cart", reCartItems);
+//   // render HTML
+//   //   getCartContents();
+//   // !!!RESET PAGE SO YOU CAN DELETE ANOTHER ITEM!!!
+//   document.location.reload(true);
+// }
 
 // function renderCartItem(item) {
 //   const newItem = `<li class="cart-card divider">
@@ -136,24 +197,14 @@ function resetCartContents(removeItem) {
 //   return newItem;
 // }
 
-function getCartTotal(cart) {
-  let total = 0.0;
-  cart.forEach((element) => {
-    total += element.FinalPrice;
-  });
-  return total.toFixed(2);
-}
+// function getCartTotal(cart) {
+//   let total = 0.0;
+//   cart.forEach((element) => {
+//     total += element.FinalPrice;
+//   });
+//   return total.toFixed(2);
+// }
 
 // getCartContents();
 
 // SET AN EVENT LISTER FOR EACH PRODUCT ITEM
-const deleteButtons = document.querySelectorAll(".card__delete");
-deleteButtons.forEach((dButton) => {
-  dButton.addEventListener("click", () => {
-    // identify the id of the product that was clicked
-    const removeItem = dButton.getAttribute("id");
-    //console.log(removeItem);
-    // call the resetCartContents function to delete the matching ID
-    resetCartContents(removeItem);
-  });
-});
