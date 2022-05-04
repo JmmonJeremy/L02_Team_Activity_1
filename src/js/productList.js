@@ -20,7 +20,9 @@ export default class ProductList {
 
   async renderList(list) {
     this.listElement.innerHTML = "";
-    const cardTemplate = await loadTemplate("../partials/product-card-template.html")
+    const cardTemplate = await loadTemplate(
+      "../partials/product-card-template.html"
+    );
     renderListWithTemplate(
       cardTemplate,
       this.listElement,

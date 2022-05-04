@@ -2,7 +2,7 @@ import {
   getLocalStorage,
   renderListWithTemplate,
   setLocalStorage,
-  loadTemplate
+  loadTemplate,
 } from "./utils";
 import { displayCart } from "./cart-superscript.js";
 
@@ -32,7 +32,12 @@ export default class ShoppingCart {
     this.listElement.innerHTML = "";
     const template = await loadTemplate("../partials/cart-card-template.html");
     // const template = document.getElementById("cart-card-template");
-    renderListWithTemplate(template, this.listElement, list, this.prepareTemplate);
+    renderListWithTemplate(
+      template,
+      this.listElement,
+      list,
+      this.prepareTemplate
+    );
   }
 }
 
@@ -51,24 +56,19 @@ export default class ShoppingCart {
 //     });
 //   }
 
-
-
-  // Put those item objects with the HtmlId category in the local storage
+// Put those item objects with the HtmlId category in the local storage
 //   setLocalStorage("so-cart", cartItems);
-  //console.log(cartItems);
-  // Render the HTML to the page
+//console.log(cartItems);
+// Render the HTML to the page
 //   const htmlItems = cartItems.map((item) => renderCartItem(item));
 //   document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  //console.log(htmlItems);
-  //console.log(cartItems);
-  // update cart total when item is removed
+//console.log(htmlItems);
+//console.log(cartItems);
+// update cart total when item is removed
 
-  // displayCart(cartItems);
+// displayCart(cartItems);
 
-
-
-
-  // Display the total in the cart if there are items in it.
+// Display the total in the cart if there are items in it.
 //   let cart_total = document.querySelector(".cart-footer");
 //   if (cartItems.length > 0) {
 //     //console.log(cartItems);
@@ -91,7 +91,6 @@ export default class ShoppingCart {
 //     count++;
 //   });
 
-
 function resetCartContents(removeItem) {
   // List to render without removed product
   let reCartItems = [];
@@ -107,7 +106,7 @@ function resetCartContents(removeItem) {
   // reset local storage to the new list
   setLocalStorage("so-cart", reCartItems);
   // render HTML
-//   getCartContents();
+  //   getCartContents();
   // !!!RESET PAGE SO YOU CAN DELETE ANOTHER ITEM!!!
   document.location.reload(true);
 }
@@ -115,7 +114,7 @@ function resetCartContents(removeItem) {
 // function renderCartItem(item) {
 //   const newItem = `<li class="cart-card divider">
 //   <div data-id="${item.Id}">
-//     <img class="card__delete" id="${item.Id}" 
+//     <img class="card__delete" id="${item.Id}"
 //     src="../images/delete_icon.svg"
 //     alt="delete icon with a red x and the word remove"
 //     />
