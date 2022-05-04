@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.js";
+import { loadTemplate, renderListWithTemplate } from "./utils.js";
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {
@@ -13,31 +13,14 @@ export default class ProductList {
     // dataSource will return a Promise...so we can use await to resolve it
     const list = await this.dataSource.getData();
     // filter out unwanted items
-
-    // This code was doing something before L05 individual activity 4
-    // const filteredList = this.filterList(list);
+    const filteredList = this.filterList(list);
     // render the list
-    // this.renderList(filteredList);
+    this.renderList(filteredList);
   }
 
-  /*original renderList method before moving the template logic to utils.js
-    renderList(list) {
-        // get the template
-        const template = document.getElementById("product-card-template");
-        // clone it once for each product in our list
-        list.forEach(item => {
-            const node = template.content.cloneNode(true);
-            const filledTemplate = this.prepareTemplate(node, item)
-        // add it to the DOM
-        this.listElement.appendChild(filledTemplate);
-        //});   
-    }*/
-  renderList(list) {
-    // clear what is there if there is something
+  async renderList(list) {
     this.listElement.innerHTML = "";
-    // get the template
-    const cardTemplate = document.getElementById("product-card-template");
-    // create a filled in template
+    const cardTemplate = await loadTemplate("../partials/product-card-template.html")
     renderListWithTemplate(
       cardTemplate,
       this.listElement,
