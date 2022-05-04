@@ -1,5 +1,6 @@
 import { getLocalStorage, setLocalStorage } from "./utils";
 import { displayCart } from "./cart-superscript.js";
+import { loadHeaderFooter } from "./utils";
 
 function getCartContents() {
   // let markup = "";
@@ -115,3 +116,5 @@ deleteButtons.forEach((dButton) => {
     resetCartContents(removeItem);
   });
 });
+
+loadHeaderFooter();

@@ -1,5 +1,6 @@
 import { getLocalStorage, setLocalStorage } from "./utils";
 import { displayCart } from "./cart-superscript.js";
+import { loadHeaderFooter } from "./utils";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -69,3 +70,5 @@ export default class ProductDetails {
       .setAttribute("data-id", this.product.Id);
   }
 }
+
+loadHeaderFooter();
