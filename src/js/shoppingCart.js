@@ -47,21 +47,21 @@ export default class ShoppingCart {
     let count = 0;
     deleteButtons.forEach((dButton) => {
       dButton.id = count;
-      count++
+      count++;
       dButton.addEventListener("click", () => {
         // identify the id of the product that was clicked
         const itemId = parseInt(dButton.getAttribute("id"));
-        let list = getLocalStorage(this.key)
-        list.splice(itemId, 1)
-        setLocalStorage(this.key, list)
-        this.init()
+        let list = getLocalStorage(this.key);
+        list.splice(itemId, 1);
+        setLocalStorage(this.key, list);
+        this.init();
 
         // update the superscript
         displayCart();
       });
     });
   }
-  
+
   displayCartTotal(cartItems) {
     let cart_total = document.querySelector(".cart-footer");
     if (cartItems.length > 0) {
@@ -69,8 +69,8 @@ export default class ShoppingCart {
       // Update the total when item is removed
       cart_total.firstChild.innerHTML = "Total:";
       cart_total.firstChild.innerHTML = `${
-      cart_total.firstChild.innerHTML
-    } $${this.getCartTotal(cartItems)}`;
+        cart_total.firstChild.innerHTML
+      } $${this.getCartTotal(cartItems)}`;
     } else {
       cart_total.classList.add("hide");
     }
