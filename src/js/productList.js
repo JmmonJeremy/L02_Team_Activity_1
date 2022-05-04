@@ -14,7 +14,7 @@ export default class ProductList {
     const list = await this.dataSource.getData();
     // filter out unwanted items
 
-    // This code was doing something before individual lesson 4
+    // This code was doing something before L05 individual activity 4
     // const filteredList = this.filterList(list);
     // render the list
     // this.renderList(filteredList);
