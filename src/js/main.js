@@ -12,5 +12,5 @@ const dataList = new ProductList("tents", dataSource, listElement);
 
 dataList.init();
 
-// add the header and footer to each page
+// add the header and footer to main page
 loadHeaderFooter();
