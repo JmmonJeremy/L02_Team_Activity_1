@@ -11,7 +11,7 @@ export default class ProductList {
 
   async init() {
     // dataSource will return a Promise...so we can use await to resolve it
-    const list = await this.dataSource.getData();
+    const list = await this.dataSource.getData(this.category);
     // filter out unwanted items
     const filteredList = this.filterList(list);
     // render the list
@@ -33,7 +33,7 @@ export default class ProductList {
 
   prepareTemplate(templateClone, product) {
     templateClone.querySelector("a").href += product.Id;
-    templateClone.querySelector("img").src = product.Image;
+    templateClone.querySelector("img").src = product.Images.PrimaryMedium;
     templateClone.querySelector("img").alt += product.Name;
     templateClone.querySelector(".card__brand").innerHTML = product.Brand.Name;
     templateClone.querySelector(".card__name").innerHTML =

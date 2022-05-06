@@ -10,6 +10,8 @@ export default class ProductDetails {
   }
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
+    console.log(this.product);
+
     this.renderProductDetails();
 
     // code to add items to the cart
@@ -58,7 +60,7 @@ export default class ProductDetails {
     product_title.innerHTML = this.product.Brand.Name;
     product_name.innerHTML = this.product.NameWithoutBrand;
     product_img.setAttribute("alt", this.product.NameWithoutBrand);
-    product_img.setAttribute("src", this.product.Image);
+    product_img.setAttribute("src", this.product.Images.PrimaryLarge);
     product_price.innerHTML = this.product.ListPrice;
 
     // This will need to be dynamic later
