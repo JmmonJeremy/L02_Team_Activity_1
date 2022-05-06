@@ -8,12 +8,11 @@ const listElement = document.querySelector(".product-list");
 const category = getParam("category");
 const dataList = new ProductList(category, dataSource, listElement);
 
-
-document.querySelector(".products>h2").innerHTML += `: ${(category.charAt(0).toUpperCase() + category.slice(1)).replace("-b", " B")}`;
-
+document.querySelector(".products>h2").innerHTML += `: ${(
+  category.charAt(0).toUpperCase() + category.slice(1)
+).replace("-b", " B")}`;
 
 // myList.init();
-
 
 dataList.init();
 
