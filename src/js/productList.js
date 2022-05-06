@@ -16,6 +16,10 @@ export default class ProductList {
     const filteredList = this.filterList(list);
     // render the list
     this.renderList(filteredList);
+    //set the title to the current category
+    document.querySelector(".products>h2").innerHTML += `: ${(
+      this.category.charAt(0).toUpperCase() + this.category.slice(1)
+    ).replace("-b", " B")}`;
   }
 
   async renderList(list) {
