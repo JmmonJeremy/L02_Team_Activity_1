@@ -28,7 +28,11 @@ function getCartContents() {
   displayCart(cartItems);
   // Display the total in the cart if there are items in it.
   let cart_total = document.querySelector(".cart-footer");
-  if (cartItems.length > 0) {
+  let zero_cart = document.querySelector(".zero-cart");
+  let zero_cart1 = document.querySelector(".zero-cart1");
+
+
+  if (cartItems.length >= 1) {
     //console.log(cartItems);
     cart_total.classList.remove("hide");
     // Update the total when item is removed
@@ -39,6 +43,15 @@ function getCartContents() {
   } else {
     cart_total.classList.add("hide");
   }
+
+  // If the cart has no items
+  if (cartItems.length == 0) {
+    zero_cart.classList.remove("hide");
+    zero_cart1.classList.remove("hide");
+  } else {
+    zero_cart.classList.add("hide");
+  }
+
   // Add a unique id to each item
   const ButtonId = document.querySelectorAll(".card__delete");
   // Reset count to match HtmlId
@@ -48,6 +61,12 @@ function getCartContents() {
     //console.log(dButton.id);
     count++;
   });
+}
+
+function home() {
+  const home = `<p>You don't have items in cart.</p>
+  <button>Go to Home page</button>`;
+  return home;
 }
 
 function resetCartContents(removeItem) {
