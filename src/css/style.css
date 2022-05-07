@@ -208,7 +208,7 @@ button.resume {
 }
 
 /* Start Newsletter styles */
-#news-signup{
+#news-signup {
   width: 80%;
   max-width: 500px;
   margin: 2em auto;
@@ -217,11 +217,11 @@ button.resume {
 }
 #submit {
   background-color: #f0a868;
-  border-radius:6px;
+  border-radius: 6px;
   color: #303030;
   font-size: 20px;
   cursor: pointer;
-  border:none;
+  border: none;
   margin-top: 1em;
 }
 #submit:hover {
@@ -236,21 +236,21 @@ button.resume {
   margin: auto;
 }
 
-.newsletter-fields label{
+.newsletter-fields label {
   padding: 1em;
-  margin: .5em;
+  margin: 0.5em;
   max-width: 100%;
   padding: 1em;
 }
 
-.newsletter-fields input{
+.newsletter-fields input {
   padding: 1em;
-  margin: .5em;
+  margin: 0.5em;
   max-width: 100%;
   padding: 1em;
 }
-.newsletter-fields{
-  display:grid;
+.newsletter-fields {
+  display: grid;
 }
 
 /* Start cart list card styles */
