@@ -75,6 +75,7 @@ export default class ShoppingCart {
     } else {
       cart_total.classList.add("hide");
     }
+    this.addQuantityBtn()
   }
 
   getCartTotal(cart) {
@@ -84,4 +85,33 @@ export default class ShoppingCart {
     });
     return total.toFixed(2);
   }
+
+
+  // These functions will add functionality to the page that will allow 
+  // the cart items to be increased and decreased by clicking. If the 
+  // cart doesn't have any items of that type in it, then it should 
+  // stay on the page until it is refreshed.
+  addQuantityBtn(){
+    let total = document.querySelector(".total-items")
+    console.log(total)
+    let deductBtnList = document.getElementsByClassName("minus1");
+    let addBtnList = document.getElementsByClassName("add1");
+
+    for (let deductBtn of deductBtnList) {
+      deductBtn.onclick = () => {
+        let currentInputBox = deductBtn.nextElementSibling;
+        currentInputBox.value = parseInt(currentInputBox.value - 1);
+        // also remove from the local storage
+      }
+    }
+
+    for (let addBtn of addBtnList) {
+      addBtn.onclick = () => {
+        let currentInputBox = addBtn.previousElementSibling;
+        currentInputBox.value = parseInt(currentInputBox.value + 1)
+        // add another item to local storage
+      }
+    }
+  }
+
 }

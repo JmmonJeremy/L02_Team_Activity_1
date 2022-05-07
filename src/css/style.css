@@ -237,6 +237,25 @@ button.resume {
 }
 /**************** END ADDED TO SYLE THE REMOVE FROM CART IMAGE ETC *****************/
 
+.item-quantity {
+  display: flex;
+  align-items: center;
+  border-top:1px solid #303030;
+  border-bottom:1px solid #303030;
+  margin: 0.5em;
+}
+.item-quantity button {
+  cursor: pointer;
+  padding: 7px 10px;
+  border-radius: none;
+  font-size: smaller;
+}
+.total-items {
+  margin: 0.5em;
+}
+
+
+
 .cart-card p {
   margin-top: 0;
 }
