@@ -1,7 +1,14 @@
 import { getLocalStorage } from "./utils.js";
 
 async function renderCartSuperscript(cart) {
-  let total = cart.length;
+  //set total to 0
+  let total = 0
+  //go through the list of products
+  cart.forEach(product => {
+    //add the quantity from each product together for the total in cart
+    total += product.Count
+  })
+  //console.log(total); 
   // let cart_image = document.querySelector(".cart>a");
   let badge = await document.querySelector(".cart-total-badge");
   // console.log(badge)
