@@ -1,3 +1,4 @@
+//used for the cart page
 import {
   getLocalStorage,
   renderListWithTemplate,

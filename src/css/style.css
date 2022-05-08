@@ -304,3 +304,8 @@ footer {
   color: black;
   text-align: center;
 }
+/**************************** ADDED FOR DISCOUNT EMPHESIS **************************/
+.product-card__discount {
+  color: red;
+  text-decoration: solid 3px underline;
+}

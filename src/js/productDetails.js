@@ -1,3 +1,4 @@
+//used for the product-details.html page
 import { getLocalStorage, setLocalStorage } from "./utils";
 import { displayCart } from "./cart-superscript.js";
 import { loadHeaderFooter } from "./utils";
@@ -54,14 +55,16 @@ export default class ProductDetails {
     let product_name = document.querySelector(".product-detail>h2");
     let product_img = document.querySelector(".product-detail>img");
     let product_price = document.querySelector(".product-card__price");
+    let product_discount = document.querySelector(".product-card__discount")
     let product_color = document.querySelector(".product__color");
     let product_description = document.querySelector(".product__description");
-
+   
     product_title.innerHTML = this.product.Brand.Name;
     product_name.innerHTML = this.product.NameWithoutBrand;
     product_img.setAttribute("alt", this.product.NameWithoutBrand);
     product_img.setAttribute("src", this.product.Images.PrimaryLarge);
-    product_price.innerHTML = this.product.ListPrice;
+    product_discount.innerHTML += (this.product.SuggestedRetailPrice - this.product.ListPrice).toFixed(2) + "!!!";
+    product_price.innerHTML += this.product.ListPrice;
 
     // This will need to be dynamic later
     product_color.innerHTML = this.product.Colors[0].ColorName;
