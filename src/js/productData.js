@@ -14,21 +14,21 @@ function convertToJson(res) {
 // }
 
 export default class ProductData {
-  constructor() {
-  }
+  constructor() {}
   // get product data
   getData(category) {
     let products = fetch(baseURL + `products/search/${category}`)
       .then(convertToJson)
-      .then((data) => {products = data.Result
-        products.forEach(product => {
+      .then((data) => {
+        products = data.Result;
+        products.forEach((product) => {
           product.Count = 0;
           product.InCart = false;
-          }); 
-          return products});
+        });
+        return products;
+      });
     console.log(products);
     return products;
-    
   }
 
   //   // Async version of the getData function
@@ -41,10 +41,12 @@ export default class ProductData {
   async findProductById(id) {
     let product = fetch(baseURL + `product/${id}`)
       .then(convertToJson)
-      .then((data) => {product = data.Result;        
-          product.Count = 0;
-          product.InCart = false;        
-          return product});
+      .then((data) => {
+        product = data.Result;
+        product.Count = 0;
+        product.InCart = false;
+        return product;
+      });
     console.log(product);
     return product;
   }

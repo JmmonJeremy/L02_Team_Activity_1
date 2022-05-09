@@ -5,9 +5,7 @@ import {
   setLocalStorage,
   loadTemplate,
 } from "./utils";
-import {
-  displayCart
-} from "./cart-superscript.js";
+import { displayCart } from "./cart-superscript.js";
 
 export default class ShoppingCart {
   constructor(key, listElement) {
@@ -19,9 +17,9 @@ export default class ShoppingCart {
     let list = await getLocalStorage(this.key);
     // Correct error for list equaling null when localStorage in empty
     if (list == null) {
-      list = []
+      list = [];
     }
-    //console.log(list);   
+    //console.log(list);
     this.renderList(list);
     this.displayCartTotal(list);
   }
@@ -33,7 +31,7 @@ export default class ShoppingCart {
     template.querySelector(".card__name").textContent = product.Name;
     template.querySelector(".cart-card__color").textContent =
       product.Colors[0].ColorName;
-    template.querySelector(".cart-card__quantity").textContent += product.Count
+    template.querySelector(".cart-card__quantity").textContent += product.Count;
     template.querySelector(".cart-card__price").textContent +=
       product.FinalPrice;
     return template;
@@ -108,46 +106,42 @@ export default class ShoppingCart {
   }
 
   addQuantityBtn() {
-    let total = document.querySelector(".total-items")
-    let itemQty = document.querySelectorAll(".cart-card__quantity")
-    let list = getLocalStorage(this.key)
-
-    itemQty.forEach(item => {
-      let product = item.parentElement.previousElementSibling.previousElementSibling.childNodes[1].innerHTML
+    let itemQty = document.querySelectorAll(".cart-card__quantity");
+    itemQty.forEach((item) => {
+      let product =
+        item.parentElement.previousElementSibling.previousElementSibling
+          .childNodes[1].innerHTML;
       let delItem = item.previousElementSibling;
       let addItem = item.nextElementSibling;
       delItem.onclick = () => {
         changeStorage("sub", product, this.key);
         this.init();
         displayCart();
-      }
+      };
       addItem.onclick = () => {
         changeStorage("add", product, this.key);
         this.init();
         displayCart();
-      }
+      };
     });
   }
 }
 
-
-
-
 function changeStorage(funct, productName, key) {
-  let list = getLocalStorage(key)
+  let list = getLocalStorage(key);
 
-  list.forEach(item => {
+  list.forEach((item) => {
     if (item.Name === productName) {
       if (funct === "add") {
-        item.Count = item.Count + 1
+        item.Count = item.Count + 1;
       }
       if (funct === "sub") {
-        item.Count = item.Count - 1
+        item.Count = item.Count - 1;
       }
     }
-    let newList = list.filter(function (element){
-      return element.Count > 0
-    })
+    let newList = list.filter(function (element) {
+      return element.Count > 0;
+    });
     setLocalStorage(key, newList);
   });
 }

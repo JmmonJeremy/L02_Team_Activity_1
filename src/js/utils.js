@@ -94,4 +94,3 @@ export function filterList(list) {
   });
   return filteredList;
 }
-

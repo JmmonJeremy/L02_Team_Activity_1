@@ -278,8 +278,8 @@ button.resume {
 .item-quantity {
   display: flex;
   align-items: center;
-  border-top:1px solid #303030;
-  border-bottom:1px solid #303030;
+  border-top: 1px solid #303030;
+  border-bottom: 1px solid #303030;
   margin: 0.5em;
 }
 .item-quantity button {
@@ -291,8 +291,6 @@ button.resume {
 .total-items {
   margin: 0.5em;
 }
-
-
 
 .cart-card p {
   margin-top: 0;
