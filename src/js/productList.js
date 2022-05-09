@@ -15,7 +15,6 @@ export default class ProductList {
     const list = await this.dataSource.getData(this.category);
     // console.log(list);
     // filter out unwanted items
-    // const filteredList = filterList(list);
     // render the list
     this.renderList(list);
     //set the title to the current category

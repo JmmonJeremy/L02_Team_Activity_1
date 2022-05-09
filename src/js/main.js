@@ -31,6 +31,7 @@ function handleForm(ev) {
   fetch(req)
     .then((res) => res.json())
     .then((data) => {
+      // log out the errors because server doens't exist
       console.log("Response from server");
       console.log(data);
     })
