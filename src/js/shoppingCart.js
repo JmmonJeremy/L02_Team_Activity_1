@@ -13,13 +13,13 @@ export default class ShoppingCart {
     this.listElement = listElement;
   }
 
-  async init() {        
+  async init() {
     let list = await getLocalStorage(this.key);
     // Correct error for list equaling null when localStorage in empty
-    if(list == null) {
-      list = []
+    if (list == null) {
+      list = [];
     }
-    //console.log(list);   
+    //console.log(list);
     this.renderList(list);
     this.displayCartTotal(list);
   }
@@ -31,7 +31,7 @@ export default class ShoppingCart {
     template.querySelector(".card__name").textContent = product.Name;
     template.querySelector(".cart-card__color").textContent =
       product.Colors[0].ColorName;
-    template.querySelector(".cart-card__quantity").textContent += product.Count
+    template.querySelector(".cart-card__quantity").textContent += product.Count;
     template.querySelector(".cart-card__price").textContent +=
       product.FinalPrice;
     return template;
@@ -69,10 +69,10 @@ export default class ShoppingCart {
         //create a list that is equal to what is in localStorage
         let list = getLocalStorage(this.key);
         //decrease the Count in the object of the list identified
-        list[itemId].Count--     
-        console.log(list[itemId])
+        list[itemId].Count--;
+        console.log(list[itemId]);
         //if the Count is below 1, remove it from the list
-        if (list[itemId].Count < 1){
+        if (list[itemId].Count < 1) {
           list.splice(itemId, 1);
         }
         //reset the local storage to this list

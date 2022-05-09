@@ -48,5 +48,4 @@ export default class ProductList {
       product.ListPrice;
     return templateClone;
   }
-
 }
