@@ -26,7 +26,7 @@ export default class ProductData {
           product.InCart = false;
           }); 
           return products});
-    console.log(products);
+    // console.log(products);
     return products;
     
   }
@@ -45,7 +45,7 @@ export default class ProductData {
           product.Count = 0;
           product.InCart = false;        
           return product});
-    console.log(product);
+    // console.log(product);
     return product;
   }
 }
