@@ -29,6 +29,7 @@ function handleForm(ev) {
 
   console.log(req.json());
   alert("Thanks for subscribing!")
+  newsLetterForm.reset()
 
   // Send the request to the server.
   // fetch(req)
