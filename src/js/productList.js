@@ -13,9 +13,9 @@ export default class ProductList {
   async init() {
     // dataSource will return a Promise...so we can use await to resolve it
     const list = await this.dataSource.getData(this.category);
-    console.log(list);
+    // console.log(list);
     // filter out unwanted items
-    const filteredList = filterList(list);
+    // const filteredList = filterList(list);
     // render the list
     this.renderList(list);
     //set the title to the current category
