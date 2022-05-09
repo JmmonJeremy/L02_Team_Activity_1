@@ -309,3 +309,18 @@ footer {
   color: red;
   text-decoration: solid 3px underline;
 }
+
+.product-card__price {
+  color: green;
+  text-decoration: solid 3px underline;
+  margin-left: 7px;
+}
+
+.container__origin-price {
+  /* font-size: .95rem; */
+  margin-left: 24px;
+}
+
+.product-card__orginal-price {
+  text-decoration: line-through;
+}

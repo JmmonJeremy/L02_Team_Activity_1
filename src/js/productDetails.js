@@ -54,7 +54,8 @@ export default class ProductDetails {
     let product_title = document.querySelector(".product-detail>h3");
     let product_name = document.querySelector(".product-detail>h2");
     let product_img = document.querySelector(".product-detail>img");
-    let product_price = document.querySelector(".product-card__price");
+    let product_price = document.querySelector(".price-highlight");
+    let product_original_price = document.querySelector(".product-card__orginal-price");
     let product_discount = document.querySelector(".product-card__discount")
     let product_color = document.querySelector(".product__color");
     let product_description = document.querySelector(".product__description");
@@ -63,6 +64,7 @@ export default class ProductDetails {
     product_name.innerHTML = this.product.NameWithoutBrand;
     product_img.setAttribute("alt", this.product.NameWithoutBrand);
     product_img.setAttribute("src", this.product.Images.PrimaryLarge);
+    product_original_price.innerHTML += (this.product.SuggestedRetailPrice)
     product_discount.innerHTML += (this.product.SuggestedRetailPrice - this.product.ListPrice).toFixed(2) + "!!!";
     product_price.innerHTML += this.product.ListPrice;
 
