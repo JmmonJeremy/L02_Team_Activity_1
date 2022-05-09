@@ -7,7 +7,7 @@ export default class ProductDetails {
   constructor(productId, dataSource) {
     this.productId = productId;
     this.product = {};
-    this.dataSource = dataSource;   
+    this.dataSource = dataSource;
   }
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
@@ -39,37 +39,37 @@ export default class ProductDetails {
     //let delayedEnding = getPic.classList.toggle("respond");
     //setTimeout(delayedEnding, 5000);
   }
-  addToCart() {  
+  addToCart() {
     // set a list equal to the local storage
     let checkoutItems = getLocalStorage("so-cart");
     // set checkoutItems equal to previousProducts
     if (checkoutItems == null) {
-      checkoutItems = []
-    }    
-    // if cart is not empty do the following 
-     if (checkoutItems.length != 0) {
+      checkoutItems = [];
+    }
+    // if cart is not empty do the following
+    if (checkoutItems.length != 0) {
       //console.log("list length over 0: " + checkoutItems.length);
       // if product is in the cart already change boolean to true & add 1 to the count
-      checkoutItems.forEach(item => {
-      if (item.Id == this.product.Id){
-        //change the products InCart boolean to true for both items
-        item.InCart = true;
-        this.product.InCart = true;
-        //console.log("List item's InCart boolean = " + item.InCart);
-        //console.log("There is a match for " + this.product.Id + ": " + this.product.InCart);
-        //add one to the count of the product object in the list
-        item.Count++;       
-      }
-      })      
-     }
-     //if the item is not in the cart
-      //console.log("Is there a match for " + this.product.Id + ": " + this.product.InCart);   
-      if (!this.product.InCart) {
-        //add 1 to the count of the product being added
-        this.product.Count++
-        //add the item to the list of products
-        checkoutItems.push(this.product);        
-      }
+      checkoutItems.forEach((item) => {
+        if (item.Id == this.product.Id) {
+          //change the products InCart boolean to true for both items
+          item.InCart = true;
+          this.product.InCart = true;
+          //console.log("List item's InCart boolean = " + item.InCart);
+          //console.log("There is a match for " + this.product.Id + ": " + this.product.InCart);
+          //add one to the count of the product object in the list
+          item.Count++;
+        }
+      });
+    }
+    //if the item is not in the cart
+    //console.log("Is there a match for " + this.product.Id + ": " + this.product.InCart);
+    if (!this.product.InCart) {
+      //add 1 to the count of the product being added
+      this.product.Count++;
+      //add the item to the list of products
+      checkoutItems.push(this.product);
+    }
     //set the local storage equal to the new list
     setLocalStorage("so-cart", checkoutItems);
     //display the page with any changes
@@ -81,17 +81,21 @@ export default class ProductDetails {
     let product_name = document.querySelector(".product-detail>h2");
     let product_img = document.querySelector(".product-detail>img");
     let product_price = document.querySelector(".price-highlight");
-    let product_original_price = document.querySelector(".product-card__orginal-price");
-    let product_discount = document.querySelector(".product-card__discount")
+    let product_original_price = document.querySelector(
+      ".product-card__orginal-price"
+    );
+    let product_discount = document.querySelector(".product-card__discount");
     let product_color = document.querySelector(".product__color");
     let product_description = document.querySelector(".product__description");
-   
+
     product_title.innerHTML = this.product.Brand.Name;
     product_name.innerHTML = this.product.NameWithoutBrand;
     product_img.setAttribute("alt", this.product.NameWithoutBrand);
     product_img.setAttribute("src", this.product.Images.PrimaryLarge);
-    product_original_price.innerHTML += (this.product.SuggestedRetailPrice)
-    product_discount.innerHTML += (this.product.SuggestedRetailPrice - this.product.ListPrice).toFixed(2) + "!!!";
+    product_original_price.innerHTML += this.product.SuggestedRetailPrice;
+    product_discount.innerHTML +=
+      (this.product.SuggestedRetailPrice - this.product.ListPrice).toFixed(2) +
+      "!!!";
     product_price.innerHTML += this.product.ListPrice;
 
     // This will need to be dynamic later
