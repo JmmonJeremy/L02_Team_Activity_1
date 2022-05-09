@@ -49,7 +49,7 @@ export default class ShoppingCart {
       list,
       this.prepareTemplate
     );
-    // this.deleteButton();
+    this.deleteButton();
     this.addQuantityBtn();
   }
 
@@ -72,12 +72,12 @@ export default class ShoppingCart {
         //create a list that is equal to what is in localStorage
         let list = getLocalStorage(this.key);
         //decrease the Count in the object of the list identified
-        list[itemId].Count--
-        console.log(list[itemId])
+        // list[itemId].Count--
+        // console.log(list[itemId])
         //if the Count is below 1, remove it from the list
-        if (list[itemId].Count < 1) {
-          list.splice(itemId, 1);
-        }
+        // if (list[itemId].Count < 1) {
+        list.splice(itemId, 1);
+        // }
         //reset the local storage to this list
         setLocalStorage(this.key, list);
         //rerender the page
