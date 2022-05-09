@@ -27,7 +27,8 @@ function handleForm(ev) {
     method: "POST",
   });
 
-  console.log(req);
+  console.log(req.json());
+  alert("Thanks for subscribing!")
 
   // Send the request to the server.
   // fetch(req)
