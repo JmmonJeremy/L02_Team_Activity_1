@@ -5,7 +5,9 @@ import {
   setLocalStorage,
   loadTemplate,
 } from "./utils";
-import { displayCart } from "./cart-superscript.js";
+import {
+  displayCart
+} from "./cart-superscript.js";
 
 export default class ShoppingCart {
   constructor(key, listElement) {
@@ -13,10 +15,10 @@ export default class ShoppingCart {
     this.listElement = listElement;
   }
 
-  async init() {        
+  async init() {
     let list = await getLocalStorage(this.key);
     // Correct error for list equaling null when localStorage in empty
-    if(list == null) {
+    if (list == null) {
       list = []
     }
     //console.log(list);   
@@ -47,7 +49,8 @@ export default class ShoppingCart {
       list,
       this.prepareTemplate
     );
-    this.deleteButton();
+    // this.deleteButton();
+    this.addQuantityBtn();
   }
 
   deleteButton() {
@@ -69,10 +72,10 @@ export default class ShoppingCart {
         //create a list that is equal to what is in localStorage
         let list = getLocalStorage(this.key);
         //decrease the Count in the object of the list identified
-        list[itemId].Count--     
+        list[itemId].Count--
         console.log(list[itemId])
         //if the Count is below 1, remove it from the list
-        if (list[itemId].Count < 1){
+        if (list[itemId].Count < 1) {
           list.splice(itemId, 1);
         }
         //reset the local storage to this list
@@ -97,7 +100,6 @@ export default class ShoppingCart {
     } else {
       cart_total.classList.add("hide");
     }
-    this.addQuantityBtn()
   }
 
   getCartTotal(cart) {
@@ -110,32 +112,47 @@ export default class ShoppingCart {
     return total.toFixed(2);
   }
 
-
-  // These functions will add functionality to the page that will allow 
-  // the cart items to be increased and decreased by clicking. If the 
-  // cart doesn't have any items of that type in it, then it should 
-  // stay on the page until it is refreshed.
-  addQuantityBtn(){
+  addQuantityBtn() {
     let total = document.querySelector(".total-items")
-    console.log(total)
-    let deductBtnList = document.getElementsByClassName("minus1");
-    let addBtnList = document.getElementsByClassName("add1");
+    let itemQty = document.querySelectorAll(".cart-card__quantity")
+    let list = getLocalStorage(this.key)
 
-    for (let deductBtn of deductBtnList) {
-      deductBtn.onclick = () => {
-        let currentInputBox = deductBtn.nextElementSibling;
-        currentInputBox.value = parseInt(currentInputBox.value - 1);
-        // also remove from the local storage
+    itemQty.forEach(item => {
+      let product = item.parentElement.previousElementSibling.previousElementSibling.childNodes[1].innerHTML
+      let delItem = item.previousElementSibling;
+      let addItem = item.nextElementSibling;
+      delItem.onclick = () => {
+        changeStorage("sub", product, this.key);
+        this.init();
+        displayCart();
       }
-    }
-
-    for (let addBtn of addBtnList) {
-      addBtn.onclick = () => {
-        let currentInputBox = addBtn.previousElementSibling;
-        currentInputBox.value = parseInt(currentInputBox.value + 1)
-        // add another item to local storage
+      addItem.onclick = () => {
+        changeStorage("add", product, this.key);
+        this.init();
+        displayCart();
       }
-    }
+    });
   }
+}
 
+
+
+
+function changeStorage(funct, productName, key) {
+  let list = getLocalStorage(key)
+
+  list.forEach(item => {
+    if (item.Name === productName) {
+      if (funct === "add") {
+        item.Count = item.Count + 1
+      }
+      if (funct === "sub") {
+        item.Count = item.Count - 1
+      }
+    }
+    let newList = list.filter(function (element){
+      return element.Count > 0
+    })
+    setLocalStorage(key, newList);
+  });
 }
