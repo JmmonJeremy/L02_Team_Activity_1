@@ -84,3 +84,14 @@ export async function loadHeaderFooter() {
   renderWithTemplate(footerTemplate, footer);
   displayCart();
 }
+
+export function filterList(list) {
+  const filteredList = [];
+  list.forEach((tent) => {
+    if (tent.Id != "989CG" && tent.Id != "880RT") {
+      filteredList.push(tent);
+    }
+  });
+  return filteredList;
+}
+

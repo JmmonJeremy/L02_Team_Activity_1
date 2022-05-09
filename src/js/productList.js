@@ -1,5 +1,5 @@
 //Used for product-listing pages
-import { loadTemplate, renderListWithTemplate } from "./utils.js";
+import { loadTemplate, renderListWithTemplate, filterList } from "./utils.js";
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {
@@ -15,9 +15,9 @@ export default class ProductList {
     const list = await this.dataSource.getData(this.category);
     console.log(list);
     // filter out unwanted items
-    const filteredList = this.filterList(list);
+    const filteredList = filterList(list);
     // render the list
-    this.renderList(filteredList);
+    this.renderList(list);
     //set the title to the current category
     document.querySelector(".products>h2").innerHTML += `: ${(
       this.category.charAt(0).toUpperCase() + this.category.slice(1)
@@ -49,13 +49,4 @@ export default class ProductList {
     return templateClone;
   }
 
-  filterList(list) {
-    const filteredList = [];
-    list.forEach((tent) => {
-      if (tent.Id != "989CG" && tent.Id != "880RT") {
-        filteredList.push(tent);
-      }
-    });
-    return filteredList;
-  }
 }
