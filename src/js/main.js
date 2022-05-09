@@ -27,18 +27,17 @@ function handleForm(ev) {
     method: "POST",
   });
 
-  console.log(req.json());
-  alert("Thanks for subscribing!");
-  newsLetterForm.reset();
-
   // Send the request to the server.
-  // fetch(req)
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     console.log("Response from server");
-  //     console.log(data);
-  //   })
-  //   .catch(console.warn);
+  fetch(req)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("Response from server");
+      console.log(data);
+    })
+    .catch(console.warn);
+
+    alert("Thanks for subscribing!");
+    newsLetterForm.reset();
 }
 
 function convertFD2JSON(formData) {
