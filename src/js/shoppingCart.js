@@ -48,6 +48,7 @@ export default class ShoppingCart {
       this.prepareTemplate
     );
     this.deleteButton();
+    this.addQuantityBtn();
   }
 
   deleteButton() {
@@ -68,6 +69,7 @@ export default class ShoppingCart {
         const itemId = parseInt(dButton.getAttribute("id"));
         //create a list that is equal to what is in localStorage
         let list = getLocalStorage(this.key);
+
         //decrease the Count in the object of the list identified
         list[itemId].Count--;
         console.log(list[itemId]);
@@ -75,6 +77,9 @@ export default class ShoppingCart {
         if (list[itemId].Count < 1) {
           list.splice(itemId, 1);
         }
+
+        // remove the whole item when the button is clicked
+        list.splice(itemId, 1);
         //reset the local storage to this list
         setLocalStorage(this.key, list);
         //rerender the page
@@ -108,4 +113,44 @@ export default class ShoppingCart {
     });
     return total.toFixed(2);
   }
+
+  addQuantityBtn() {
+    let itemQty = document.querySelectorAll(".cart-card__quantity");
+    itemQty.forEach((item) => {
+      let product =
+        item.parentElement.previousElementSibling.previousElementSibling
+          .childNodes[1].innerHTML;
+      let delItem = item.previousElementSibling;
+      let addItem = item.nextElementSibling;
+      delItem.onclick = () => {
+        changeStorage("sub", product, this.key);
+        this.init();
+        displayCart();
+      };
+      addItem.onclick = () => {
+        changeStorage("add", product, this.key);
+        this.init();
+        displayCart();
+      };
+    });
+  }
+}
+
+function changeStorage(funct, productName, key) {
+  let list = getLocalStorage(key);
+
+  list.forEach((item) => {
+    if (item.Name === productName) {
+      if (funct === "add") {
+        item.Count = item.Count + 1;
+      }
+      if (funct === "sub") {
+        item.Count = item.Count - 1;
+      }
+    }
+    let newList = list.filter(function (element) {
+      return element.Count > 0;
+    });
+    setLocalStorage(key, newList);
+  });
 }
