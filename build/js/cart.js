@@ -31,7 +31,6 @@ function getCartContents() {
   let zero_cart = document.querySelector(".zero-cart");
   let zero_cart1 = document.querySelector(".zero-cart1");
 
-
   if (cartItems.length >= 1) {
     //console.log(cartItems);
     cart_total.classList.remove("hide");
