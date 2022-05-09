@@ -15,17 +15,20 @@ function convertToJson(res) {
 
 export default class ProductData {
   constructor() {
-    // this.category = category;
-    // this.path = `../json/${this.category}.json`;
   }
   // get product data
   getData(category) {
-    return fetch(baseURL + `products/search/${category}`)
+    let products = fetch(baseURL + `products/search/${category}`)
       .then(convertToJson)
-      .then((data) => data.Result);
-    // return fetch(this.path)
-    //   .then(convertToJson)
-    //   .then((data) => data);
+      .then((data) => {products = data.Result
+        products.forEach(product => {
+          product.Count = 0;
+          product.InCart = false;
+          }); 
+          return products});
+    console.log(products);
+    return products;
+    
   }
 
   //   // Async version of the getData function
@@ -36,8 +39,13 @@ export default class ProductData {
   //   }
 
   async findProductById(id) {
-    return fetch(baseURL + `product/${id}`)
+    let product = fetch(baseURL + `product/${id}`)
       .then(convertToJson)
-      .then((data) => data.Result);
+      .then((data) => {product = data.Result;        
+          product.Count = 0;
+          product.InCart = false;        
+          return product});
+    console.log(product);
+    return product;
   }
 }
