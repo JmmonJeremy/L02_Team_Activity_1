@@ -6,11 +6,12 @@ export default class ProductDetails {
   constructor(productId, dataSource) {
     this.productId = productId;
     this.product = {};
-    this.dataSource = dataSource;
+    this.dataSource = dataSource;   
   }
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
-    console.log(this.product);
+    //console.log(this.product);
+    //console.log(this.product.Count);
 
     this.renderProductDetails();
 
@@ -37,18 +38,43 @@ export default class ProductDetails {
     //let delayedEnding = getPic.classList.toggle("respond");
     //setTimeout(delayedEnding, 5000);
   }
-  addToCart() {
-    let checkout_items = [];
-    let previous_products = getLocalStorage("so-cart");
-    if (Array.isArray(previous_products)) {
-      checkout_items = previous_products;
-    } else if (previous_products != null) {
-      checkout_items.push(previous_products);
-    }
-    checkout_items.push(this.product);
-    setLocalStorage("so-cart", checkout_items);
+  addToCart() {  
+    // set a list equal to the local storage
+    let checkoutItems = getLocalStorage("so-cart");
+    // set checkoutItems equal to previousProducts
+    if (checkoutItems == null) {
+      checkoutItems = []
+    }    
+    // if cart is not empty do the following 
+     if (checkoutItems.length != 0) {
+      //console.log("list length over 0: " + checkoutItems.length);
+      // if product is in the cart already change boolean to true & add 1 to the count
+      checkoutItems.forEach(item => {
+      if (item.Id == this.product.Id){
+        //change the products InCart boolean to true for both items
+        item.InCart = true;
+        this.product.InCart = true;
+        //console.log("List item's InCart boolean = " + item.InCart);
+        //console.log("There is a match for " + this.product.Id + ": " + this.product.InCart);
+        //add one to the count of the product object in the list
+        item.Count++;       
+      }
+      })      
+     }
+     //if the item is not in the cart
+      //console.log("Is there a match for " + this.product.Id + ": " + this.product.InCart);   
+      if (!this.product.InCart) {
+        //add 1 to the count of the product being added
+        this.product.Count++
+        //add the item to the list of products
+        checkoutItems.push(this.product);        
+      }
+    //set the local storage equal to the new list
+    setLocalStorage("so-cart", checkoutItems);
+    //display the page with any changes
     displayCart();
   }
+
   renderProductDetails() {
     let product_title = document.querySelector(".product-detail>h3");
     let product_name = document.querySelector(".product-detail>h2");
