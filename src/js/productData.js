@@ -1,4 +1,5 @@
-const baseURL = "http://157.201.228.93:2992/";
+// const baseURL = "https://cors-anywhere.herokuapp.com/http://157.201.228.93:2992/";
+const baseURL = "http://157.201.228.93:2992/"
 
 function convertToJson(res) {
   if (res.ok) {
