@@ -1,4 +1,6 @@
-import { displayCart } from "./cart-superscript.js";
+import {
+  displayCart
+} from "./cart-superscript.js";
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
@@ -58,15 +60,21 @@ export function renderWithTemplate(template, parentElement, data, callback) {
 }
 
 function convertToText(res) {
-  if (res.ok) {
-    return res.text();
-  } else {
-    throw new Error("Bad Response");
+  try {
+    if (res.ok) {
+      return res.text();
+    } else {
+      throw new Error("Bad Response");
+    }
+  } catch (e) {
+    console.log(e)
   }
+
 }
 
 export async function loadTemplate(path) {
   const html = await fetch(path).then(convertToText);
+  console.log(html)
   const template = document.createElement("template");
   template.innerHTML = html;
   return template;
