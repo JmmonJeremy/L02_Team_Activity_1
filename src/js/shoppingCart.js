@@ -4,7 +4,7 @@ import {
   renderListWithTemplate,
   setLocalStorage,
   loadTemplate,
-} from "./utils";
+} from "./utils.js";
 import { displayCart } from "./cart-superscript.js";
 
 export default class ShoppingCart {
@@ -69,6 +69,15 @@ export default class ShoppingCart {
         const itemId = parseInt(dButton.getAttribute("id"));
         //create a list that is equal to what is in localStorage
         let list = getLocalStorage(this.key);
+
+        //decrease the Count in the object of the list identified
+        list[itemId].Count--;
+        console.log(list[itemId]);
+        //if the Count is below 1, remove it from the list
+        if (list[itemId].Count < 1) {
+          list.splice(itemId, 1);
+        }
+
         // remove the whole item when the button is clicked
         list.splice(itemId, 1);
         //reset the local storage to this list
