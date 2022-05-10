@@ -72,9 +72,19 @@ export async function loadTemplate(path) {
   return template;
 }
 
-export async function loadHeaderFooter() {
-  const headerTemplate = await loadTemplate("../partials/header.html");
-  const footerTemplate = await loadTemplate("../partials/footer.html");
+export async function loadHeaderFooter(a) {
+  let headerTemplate;
+  let footerTemplate;
+  if (a){
+    headerTemplate = await loadTemplate("./partials/header.html");
+    footerTemplate = await loadTemplate("./partials/footer.html");
+    
+   } else {
+    headerTemplate = await loadTemplate("../partials/header.html");
+    footerTemplate = await loadTemplate("../partials/footer.html");
+    }
+  
+  
 
   const header = document.querySelector("#main-header");
   const footer = document.querySelector("#main-footer");
