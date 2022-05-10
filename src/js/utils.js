@@ -84,7 +84,7 @@ export async function loadHeaderFooter(a) {
   let headerTemplate;
   let footerTemplate;
   if (a){
-    headerTemplate = await loadTemplate("./partials/header.html");
+    headerTemplate = await loadTemplate("./partials/home-header.html");
     footerTemplate = await loadTemplate("./partials/footer.html");
     
    } else {
