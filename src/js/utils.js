@@ -1,4 +1,4 @@
-import { displayCart } from "./cart-superscript";
+import { displayCart } from "./cart-superscript.js";
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {

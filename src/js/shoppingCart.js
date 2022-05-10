@@ -4,7 +4,7 @@ import {
   renderListWithTemplate,
   setLocalStorage,
   loadTemplate,
-} from "./utils";
+} from "./utils.js";
 import { displayCart } from "./cart-superscript.js";
 
 export default class ShoppingCart {

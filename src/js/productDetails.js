@@ -1,7 +1,7 @@
 //used for the product-details.html page
-import { getLocalStorage, setLocalStorage } from "./utils";
+import { getLocalStorage, setLocalStorage } from "./utils.js";
 import { displayCart } from "./cart-superscript.js";
-import { loadHeaderFooter } from "./utils";
+import { loadHeaderFooter } from "./utils.js";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
