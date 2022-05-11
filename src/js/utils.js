@@ -1,6 +1,4 @@
-import {
-  displayCart
-} from "./cart-superscript.js";
+import { displayCart } from "./cart-superscript.js";
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
@@ -67,14 +65,13 @@ function convertToText(res) {
       throw new Error("Bad Response");
     }
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
-
 }
 
 export async function loadTemplate(path) {
   const html = await fetch(path).then(convertToText);
-  console.log(html)
+  console.log(html);
   const template = document.createElement("template");
   template.innerHTML = html;
   return template;
@@ -83,16 +80,13 @@ export async function loadTemplate(path) {
 export async function loadHeaderFooter(a) {
   let headerTemplate;
   let footerTemplate;
-  if (a){
+  if (a) {
     headerTemplate = await loadTemplate("./partials/home-header.html");
     footerTemplate = await loadTemplate("./partials/footer.html");
-    
-   } else {
+  } else {
     headerTemplate = await loadTemplate("../partials/header.html");
     footerTemplate = await loadTemplate("../partials/footer.html");
-    }
-  
-  
+  }
 
   const header = document.querySelector("#main-header");
   const footer = document.querySelector("#main-footer");

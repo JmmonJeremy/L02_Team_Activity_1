@@ -384,9 +384,10 @@ footer {
 
 /* =================================================== */
 
-.information, .payment {
+.information,
+.payment {
   display: block;
-} 
+}
 form {
   margin: 0 10% 0 10%;
 }
@@ -399,7 +400,7 @@ form label.information,
 form label.payment {
   display: block;
   padding: 0.5rem;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 form label.information input,
@@ -407,37 +408,36 @@ form label.payment input,
 form label.payment select {
   display: block;
   font-size: 1rem;
-  border: solid 1px #AAAAAA;
+  border: solid 1px #aaaaaa;
   border-radius: 5px;
-  padding: .75rem;
+  padding: 0.75rem;
   width: 100%;
   max-width: 100%;
 }
 
 form label.information input:required,
 form label.payment input:required {
-  border-left: solid 5px #F05454;
+  border-left: solid 5px #f05454;
 }
 
 form label.information input:required:valid,
 form label.payment input:required:valid {
-  border: solid 1px #95CD41;
+  border: solid 1px #95cd41;
 }
-
 
 form label.payment1 {
   display: grid;
   padding: 0.5rem;
-  font-size: .8rem;
+  font-size: 0.8rem;
   column-gap: 10px;
 }
 
 form label.payment1 select.month {
   grid-column: 1/2;
   font-size: 1rem;
-  border: solid 1px #AAAAAA;
+  border: solid 1px #aaaaaa;
   border-radius: 5px;
-  padding: .75rem;
+  padding: 0.75rem;
   width: 100%;
   max-width: 100%;
 }
@@ -445,20 +445,18 @@ form label.payment1 select.month {
 form label.payment1 select.year {
   grid-column: 2/2;
   font-size: 1rem;
-  border: solid 1px #AAAAAA;
+  border: solid 1px #aaaaaa;
   border-radius: 5px;
-  padding: .75rem;
+  padding: 0.75rem;
   width: 100%;
   max-width: 100%;
 }
 
 legend {
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
 }
 
 fieldset {
   border-radius: 5px;
 }
-
-

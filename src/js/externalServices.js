@@ -1,4 +1,3 @@
-// const baseURL = "https://cors-anywhere.herokuapp.com/http://157.201.228.93:2992/";
 const baseURL = "http://157.201.228.93:2992/";
 
 function convertToJson(res) {
@@ -14,7 +13,7 @@ function convertToJson(res) {
 //   products = await fetch("../json/tents.json").then(convertToJson);
 // }
 
-export default class ProductData {
+export default class ExternalServices {
   constructor() {}
   // get product data
   getData(category) {
@@ -32,13 +31,6 @@ export default class ProductData {
     return products;
   }
 
-  //   // Async version of the getData function
-  //   async getData1() {
-  //     let thing =  await fetch(this.path)
-  //     let data = convertToJson(thing)
-  //     return data
-  //   }
-
   async findProductById(id) {
     let product = fetch(baseURL + `product/${id}`)
       .then(convertToJson)
@@ -50,5 +42,16 @@ export default class ProductData {
       });
     console.log(product);
     return product;
+  }
+
+  async checkout(formInfo) {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formInfo),
+    };
+    return await fetch(baseURL + "checkout/", options).then(convertToJson);
   }
 }
