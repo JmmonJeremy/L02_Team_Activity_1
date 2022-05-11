@@ -20,7 +20,7 @@ function packageItems(items) {
   // convert the list of products from localStorage to the simpler form required for the checkout process.
   //Array.map would be perfect for this.
   const formProductInfo = items.map((item) => {
-    console.log(item);
+    // console.log(item);
     return {
       id: item.Id,
       name: item.Name,
@@ -83,13 +83,15 @@ export default class CheckoutProcess {
     jsonObject.shipping = this.shipping;
     jsonObject.tax = this.tax;
     jsonObject.items = packageItems(this.cartItems);
-    console.log(jsonObject);
+    // console.log(jsonObject);
     // call the checkout method in our ExternalServices module and send it our data object.
     try {
       const res = await services.checkout(jsonObject);
       console.log(res);
+      alert("Order Successfully submitted!");
     } catch (err) {
       console.log(err);
+      alert("Error with order.");
     }
   }
 }
