@@ -1,0 +1,41 @@
+{
+    "alerts": [
+        {
+            "name": "Greetings",
+            "color": "Green",
+            "message": "Welcome to SleepOutside page!",
+            "backgroundColor": "Light Green",
+            "alertOrder": "0"
+        },
+        {
+            "name": "Endorsement",
+            "color": "Red",
+            "message": "We have New Item in our shop! Check it now!",
+            "alertOrder": "1"
+        },
+        {
+            "name": "News",
+            "color": "Yellow",
+            "message": "There are two retail stores opened in your country! Come and Visit Us!",
+            "alertOrder": "2"
+        },
+        {
+            "name": "Acknowledgement",
+            "color": "Green",
+            "message": "Thank you for subscribing! - excellent decisions",
+            "alertOrder": "3"
+        },
+        {
+            "name": "Warning",
+            "color": "Yellow",
+            "message": "Our retail stores are closed, but you can buy our products here online and get it fast and it is free delivery!",
+            "alertOrder": "4"
+        },
+        {
+            "name": "Error 404",
+            "color": "Blue",
+            "message": "It looks like you've reached a URL that doesn't exist. Please use the navigation above to find your way back to our SleepOutside website.",
+            "alertOrder": "5"
+        }
+    ]
+}
