@@ -14,7 +14,7 @@ function convertToJson(res) {
 //   products = await fetch("../json/tents.json").then(convertToJson);
 // }
 
-export default class ProductData {
+export default class ExternalServices {
   constructor() {}
   // get product data
   getData(category) {
@@ -51,4 +51,16 @@ export default class ProductData {
     console.log(product);
     return product;
   }
+
+  async checkout(formInfo) {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formInfo),
+    };
+    return await fetch(baseURL + "checkout/", options).then(convertToJson);
+  }
+
 }

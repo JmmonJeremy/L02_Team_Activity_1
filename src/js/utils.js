@@ -74,7 +74,7 @@ function convertToText(res) {
 
 export async function loadTemplate(path) {
   const html = await fetch(path).then(convertToText);
-  console.log(html)
+  //console.log(html)
   const template = document.createElement("template");
   template.innerHTML = html;
   return template;
