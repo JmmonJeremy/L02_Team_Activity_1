@@ -12,6 +12,58 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
+      <form id="orderForm" name="checkout">
+        <fieldset>
+          <!-- ([a-zA-Z-]{4,})([' ']?)([a-zA-Z-]{0,})" -->
+          <legend>Shipping</legend>
+          <label class="top">First Name* <input type="text" name="fname" placeholder="Joseph"
+          pattern="([a-zA-Z-]{2,})" title="First name must be at 
+          least two characters long and only use uppercase letters (A-Z), lowercase letters a-z, or 
+          hyphens(-)." required></label> 
+          <label class="top">Last Name* <input type="text" name="lname" placeholder="Smith"
+            pattern="([a-zA-Z-]{3,})" title="Last name must be at 
+            least three characters long and only use uppercase letters (A-Z), lowercase letters a-z, or 
+            hyphens(-)." required></label> 
+          <label class="top">Street* <input type="street" name="street" placeholder="151 Walk St." 
+            pattern="([0-9a-zA-Z' ''''-]{2,})" title="Street name must be at 
+            least three characters long and only use numbers, uppercase letters (A-Z), lowercase letters a-z, 
+            periods or hyphens(-)." required></label>                     
+          <label class="top">City* <input type="city" name="city" placeholder="Oregon City" 
+            pattern="([a-zA-Z-]{2,})" title="The city must be at 
+            least two characters long and only use uppercase letters (A-Z), lowercase letters a-z, or 
+            hyphens(-)." required></label>   
+          <label class="top">State* <input type="state" name="state" placeholder="OR"
+          pattern="[A-Za-z]{2,}" title="The state entry must by two capital letters with no spaces." required></label>
+          <label class="top">Zip* <input type="text" name="zip" placeholder="12345" 
+          title="Must contain only five numbers with no spaces." pattern="[\d]{5}" id="zip" required></label>                              
+        </fieldset>
+         
+        <fieldset>            
+            <legend>Payment</legend>
+            <label class="top">Card number* <input type="text" name="cardNumber" placeholder="1234123412341234" 
+              title="Must contain at least 15 numbers with no spaces." pattern="[\d]{15,}" required></label>
+            <label class="top">Expiration* <input type="text" name="expiration" placeholder="MM/YY" title="The 
+              date must be numbers only seperated by a forward slash in this format MM/YY" 
+              pattern="(?:0[1-9]|1[0-2])/[0-9]{2}" required></label>      
+            <label class="top">Security Code* <input type="text" name="code" placeholder="123" title="The 
+              security code must be 3 or 4 numbers with no spaces" pattern="([0-9]{3,4})" required></label>      
+        </fieldset>
+
+        <fieldset>
+            <legend>Order Summary</legend>                    
+            <p><span class="category">Item Subtotal(<span id="subtotal"></span>)</span>$<span id="itemsBalance"></span></p>
+            <p><span class="category">Shipping Estimate</span><span id="shippingBalance"></span></p>
+            <p><span class="category">Tax</span><span id="taxBalance"></span></p>
+            <hr>
+            <b><p><span class="category">Order Total</span><span id="totalBalance"></span></p></b>
+                           
+            </fieldset>
+
+        <div id="top_line"></div>
+        <div id="send1"></div><input type="submit" value="Checkout" class="submitBtn" id="checkedout"><div id="send2"></div>
+        <div id="bottom_line"></div>
+
+      </form>       
     </main>
     <footer id="main-footer"></footer>
     <script src="../js/checkout.js" type="module" defer></script>
