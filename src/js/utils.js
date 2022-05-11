@@ -1,6 +1,4 @@
-import {
-  displayCart
-} from "./cart-superscript.js";
+import { displayCart } from "./cart-superscript.js";
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
@@ -67,14 +65,13 @@ function convertToText(res) {
       throw new Error("Bad Response");
     }
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
-
 }
 
 export async function loadTemplate(path) {
   const html = await fetch(path).then(convertToText);
-  console.log(html)
+  console.log(html);
   const template = document.createElement("template");
   template.innerHTML = html;
   return template;
@@ -83,15 +80,19 @@ export async function loadTemplate(path) {
 export async function loadHeaderFooter(isHomePath) {
   let headerTemplate;
   let footerTemplate;
-  
 
   // Ternary operator AKA: Elvis operator. The code works like an 'if statement'
-  // to determine the path for the homepage. This is necessary because the homepage 
+  // to determine the path for the homepage. This is necessary because the homepage
   // has a different relative path from all of the other pages.
-  headerTemplate = await loadTemplate((isHomePath ? "." : "..") + "/partials/" + (isHomePath ? "home-" : "") + "header.html");
-  footerTemplate = await loadTemplate((isHomePath ? "." : "..") + "/partials/footer.html");
-
-
+  headerTemplate = await loadTemplate(
+    (isHomePath ? "." : "..") +
+      "/partials/" +
+      (isHomePath ? "home-" : "") +
+      "header.html"
+  );
+  footerTemplate = await loadTemplate(
+    (isHomePath ? "." : "..") + "/partials/footer.html"
+  );
 
   const header = document.querySelector("#main-header");
   const footer = document.querySelector("#main-footer");
