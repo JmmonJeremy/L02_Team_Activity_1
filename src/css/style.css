@@ -1,3 +1,4 @@
+/************************** START OF VARIABLES USED IN CSS ********************************************/
 :root {
   --font-body: Arial, Helvetica, sans-serif;
   --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -13,6 +14,9 @@
   --small-font: 0.8em;
   --large-font: 1.2em;
 }
+/************************** END OF VARIABLES USED IN CSS ********************************************/
+
+/**************************** START OF SMALL SIZE SCREEN CSS ********************************************/
 * {
   box-sizing: border-box;
 }
@@ -102,6 +106,7 @@ button {
   border-radius: 0.75rem;
   font-size: var(--large-font);
 }
+
 /*********************  START OF ADDED CSS TO ANIMATE THE CART AND BUTTON WHEN CLICKED   **************************/
 button.enlarge {
   transition: 0.05s;
@@ -110,12 +115,15 @@ button.enlarge {
 button.resume {
   transform: scale(1);
 }
+
 /************** START ADDED TO SYLE FOR DIVIDER BECAUSE OF (REMOVE FROM CART FEATURE) IMAGE ETC CHANGES ***************/
 .divider {
   border-bottom: 2px solid var(--primary-color);
   width: 100%; /* changed to have it be the full width*/
 }
-/************** START ADDED TO SYLE FOR DIVIDER BECAUSE OF (REMOVE FROM CART FEATURE) IMAGE ETC CHANGES ***************/
+/************** END ADDED TO SYLE FOR DIVIDER BECAUSE OF (REMOVE FROM CART FEATURE) IMAGE ETC CHANGES ***************/
+
+/*********************  CONTINUE OF ADDED CSS TO ANIMATE THE CART AND BUTTON WHEN CLICKED   **************************/
 /* End utility classes */
 
 /* Cart icon styles */
@@ -322,25 +330,7 @@ button.resume {
   grid-column: 2;
 }
 
-@media screen and (min-width: 500px) {
-  body {
-    max-width: 1080px;
-    margin: auto;
-  }
-  .mission {
-    font-size: 1.2em;
-  }
-  .cart-card {
-    font-size: inherit;
-    grid-template-columns: 150px auto 15%;
-  }
-}
-
-footer {
-  font-size: var(--small-font);
-  padding: 1em;
-}
-
+/******************* START ADDED CSS FOR THE HOME PAGE 4 PRODUCT ICONS ********************************/
 .product-categories {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -361,7 +351,9 @@ footer {
   color: black;
   text-align: center;
 }
-/**************************** ADDED FOR DISCOUNT EMPHESIS **************************/
+/******************* END ADDED CSS FOR THE HOME PAGE 4 PRODUCT ICONS ********************************/
+
+/**************************** START OF ADDED FOR DISCOUNT EMPHESIS **************************/
 .product-card__discount {
   color: red;
   text-decoration: solid 3px underline;
@@ -373,11 +365,157 @@ footer {
   margin-left: 7px;
 }
 
-.container__origin-price {
-  /* font-size: .95rem; */
+.container__origin-price { 
   margin-left: 24px;
 }
 
 .product-card__orginal-price {
   text-decoration: line-through;
 }
+/**************************** END OF ADDED FOR DISCOUNT EMPHESIS **************************/
+
+/*************************** START OF ADDED FOR CHECKOUT BUTTON ********************************/
+button.cart-checkout {
+  margin: 0 0 0 auto;
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+button.cart-checkout:hover {
+cursor: pointer;
+}
+
+a.checkout-button-link {
+  text-decoration: none;
+}
+/*************************** START OF ADDED FOR CHECKOUT BUTTON ********************************/
+
+/*************************** START OF FORM CSS FOR CHECKOUT PAGE *******************************/
+form {
+
+}
+form fieldset {
+  margin: 2rem 0;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  padding: .5rem 2%;  
+}
+form legend {
+  /* font-weight: 900; */
+  font-size: 1.5rem;
+  color: rgba(40, 79, 51, 0.912);
+  background-color: rgba(240, 168, 104, .5);
+  /* border: 2px solid rgba(40, 79, 51, 0.912); */
+  border-radius: 1rem;
+  margin: 0 1rem 1rem 1rem;
+  padding: .25rem 1rem;
+}
+form label.top, form div {
+  display: block;
+  padding-top: 1rem;
+  color: var(--dark-grey);;
+  padding: 2px;
+  font-size: .8rem;
+}
+form label.top input, form label.top select, form label.top textarea {
+  -webkit-appearance: none;
+  display: block;
+  font-size: 1rem;
+  border: solid 1px #999;
+  border-radius: 4px;
+  padding: .75rem;
+  color: #555;
+  width: 100%;
+  max-width: 20rem;
+  background-color: #e3f0ff;
+  margin-bottom: 1rem; 
+}
+form input.submitBtn {
+  background-color: var(--secondary-color);
+  font-weight: 900;
+  font-size: 14px;
+  color: white; 
+  border-radius: 1rem;
+  padding:.85rem 0;
+  margin: 0 0 0 1%;/*2.75%;*/
+  width: 93%;
+  max-width: 19.85rem;
+}
+form label.top input:required {
+  border-left: red solid 6px;
+}
+form label.top input:required:valid {
+  border-left: green solid 6px;
+}
+#top_line {     
+  width: 95%;
+  max-width: 19.85rem;
+  border-top: 2px solid var(--primary-color);
+  margin: 0 0 1rem 2.75%;    
+}
+#send1 { 
+  margin: 0;
+  padding-top: 1.95rem;
+  padding-bottom: 1.95rem;
+  display: inline;    
+  border-left: 2px solid var(--primary-color);   
+  border-radius: 1rem; 
+}
+#send2 { 
+  margin: 0;
+  margin-left: 1%;
+  padding-top: 1.95rem;
+  padding-bottom: 1.95rem;
+  display: inline;    
+  border-right: 2px solid var(--primary-color);   
+  border-radius: 1rem; 
+}
+#bottom_line {     
+  width: 95%;
+  max-width: 19.85rem;
+  border-top: 2px solid var(--primary-color);
+  margin: 1.4rem 0 2rem 2.75%;    
+}
+p span.category {
+  display: inline-block;
+  width: 225px;
+}
+fieldset hr {
+  margin-left: 0;
+  width: 325px;
+}
+/**************************** END OF FORM CSS FOR CHECKOUT PAGE *******************************/
+
+/**************************** END OF SMALL SIZE SCREEN CSS ********************************************/
+
+/**************************** START OF MEDIUM SIZE SCREEN CSS *****************************************/
+@media screen and (min-width: 500px) {
+  body {
+    max-width: 1080px;
+    margin: auto;
+  }
+  .mission {
+    font-size: 1.2em;
+  }
+  .cart-card {
+    font-size: inherit;
+    grid-template-columns: 150px auto 15%;
+  }
+}
+
+footer {
+  font-size: var(--small-font);
+  padding: 1em;
+}
+
+/******************** START OF MEDIUM & UP FORM CSS FOR CHECKOUT PAGE *******************************/
+form input.submitBtn {
+  margin: 0 0 0 2%;
+  font-size: 20px;
+  padding:.85rem 1.5rem;
+}
+#send2 {        
+  margin-left: 2%;
+}
+/********************* END OF MEDIUM & UP FORM CSS FOR CHECKOUT PAGE ********************************/
+/**************************** END OF MEDIUM SIZE SCREEN CSS *****************************************/

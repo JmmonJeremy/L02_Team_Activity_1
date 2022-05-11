@@ -9,6 +9,7 @@ export default class ProductDetails {
     this.product = {};
     this.dataSource = dataSource;
   }
+  
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
     //console.log(this.product);
@@ -32,13 +33,10 @@ export default class ProductDetails {
       function buttBack() {
         addButt.className = "resume";
       }
-      setTimeout(buttBack, 250);
-    });
-
-    //getPic.classList.toggle("respond");
-    //let delayedEnding = getPic.classList.toggle("respond");
-    //setTimeout(delayedEnding, 5000);
+      setTimeout(buttBack, 250);    
+    });   
   }
+
   addToCart() {
     // set a list equal to the local storage
     let checkoutItems = getLocalStorage("so-cart");
