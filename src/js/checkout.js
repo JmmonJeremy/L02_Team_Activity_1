@@ -2,6 +2,7 @@ import { loadHeaderFooter } from "./utils.js";
 import CheckoutProcess from "./checkoutProcess.js";
 
 loadHeaderFooter();
+// teacher has "so-cart" and ".checkout-summary"(the class name for the summary fieldset) as arugments
 let register = new CheckoutProcess();
 register.init();
 

@@ -32,6 +32,7 @@ function packageItems(items) {
     }
 
 export default class CheckoutProcess {
+    // Currently not using this.cart or this.formElement, but included id needed later
     constructor(cart, formElement) {
         this.cart = cart;
         this.formElement = formElement;
@@ -51,6 +52,7 @@ export default class CheckoutProcess {
     itemsSubtotal() {        
         this.cartItems.forEach(item => {
             this.itemsCount += item.Count;
+            //console.log(this.itemsCount);
             this.itemsCost += item.FinalPrice * item.Count;
         });
         document.getElementById("subtotal").innerText = this.itemsCount;
@@ -75,6 +77,7 @@ export default class CheckoutProcess {
         jsonObject.orderTotal = this.grandTotal;
         jsonObject.shipping = this.shipping;
         jsonObject.tax = this.tax;
+        jsonObject.items = packageItems(this.cartItems);
         console.log(jsonObject);
         // call the checkout method in our ExternalServices module and send it our data object.
         try {
