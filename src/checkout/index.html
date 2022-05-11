@@ -1,19 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Checkout</title>
-    <link rel="stylesheet" href="../css/style.css" />
-  </head>
-  <body>
-    <header class="divider" id="main-header"></header>
-    <main class="divider">
-      <section class="products">
-        <h2>Review & Place your Order</h2>
-      </section>
-    </main>
-    <footer id="main-footer"></footer>
-    <script src="../js/checkout.js" type="module" defer></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Outside | Checkout</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <header class="divider" id="main-header"></header>
+  <main class="divider">
+    <section class="products">
+      <h2>Review & Place your Order</h2>
+      <form action="">
+        <fieldset>
+          <legend>Shipping</legend>
+          <div>
+            <label class="information">First Name*<input type="text" name="fname" required></label>
+            <label class="information">Last Name*<input type="text" name="lname" required></label>
+            <label class="information">Street/Address*<input type="text" name="street" required></label>
+            <label class="information">City*<input type="text" name="city" required></label>
+            <label class="information">State*<input type="text" name="state" required></label>
+            <label class="information">Zip*<input type="text" name="zip" maxlength="8" required></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Payment</legend>
+          <div>
+            <label class="payment">Card Number*<input type="text" name="cardNumber"
+                required></label>
+            <label class="payment1">Expiration*
+              <select name="month" class="month" required>
+                <option>Month</option>
+                <option value="jan">January</option>
+                <option value="deb">February</option>
+                <option value="mar">March</option>
+                <option value="apr">April</option>
+                <option value="may">May</option>
+                <option value="june">June</option>
+                <option value="july">July</option>
+                <option value="aug">August</option>
+                <option value="sep">September</option>
+                <option value="oct">October</option>
+                <option value="nov">November</option>
+                <option value="dec">December</option>
+              </select>
+              <select name="year" class="year" required>
+                <option>Year</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+                <option value="2031">2031</option>
+                <option value="2032">2032</option>
+                <option value="2033">2033</option>
+                <option value="2034">2034</option>
+                <option value="2035">2035</option>
+              </select>
+            </label>
+            <label class="payment">Security Code*<input type="password" name="secCode" maxlength="3"
+                required></label>
+
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Order Summary</legend>
+          <div>
+            <ul>
+              <li>
+                <label for="cartTotal">Item Subtotal(<span id="num-items"></span>)</label
+                >
+                <p name="cartTotal" id="cartTotal"></p>
+              </li>
+              <li>
+                <label for="shipping">Shipping Estimate</label>
+                <p id="shipping"></p>
+              </li>
+              <li>
+                <label for="tax">Tax</label>
+                <p id="tax"></p>
+              </li>
+              <li>
+                <label for="orderTotal"><b>Order Total</b></label>
+                <p id="orderTotal"></p>
+              </li>
+            </ul>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+  <footer id="main-footer"></footer>
+  <script src="../js/checkout.js" type="module" defer></script>
+</body>
+
 </html>
