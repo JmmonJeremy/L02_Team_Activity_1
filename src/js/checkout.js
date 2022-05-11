@@ -11,7 +11,9 @@ document
   .addEventListener("blur", register.additionsTotal.bind(register));
 // listen for the submit button
 
-document.getElementById("checkedout").addEventListener("DOMContentLoaded", (ev) => {
-  ev.preventDefault();
-  register.checkout();
-});
+document
+  .getElementById("checkedout")
+  .addEventListener("DOMContentLoaded", (ev) => {
+    ev.preventDefault();
+    register.checkout();
+  });
