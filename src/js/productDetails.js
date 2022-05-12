@@ -94,8 +94,8 @@ export default class ProductDetails {
     product_img.setAttribute("src", this.product.Images.PrimaryLarge);
     discount_flag.alt = "discount flag star"
     discount_flag.src = "../images/discount.svg";
-    discount_percent.innerHTML = ((this.product.ListPrice / this.product.SuggestedRetailPrice).toFixed(2)) * 100;
-    product_original_price.innerHTML += this.product.SuggestedRetailPrice;
+    discount_percent.innerHTML = 100 - Math.ceil(((this.product.ListPrice / this.product.SuggestedRetailPrice)) * 100);
+    product_original_price.innerHTML += this.product.SuggestedRetailPrice.toFixed(2);
     product_discount.innerHTML +=
       (this.product.SuggestedRetailPrice - this.product.ListPrice).toFixed(2) +
       "!!!";
