@@ -20,7 +20,7 @@ function packageItems(items) {
   // convert the list of products from localStorage to the simpler form required for the checkout process.
   //Array.map would be perfect for this.
   const formProductInfo = items.map((item) => {
-    // console.log(item);
+    console.log(item);
     return {
       id: item.Id,
       name: item.Name,

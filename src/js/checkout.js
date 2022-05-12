@@ -13,7 +13,12 @@ document
 
 document
   .getElementById("checkedout")
-  .addEventListener("DOMContentLoaded", (ev) => {
+  .addEventListener("click", (ev) => {
     ev.preventDefault();
+    let orderForm = document.forms[0];
+    let statusCheck = orderForm.checkValidity();
+    orderForm.reportValidity();
+    if(statusCheck) {
     register.checkout();
+    }
   });
