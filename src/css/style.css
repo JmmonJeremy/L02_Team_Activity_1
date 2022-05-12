@@ -374,6 +374,14 @@ button.resume {
 }
 /**************************** END OF ADDED FOR DISCOUNT EMPHESIS **************************/
 
+/*************************** START OF CSS ADDED FOR DETAILS BUTTON ************************/
+button.details-btn {
+  margin: -33px 10px 0 auto;
+  padding: 3px 10px;
+  font-size: 1rem;
+}
+/*************************** START OF CSS ADDED FOR DETAILS BUTTON ************************/
+
 /*************************** START OF ADDED FOR CHECKOUT BUTTON ********************************/
 button.cart-checkout {
   margin: 0 0 0 auto;
@@ -388,7 +396,7 @@ button.cart-checkout:hover {
 a.checkout-button-link {
   text-decoration: none;
 }
-/*************************** START OF ADDED FOR CHECKOUT BUTTON ********************************/
+/*************************** END OF ADDED FOR CHECKOUT BUTTON ********************************/
 
 /*************************** START OF FORM CSS FOR CHECKOUT PAGE *******************************/
 #orderForm {
