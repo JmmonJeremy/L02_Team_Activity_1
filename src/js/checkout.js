@@ -6,9 +6,19 @@ loadHeaderFooter();
 let register = new CheckoutProcess();
 register.init();
 
-document.getElementById("zip").addEventListener("blur", register.additionsTotal.bind(register));
+document
+  .getElementById("zip")
+  .addEventListener("blur", register.additionsTotal.bind(register));
 // listen for the submit button
-document.getElementById("checkedout").addEventListener("click", (ev) => {
+
+document
+  .getElementById("checkedout")
+  .addEventListener("click", (ev) => {
     ev.preventDefault();
+    let orderForm = document.forms[0];
+    let statusCheck = orderForm.checkValidity();
+    orderForm.reportValidity();
+    if(statusCheck) {
     register.checkout();
-})
+    }
+  });
