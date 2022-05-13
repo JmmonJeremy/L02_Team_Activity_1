@@ -118,8 +118,6 @@ export default class ShoppingCart {
     }
   }
 
-
-
   getCartTotal(cart) {
     let quantity = 0;
     let total = 0.0;
