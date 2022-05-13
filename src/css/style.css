@@ -22,9 +22,7 @@ body {
   font-size: var(--font-base);
   color: var(--dark-grey);
 }
-img {
-  max-width: 100%;
-}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -56,6 +54,11 @@ header {
   bottom: -10px;
   background-color: white;
 }
+
+.hero .banner {
+  width: 100%;
+}
+
 .logo--square {
   font-size: var(--small-font);
   width: 110px;
@@ -101,6 +104,7 @@ button {
   border: 0;
   border-radius: 0.75rem;
   font-size: var(--large-font);
+  cursor: pointer;
 }
 /*********************  START OF ADDED CSS TO ANIMATE THE CART AND BUTTON WHEN CLICKED   **************************/
 button.enlarge {
@@ -124,6 +128,7 @@ button.resume {
   position: relative;
   text-align: center;
 }
+
 #resize__icon svg {
   fill: orange;
   background: grey;
@@ -166,7 +171,7 @@ button.resume {
 .product-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style-type: none;
   padding: 0;
 }
@@ -186,6 +191,10 @@ button.resume {
 .product-card h3,
 .product-card p {
   margin: 0.5em 0;
+}
+
+.product-card img {
+  margin-left: 15%;
 }
 
 .card__brand {
@@ -238,9 +247,8 @@ button.resume {
 .newsletter-fields input {
   padding: 1em;
   margin: 0.5em;
-  max-width: 100%;
-  padding: 1em;
 }
+
 .newsletter-fields {
   display: grid;
 }
@@ -272,6 +280,10 @@ button.resume {
   grid-row: 1;
   grid-column: 2;
   margin-left: -80px; /* Changed position */
+}
+
+.checkout {
+  text-decoration: none;
 }
 /**************** END ADDED TO SYLE THE REMOVE FROM CART IMAGE ETC *****************/
 
@@ -322,6 +334,10 @@ button.resume {
   grid-column: 2;
 }
 
+
+
+/* ============================= MEDIUM CSS =========================== */
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -334,6 +350,11 @@ button.resume {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
   }
+
+  .product-detail img {
+    width: 80%;
+    margin-left: 10%;
+  }
 }
 
 footer {
@@ -342,11 +363,24 @@ footer {
 }
 
 .product-categories {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(4, 1fr);
   list-style-type: none;
   max-width: 80%;
+  margin: auto; */
+
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr); */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  list-style-type: none;
+  max-width: 80%;
   margin: auto;
+}
+
+.product-categories img {
+  width: 100px;
 }
 
 .product-categories li {
@@ -356,7 +390,6 @@ footer {
 }
 
 .product-categories li a {
-  width: 100%;
   text-decoration: none;
   color: black;
   text-align: center;
@@ -370,12 +403,11 @@ footer {
 .product-card__price {
   color: green;
   text-decoration: solid 3px underline;
-  margin-left: 7px;
 }
 
-.container__origin-price {
+.container__origin-price, .product-card__discount, .product-card__price  {
   /* font-size: .95rem; */
-  margin-left: 24px;
+  text-align: center;
 }
 
 .product-card__orginal-price {
@@ -459,4 +491,17 @@ legend {
 
 fieldset {
   border-radius: 5px;
+}
+
+/* ============================= LARGE CSS =========================== */
+@media screen and (min-width: 1000px) {
+  .product-list {
+    justify-content: start;
+  }
+
+  .product-detail img {
+    width: 100%;
+    margin: 0 auto;
+  }
+
 }

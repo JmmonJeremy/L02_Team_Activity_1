@@ -112,9 +112,9 @@ export default class ShoppingCart {
     if (cartItems.length == 0) {
       zero_cart.classList.remove("hide");
       zero_cart1.classList.remove("hide");
+      checkout.classList.add("hide");
     } else {
       zero_cart.classList.add("hide");
-      
     }
   }
 
