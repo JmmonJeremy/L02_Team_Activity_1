@@ -59,6 +59,8 @@ export default class ProductList {
     templateClone.querySelector(".price-highlight").innerHTML += product.FinalPrice;
     templateClone.querySelector(".product__color").innerHTML += product.Colors[0].ColorName;
     templateClone.querySelector(".product__description").innerHTML += product.DescriptionHtmlSimple;
+    templateClone.querySelector(".product__reviews").innerHTML += product.Reviews.ReviewCount;
+    templateClone.querySelector(".product__ratings").innerHTML += product.Reviews.AverageRating;
     return templateClone;
   }
 
