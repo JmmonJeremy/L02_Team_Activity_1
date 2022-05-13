@@ -357,16 +357,19 @@ button.resume {
 .product-card__discount {
   color: red;
   text-decoration: solid 3px underline;
+  text-shadow:1px 1px 10px white, 1px 1px 10px white;
 }
 
 .product-card__price {
   color: green;
   text-decoration: solid 3px underline;
-  margin-left: 7px;
+  text-shadow:1px 1px 10px var(--primary-color), 1px 1px 10px #ffff00;
+  margin-left: 6px;
 }
 
 .container__origin-price {
-  margin-left: 24px;
+  text-shadow:1px 1px 10px white, 1px 1px 10px white;
+  margin-left: 15px;
 }
 
 .product-card__orginal-price {
@@ -374,6 +377,7 @@ button.resume {
 }
 
 div.pricing-container {
+
   border: 5px solid rgb(255, 102, 0);
   border-radius: .5rem;
   background-color: rgba(255, 255, 0, .2);
@@ -385,6 +389,19 @@ div.pricing-container {
  .descriptor-label {
    font-weight: 600;  
  }
+
+ border: 5px solid rgb(255, 102, 0);
+ border-radius: .5rem;
+ background-color: rgba(255, 255, 0, .2);
+ width:fit-content;
+ padding: 0 1rem; 
+ margin-top: 20px;
+}
+
+.descriptor-label {
+  font-weight: 600;  
+}
+
 /**************************** END OF ADDED FOR DISCOUNT EMPHESIS **************************/
 
 /************** START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS PAGE*********************/
@@ -410,6 +427,7 @@ p.flag-amount {
   text-align: center;
   line-height: 1.1;  
 }
+
 /* Changes specificall for the Modal Pop-up */
 /************** START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS PAGE*********************/
 
@@ -473,6 +491,10 @@ button.details-btn {
 }
 /*************************** END OF CSS ADDED FOR DETAILS QUICK ACCESS BUTTON ************************/
  
+
+/************** START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS PAGE*********************/
+
+
 /*************************** START OF ADDED FOR CHECKOUT BUTTON ********************************/
 button.cart-checkout {
   margin: 0 0 0 auto;
