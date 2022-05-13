@@ -4,6 +4,38 @@
     <img src="" alt="Image of" />
     <h3 class="card__brand"></h3>
     <h2 class="card__name"></h2>
-    <p class="product-card__price">$</p></a
-  >
+  </a>
+  <p class="product-card__price">$</p>
+  <!-- Trigger/Open The Modal -->
+  <button type="button" class="details-btn">Details</button>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <section class="product-detail">
+        <h3></h3>
+        <h2 class="divider"></h2>
+        <img id="product-img" class="pop-up"/>  
+	    <div class="flag-container pop-up">
+          <img class="discount-flag"/>
+          <p class="flag-amount pop-up"><span class="flag-percent">50</span>%<br>Off!</p>
+        </div>
+        <div class="pricing-container">
+        <u><p class="container__origin-price">
+          Originally: <span class="product-card__orginal-price">$</span>
+        </p></u>
+        <p class="product-card__discount">Discounted: $</p>
+        <p class="product-card__price">
+          Final Price: <span class="price-highlight">$</span>
+        </p>
+        </div>
+        <p class="product__color"><u class="descriptor-label">Color:</u>&nbsp; &nbsp;</p>        
+        <p class="product__description"><u class="descriptor-label">Description:</u>&nbsp; &nbsp;</p>
+        <p class="product__reviews"><u class="descriptor-label">Reviews:</u>&nbsp; &nbsp;</p>
+        <p class="product__ratings"><u class="descriptor-label">Scale of 5 ~ Average Rating:</u>&nbsp; &nbsp;</p>
+      </section>
+    </div>
+  </div>
 </li>

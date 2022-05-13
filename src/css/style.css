@@ -377,6 +377,19 @@ button.resume {
 }
 
 div.pricing-container {
+
+  border: 5px solid rgb(255, 102, 0);
+  border-radius: .5rem;
+  background-color: rgba(255, 255, 0, .2);
+  width:fit-content;
+  padding: 0 1rem; 
+  margin-top: 20px;
+ }
+ 
+ .descriptor-label {
+   font-weight: 600;  
+ }
+
  border: 5px solid rgb(255, 102, 0);
  border-radius: .5rem;
  background-color: rgba(255, 255, 0, .2);
@@ -388,6 +401,7 @@ div.pricing-container {
 .descriptor-label {
   font-weight: 600;  
 }
+
 /**************************** END OF ADDED FOR DISCOUNT EMPHESIS **************************/
 
 /************** START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS PAGE*********************/
@@ -413,7 +427,73 @@ p.flag-amount {
   text-align: center;
   line-height: 1.1;  
 }
+
+/* Changes specificall for the Modal Pop-up */
 /************** START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS PAGE*********************/
+
+/**** START OF MODAL POP-UP FOR THE PRODUCT-LISTING PAGE'S DETAILS QUICK ACCESS BUTTON ****/
+/* Changes to the Discount Flag Placement */
+div.flag-container.pop-up{ 
+  top: 47%;
+  left: 38%;  
+}
+p.flag-amount.pop-up { 
+  top: 17%;  
+}
+img#product-img.pop-up {
+  width: 50%;
+  margin-left: 150px;
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 500px; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/**** START OF MODAL POP-UP FOR THE PRODUCT-LISTING PAGE'S DETAILS QUICK ACCESS BUTTON ****/
+
+/*************************** START OF CSS ADDED FOR DETAILS QUICK ACCESS BUTTON ************************/
+button.details-btn {
+  margin: -30px 6px 0 auto;
+  padding: 3px 10px;
+  font-size: .75rem;
+}
+/*************************** END OF CSS ADDED FOR DETAILS QUICK ACCESS BUTTON ************************/
+ 
+
+/************** START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS PAGE*********************/
+
 
 /*************************** START OF ADDED FOR CHECKOUT BUTTON ********************************/
 button.cart-checkout {
@@ -429,7 +509,7 @@ button.cart-checkout:hover {
 a.checkout-button-link {
   text-decoration: none;
 }
-/*************************** START OF ADDED FOR CHECKOUT BUTTON ********************************/
+/*************************** END OF ADDED FOR CHECKOUT BUTTON ********************************/
 
 /*************************** START OF FORM CSS FOR CHECKOUT PAGE *******************************/
 #orderForm {
