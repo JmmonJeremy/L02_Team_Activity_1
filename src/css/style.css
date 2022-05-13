@@ -600,6 +600,22 @@ fieldset hr {
 }
 /**************************** END OF FORM CSS FOR CHECKOUT PAGE *******************************/
 
+/**************************** START OF ALERT STYLING ********************************************/
+p.alert {
+  background-color: var(--primary-color);
+  border: 1px solid orange;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 40px;
+  text-align: left;
+  width: 500px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+ }
+ /**************************** END OF ALERT STYLING ********************************************/
+ 
 /**************************** END OF SMALL SIZE SCREEN CSS ********************************************/
 
 /**************************** START OF MEDIUM SIZE SCREEN CSS *****************************************/

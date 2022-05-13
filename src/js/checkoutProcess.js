@@ -1,5 +1,5 @@
 // used for checkout/index.html
-import { getLocalStorage } from "./utils.js";
+import { getLocalStorage, setLocalStorage, alertMessage, removeAllAlerts } from "./utils.js";
 import ExternalServices from "./externalServices.js";
 
 const services = new ExternalServices();
@@ -84,14 +84,21 @@ export default class CheckoutProcess {
     jsonObject.tax = this.tax;
     jsonObject.items = packageItems(this.cartItems);
     // console.log(jsonObject);
-    // call the checkout method in our ExternalServices module and send it our data object.
+    // call the checkout method in our ExternalServices module and send it our data object.   
     try {
       const res = await services.checkout(jsonObject);
       console.log(res);
-      alert("Order Successfully submitted!");
-    } catch (err) {
+      setLocalStorage("so-cart", [])
+      window.location.href = "checkedout.html"
+    } catch (err) {            
+      // get rid of any preexisting alerts.
+      removeAllAlerts();
+      //wait for promise to be fulfilled            
+      let errMessage = await err.message  
+      for(let message in errMessage) {
+          alertMessage(errMessage[message], "main-header");
+       }
       console.log(err);
-      alert("Error with order.");
     }
   }
 }

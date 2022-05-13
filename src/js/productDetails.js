@@ -1,5 +1,5 @@
 //used for the product-details.html page
-import { getLocalStorage, setLocalStorage } from "./utils.js";
+import { getLocalStorage, setLocalStorage, alertMessage } from "./utils.js";
 import { displayCart } from "./cart-superscript.js";
 import { loadHeaderFooter } from "./utils.js";
 
@@ -72,6 +72,8 @@ export default class ProductDetails {
     setLocalStorage("so-cart", checkoutItems);
     //display the page with any changes
     displayCart();
+    //display an alert to let the user know an item was added to the cart
+    alertMessage("Item added to Cart! ", "added-item")
   }
 
   renderProductDetails() {
