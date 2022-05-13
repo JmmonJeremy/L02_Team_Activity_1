@@ -113,22 +113,28 @@ export function filterList(list) {
   return filteredList;
 }
 
-export function alertMessage(message, scroll=true){
-  //create element to hold the alert
-  let alert = document.createElement("div");
-  let span = document.createElement("span");
-  //add class to style it
-  alert.class="alert" 
-  span.class="closebtn"
+export function alertMessage(message, scroll = true){
+  //create elements to hold the alert & exit button
+  let alert = document.createElement("div"); 
+  //add class names to style them
+  alert.className = "alert"
+  //create variable for main element for alert removal
+  const main = document.querySelector("main");
   //remove the alert when x is clicked
-  span.onclick="this.parentElement.style.display='none';"
-  span.innerHTML="&times;"
+  alert.addEventListener("click", () => {    
+    main.removeChild(alert);
+  })
   //scrolls user to top
   if(scroll)
     window.scrollTo(0,0);
-  //show the message
-  alert.appendChild(span);
-  alert.innerHTML = message; 
+  //show the message 
+  alert.innerHTML = message + "<span class='closebtn'>&times;</span>"; 
 
   return alert;
 }
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach(alert => document.querySelector("main").removeChild(alert));
+}
+

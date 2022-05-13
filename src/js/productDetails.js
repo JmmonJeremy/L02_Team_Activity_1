@@ -1,5 +1,5 @@
 //used for the product-details.html page
-import { getLocalStorage, setLocalStorage } from "./utils.js";
+import { alertMessage, getLocalStorage, setLocalStorage } from "./utils.js";
 import { displayCart } from "./cart-superscript.js";
 import { loadHeaderFooter } from "./utils.js";
 
@@ -72,6 +72,12 @@ export default class ProductDetails {
     setLocalStorage("so-cart", checkoutItems);
     //display the page with any changes
     displayCart();
+    //variable for element to use to place the error message    
+    let section = document.querySelector(".product-detail")
+    let main = document.querySelector("main");
+    // put the message on the page
+    main.insertBefore(alertMessage("Added item to the cart!"), section);
+    
   }
 
   renderProductDetails() {

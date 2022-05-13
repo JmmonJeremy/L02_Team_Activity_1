@@ -1,5 +1,5 @@
 // used for checkout/index.html
-import { getLocalStorage, setLocalStorage, alertMessage } from "./utils.js";
+import { getLocalStorage, setLocalStorage, alertMessage, removeAllAlerts } from "./utils.js";
 import ExternalServices from "./externalServices.js";
 
 const services = new ExternalServices();
@@ -90,17 +90,31 @@ export default class CheckoutProcess {
       console.log(res);
       // localStorage.clear();
       setLocalStorage("so-cart",[]);
-      window.location.href= "./checkedout.html";
+      window.location.href = "./checkedout.html";
       // alert("Order Successfully submitted!");
     } catch (err) {
-      let main = document.querySelector("#checkout-main");
-      alert = alertMessage(err.message.JSON));  
-      console.log(err)
-      console.log(err.json())
-
-      main.insertBefore(alert, main.firstChild);
-      // console.log(main)
-      // console.log(alert)
+      // get rid of any preexisting alerts.
+      removeAllAlerts();
+      //variable for element to use to place the error message    
+      let section = document.querySelector(".products")
+      let main = document.querySelector("main");
+      //await the promise of the error name & message & assign to variable
+      let errName = await err.name
+      let errMessage = await err.message     
+      // console.log(errName + " " + errMessage)
+      //turn the error name & message into a string
+      errName = JSON.stringify(errName);
+      errMessage = JSON.stringify(errMessage)
+      // console.log(errName + " " + errMessage)
+      //remove the unwanted characters from the string
+      errName = errName.replace(/[{}"]/g, " ")
+      errMessage = errMessage.replace(/[{}"]/g, " ")
+      // console.log(errName + " " + errMessage);
+      //turn the error into a message for the user
+      let userAlert = errName + " = " + errMessage + ". Please fix & resubmit."
+      // console.log(userAlert);      
+      // put the message on the page
+      main.insertBefore(alertMessage(userAlert), section);    
     }
   }
 }
