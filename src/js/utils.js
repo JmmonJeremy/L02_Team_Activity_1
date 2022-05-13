@@ -112,3 +112,23 @@ export function filterList(list) {
   });
   return filteredList;
 }
+
+export function alertMessage(message, scroll=true){
+  //create element to hold the alert
+  let alert = document.createElement("div");
+  let span = document.createElement("span");
+  //add class to style it
+  alert.class="alert" 
+  span.class="closebtn"
+  //remove the alert when x is clicked
+  span.onclick="this.parentElement.style.display='none';"
+  span.innerHTML="&times;"
+  //scrolls user to top
+  if(scroll)
+    window.scrollTo(0,0);
+  //show the message
+  alert.appendChild(span);
+  alert.innerHTML = message; 
+
+  return alert;
+}

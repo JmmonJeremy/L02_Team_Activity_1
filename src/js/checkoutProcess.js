@@ -1,5 +1,5 @@
 // used for checkout/index.html
-import { getLocalStorage } from "./utils.js";
+import { getLocalStorage, setLocalStorage, alertMessage } from "./utils.js";
 import ExternalServices from "./externalServices.js";
 
 const services = new ExternalServices();
@@ -88,10 +88,19 @@ export default class CheckoutProcess {
     try {
       const res = await services.checkout(jsonObject);
       console.log(res);
-      alert("Order Successfully submitted!");
+      // localStorage.clear();
+      setLocalStorage("so-cart",[]);
+      window.location.href= "./checkedout.html";
+      // alert("Order Successfully submitted!");
     } catch (err) {
-      console.log(err);
-      alert("Error with order.");
+      let main = document.querySelector("#checkout-main");
+      alert = alertMessage(err.message.JSON));  
+      console.log(err)
+      console.log(err.json())
+
+      main.insertBefore(alert, main.firstChild);
+      // console.log(main)
+      // console.log(alert)
     }
   }
 }

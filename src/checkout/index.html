@@ -8,11 +8,11 @@
   </head>
   <body>
     <header class="divider" id="main-header"></header>
-    <main class="divider">
+    <main id="checkout-main" class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
-      <form id="orderForm" name="checkout">
+      <form  id="orderForm" name="checkout">
         <fieldset>
           <!-- ([a-zA-Z-]{4,})([' ']?)([a-zA-Z-]{0,})" -->
           <legend>Shipping</legend>
@@ -95,6 +95,7 @@
               type="text"
               name="cardNumber"
               placeholder="1234123412341234"
+              value="1234123412341234"
               title="Must contain at least 15 numbers with no spaces."
               pattern="[\d]{15,}"
               required
@@ -115,6 +116,7 @@
             <input
               type="text"
               name="code"
+              value="123"
               placeholder="123"
               title="The 
               security code must be 3 or 4 numbers with no spaces"
