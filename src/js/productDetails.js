@@ -78,6 +78,8 @@ export default class ProductDetails {
     let product_title = document.querySelector(".product-detail>h3");
     let product_name = document.querySelector(".product-detail>h2");
     let product_img = document.querySelector(".product-detail>img");
+    let discount_flag = document.querySelector(".discount-flag");
+    let discount_percent = document.querySelector(".flag-percent");
     let product_price = document.querySelector(".price-highlight");
     let product_original_price = document.querySelector(
       ".product-card__orginal-price"
@@ -90,15 +92,18 @@ export default class ProductDetails {
     product_name.innerHTML = this.product.NameWithoutBrand;
     product_img.setAttribute("alt", this.product.NameWithoutBrand);
     product_img.setAttribute("src", this.product.Images.PrimaryLarge);
-    product_original_price.innerHTML += this.product.SuggestedRetailPrice;
+    discount_flag.alt = "discount flag star"
+    discount_flag.src = "../images/discount.svg";
+    discount_percent.innerHTML = 100 - Math.ceil(((this.product.ListPrice / this.product.SuggestedRetailPrice)) * 100);
+    product_original_price.innerHTML += this.product.SuggestedRetailPrice.toFixed(2);
     product_discount.innerHTML +=
       (this.product.SuggestedRetailPrice - this.product.ListPrice).toFixed(2) +
       "!!!";
     product_price.innerHTML += this.product.ListPrice;
 
     // This will need to be dynamic later
-    product_color.innerHTML = this.product.Colors[0].ColorName;
-    product_description.innerHTML = this.product.DescriptionHtmlSimple;
+    product_color.innerHTML += this.product.Colors[0].ColorName;
+    product_description.innerHTML += this.product.DescriptionHtmlSimple;
 
     document
       .getElementById("addToCart")
