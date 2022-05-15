@@ -73,7 +73,7 @@ export default class ProductDetails {
     //display the page with any changes
     displayCart();
     //display an alert to let the user know an item was added to the cart
-    alertMessage("Item added to Cart! ", "added-item")
+    alertMessage("Item added to Cart! ", "added-item");
   }
 
   renderProductDetails() {
@@ -94,10 +94,16 @@ export default class ProductDetails {
     product_name.innerHTML = this.product.NameWithoutBrand;
     product_img.setAttribute("alt", this.product.NameWithoutBrand);
     product_img.setAttribute("src", this.product.Images.PrimaryLarge);
-    discount_flag.alt = "discount flag star"
+    discount_flag.alt = "discount flag star";
     discount_flag.src = "../images/discount.svg";
-    discount_percent.innerHTML = 100 - Math.ceil(((this.product.ListPrice / this.product.SuggestedRetailPrice)) * 100);
-    product_original_price.innerHTML += this.product.SuggestedRetailPrice.toFixed(2);
+    discount_percent.innerHTML =
+      100 -
+      Math.ceil(
+        (this.product.ListPrice / this.product.SuggestedRetailPrice) * 100
+      );
+    product_original_price.innerHTML += this.product.SuggestedRetailPrice.toFixed(
+      2
+    );
     product_discount.innerHTML +=
       (this.product.SuggestedRetailPrice - this.product.ListPrice).toFixed(2) +
       "!!!";
