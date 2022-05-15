@@ -19,15 +19,12 @@ function formDataToJSON(formElement) {
 function packageItems(items) {
   // convert the list of products from localStorage to the simpler form required for the checkout process.
   //Array.map would be perfect for this.
-  const formProductInfo = items.map((item) => {
-    console.log(item);
-    return {
-      id: item.Id,
-      name: item.Name,
-      price: item.FinalPrice,
-      quantity: item.Count,
-    };
-  });
+  const formProductInfo = items.map((item) => ({
+    id: item.Id,
+    name: item.Name,
+    price: item.FinalPrice,
+    quantity: item.Count,
+  }))
   return formProductInfo;
 }
 
@@ -87,7 +84,7 @@ export default class CheckoutProcess {
     // call the checkout method in our ExternalServices module and send it our data object.   
     try {
       const res = await services.checkout(jsonObject);
-      console.log(res);
+      // console.log(res);
       setLocalStorage("so-cart", [])
       window.location.href = "checkedout.html"
     } catch (err) {            
@@ -98,7 +95,7 @@ export default class CheckoutProcess {
       for(let message in errMessage) {
           alertMessage(errMessage[message], "main-header");
        }
-      console.log(err);
+      // console.log(err);
     }
   }
 }

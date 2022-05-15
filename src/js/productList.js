@@ -13,11 +13,7 @@ export default class ProductList {
   async init(isPriceSorted = false) {
     //dataSource will return a Promise...so we can use await to resolve it
     const unsortedList = await this.dataSource.getData(this.category);
-    // console.log(list);
-    //filter out unwanted items
-    // const filteredList = filterList(list);    
-    //set the title to the current category
-    
+
     // Sort the list alphabetically 
     let list = []
     if (isPriceSorted){
@@ -25,7 +21,6 @@ export default class ProductList {
     } else {
       list = unsortedList.sort((a, b) => a.NameWithoutBrand.localeCompare(b.NameWithoutBrand))
     }
-
     // document.querySelector(".products>h2").innerHTML += `: ${(
     //   this.category.charAt(0).toUpperCase() + this.category.slice(1)
     // ).replace("-b", " B")}`;

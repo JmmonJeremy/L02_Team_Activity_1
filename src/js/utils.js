@@ -65,7 +65,7 @@ function convertToText(res) {
       throw new Error("Bad Response");
     }
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 }
 

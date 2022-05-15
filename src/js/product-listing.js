@@ -1,37 +1,26 @@
 import ExternalServices from "./externalServices.js";
 import ProductList from "./productList.js";
-import { loadHeaderFooter, getParam } from "./utils.js";
+import {
+  loadHeaderFooter,
+  getParam
+} from "./utils.js";
 
 const dataSource = new ExternalServices();
 const listElement = document.querySelector(".product-list");
 const category = getParam("category");
 const dataList = new ProductList(category, dataSource, listElement);
 
-// console.log(dataSource);
-
-
-
-
 dataList.init();
 
-// onclick="sortByPrice()"
-
+// Wait for slider to be clicked to change the arranged data
 let slider = document.getElementById("sortByPrice")
-// console.log(slider)
 slider.addEventListener("change", () => {
-    console.log("hi")
-    if (slider.checked == true){
-        dataList.init(true)
-        console.log("Its clicked")
+    if (slider.checked == true) {
+      dataList.init(true)
     } else {
-        dataList.init()
-        console.log("It's unclicked")
+      dataList.init()
     }
-    
   });
-
-
-
 
 // add the header and footer to main page
 loadHeaderFooter();
