@@ -23,13 +23,14 @@ export default class ProductList {
         a.NameWithoutBrand.localeCompare(b.NameWithoutBrand)
       );
     }
-    // document.querySelector(".products>h2").innerHTML += `: ${(
-    //   this.category.charAt(0).toUpperCase() + this.category.slice(1)
-    // ).replace("-b", " B")}`;
 
+  
     document.querySelector(".products>h2").innerHTML = `Top Products: ${(
       this.category.charAt(0).toUpperCase() + this.category.slice(1)
     ).replace("-b", " B")}`;
+
+
+    document.querySelector(".product-breadcrumb").innerHTML = `${this.category.charAt(0).toUpperCase() + this.category.slice(1)} -> ${list.length}`
 
     //render the list
     this.renderList(list)
