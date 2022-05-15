@@ -641,19 +641,10 @@ footer {
 
 /* CSS for switch on product listing page */
 /* The switch - the box around the slider */
-.slider-div {
-  /* text-align: center; */
-  /* align-items: center; */
-  /* justify-content:center; */
+/* .slider-div {
 }
 .slider-elements {
-  /* align-items: center; */
-  /* text-align: center; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* text-align: center; */
-  /* align-content: center; */
-}
+} */
 
 .switch {
   position: relative;
