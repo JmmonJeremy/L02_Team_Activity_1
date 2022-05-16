@@ -9,5 +9,15 @@ const dataList = new ProductList(category, dataSource, listElement);
 
 dataList.init();
 
+// Wait for slider to be clicked to change the arranged data
+let slider = document.getElementById("sortByPrice");
+slider.addEventListener("change", () => {
+  if (slider.checked == true) {
+    dataList.init(true);
+  } else {
+    dataList.init();
+  }
+});
+
 // add the header and footer to main page
 loadHeaderFooter();

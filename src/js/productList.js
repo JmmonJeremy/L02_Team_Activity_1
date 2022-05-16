@@ -1,5 +1,5 @@
 //Used for product-listing pages
-import { loadTemplate, renderListWithTemplate, filterList } from "./utils.js";
+import { loadTemplate, renderListWithTemplate } from "./utils.js";
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {
@@ -10,16 +10,28 @@ export default class ProductList {
     this.listElement = listElement;
   }
 
-  async init() {
+  async init(isPriceSorted = false) {
     //dataSource will return a Promise...so we can use await to resolve it
-    const list = await this.dataSource.getData(this.category);
-    console.log(list);
-    //filter out unwanted items
-    const filteredList = filterList(list);
-    //set the title to the current category
-    document.querySelector(".products>h2").innerHTML += `: ${(
+    const unsortedList = await this.dataSource.getData(this.category);
+
+    // Sort the list alphabetically
+    let list = [];
+    if (isPriceSorted) {
+      list = unsortedList.sort((a, b) => a.ListPrice - b.ListPrice);
+    } else {
+      list = unsortedList.sort((a, b) =>
+        a.NameWithoutBrand.localeCompare(b.NameWithoutBrand)
+      );
+    }
+    // document.querySelector(".products>h2").innerHTML += `: ${(
+    //   this.category.charAt(0).toUpperCase() + this.category.slice(1)
+    // ).replace("-b", " B")}`;
+
+    document.querySelector(".products>h2").innerHTML = `Top Products: ${(
+
       this.category.charAt(0).toUpperCase() + this.category.slice(1)
     ).replace("-b", " B")}`;
+
     //render the list
     this.renderList(list)
       //run the quick display modal with detail button

@@ -29,7 +29,7 @@ export default class ExternalServices {
         });
         return products;
       });
-    console.log(products);
+    // console.log(products);
     return products;
   }
 
@@ -49,7 +49,7 @@ export default class ExternalServices {
         product.InCart = false;
         return product;
       });
-    console.log(product);
+    // console.log(product);
     return product;
   }
 
