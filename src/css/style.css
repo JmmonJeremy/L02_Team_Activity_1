@@ -215,6 +215,14 @@ button.resume {
   width: 100%;
 }
 
+ul.color__pick {
+  display: flex;
+  list-style: none;
+}
+
+ul.color__pick > li {
+  padding: 2px;
+}
 /* Start Newsletter styles */
 #news-signup {
   width: 80%;

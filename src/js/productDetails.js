@@ -1,7 +1,7 @@
 //used for the product-details.html page
 import { getLocalStorage, setLocalStorage, alertMessage } from "./utils.js";
 import { displayCart } from "./cart-superscript.js";
-import { loadHeaderFooter } from "./utils.js";
+import { loadHeaderFooter, loadTemplate, renderListWithTemplate } from "./utils.js";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -12,7 +12,7 @@ export default class ProductDetails {
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
-    //console.log(this.product);
+    console.log(this.product);
     //console.log(this.product.Count);
 
     this.renderProductDetails();
@@ -87,7 +87,7 @@ export default class ProductDetails {
       ".product-card__orginal-price"
     );
     let product_discount = document.querySelector(".product-card__discount");
-    let product_color = document.querySelector(".product__color");
+    let product_color = document.querySelector(".color__pick");
     let product_description = document.querySelector(".product__description");
 
     product_title.innerHTML = this.product.Brand.Name;
@@ -104,12 +104,39 @@ export default class ProductDetails {
     product_price.innerHTML += this.product.ListPrice;
 
     // This will need to be dynamic later
-    product_color.innerHTML += this.product.Colors[0].ColorName;
+    this.renderProductColors(this.product.Colors, product_color);
     product_description.innerHTML += this.product.DescriptionHtmlSimple;
 
     document
       .getElementById("addToCart")
       .setAttribute("data-id", this.product.Id);
+  }
+
+  async renderProductColors(list, listElement) {
+    listElement.innerHTML = "";
+    const colorTemplate = await loadTemplate(
+      "../partials/product-color-item-template.html"
+    );
+    renderListWithTemplate(
+      colorTemplate,
+      listElement,
+      list,
+      this.prepareTemplate
+    );
+  }
+
+  prepareTemplate(templateClone, color) {
+    console.log(color);
+    const color_img = templateClone.querySelector("img")
+    color_img.src = color.ColorChipImageSrc;
+    color_img.alt = color.ColorName;
+    
+    color_img.onclick = () => {
+      let product_img = document.querySelector(".product-detail>img");
+      product_img.src = color.ColorPreviewImageSrc;
+    }
+    
+    return templateClone;
   }
 }
 
