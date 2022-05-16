@@ -5,7 +5,7 @@ const closebtn = document.querySelector(".close-btn");
 const websiteCookie = document.cookie.indexOf("SleepOutside=");
 
 
-// Popup Screen in 3 seconds after the page is loaded
+// Popup Screen in 10 seconds after the page is loaded
 window.addEventListener("load", () => {
     setTimeout(() => {
         popupScreen.classList.add("active");
@@ -14,6 +14,7 @@ window.addEventListener("load", () => {
         popupBlur.classList.add("active");
     }, 10000);
 });
+
 
 
 // Close the popup Screen
