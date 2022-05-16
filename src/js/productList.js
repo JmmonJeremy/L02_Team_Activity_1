@@ -28,6 +28,7 @@ export default class ProductList {
     // ).replace("-b", " B")}`;
 
     document.querySelector(".products>h2").innerHTML = `Top Products: ${(
+
       this.category.charAt(0).toUpperCase() + this.category.slice(1)
     ).replace("-b", " B")}`;
 
