@@ -389,7 +389,9 @@ button.resume {
   margin-left: 15px;
 }
 
-.container__origin-price, .product-card__discount, .product-card__price  {
+.container__origin-price,
+.product-card__discount,
+.product-card__price {
   text-align: center;
 }
 
