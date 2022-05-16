@@ -196,6 +196,12 @@ button.resume {
   margin: 0.5em 0;
 }
 
+.product__color {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+
 .card__brand {
   font-size: var(--small-font);
 }
