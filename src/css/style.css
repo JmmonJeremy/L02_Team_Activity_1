@@ -54,6 +54,11 @@ header {
 .hero {
   position: relative;
 }
+
+.hero .banner {
+  width: 100%;
+}
+
 .hero .logo {
   position: absolute;
   left: calc(50% - 60px);
@@ -105,6 +110,7 @@ button {
   border: 0;
   border-radius: 0.75rem;
   font-size: var(--large-font);
+  cursor: pointer;
 }
 
 /*********************  START OF ADDED CSS TO ANIMATE THE CART AND BUTTON WHEN CLICKED   **************************/
@@ -174,7 +180,7 @@ button.resume {
 .product-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style-type: none;
   padding: 0;
 }
@@ -189,6 +195,9 @@ button.resume {
   padding: 0.5em;
   border: 1px solid var(--light-grey);
   max-width: 250px;
+}
+.product-card img {
+  margin-left: 15%;
 }
 .product-card h2,
 .product-card h3,
@@ -281,6 +290,10 @@ button.resume {
   grid-column: 2;
   margin-left: -80px; /* Changed position */
 }
+
+.checkout {
+  text-decoration: none;
+}
 /**************** END ADDED TO SYLE THE REMOVE FROM CART IMAGE ETC *****************/
 
 .item-quantity {
@@ -332,11 +345,15 @@ button.resume {
 
 /******************* START ADDED CSS FOR THE HOME PAGE 4 PRODUCT ICONS ********************************/
 .product-categories {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
   list-style-type: none;
   max-width: 80%;
-  margin: auto;
+}
+
+.product-categories img {
+  width: 100px;
 }
 
 .product-categories li {
@@ -370,6 +387,10 @@ button.resume {
 .container__origin-price {
   text-shadow: 1px 1px 10px white, -1px -1px 10px white;
   margin-left: 15px;
+}
+
+.container__origin-price, .product-card__discount, .product-card__price  {
+  text-align: center;
 }
 
 .product-card__orginal-price {
@@ -627,6 +648,10 @@ p.alert {
   .cart-card {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
+  }
+  .product-detail img {
+    width: 80%;
+    margin-left: 10%;
   }
 }
 
