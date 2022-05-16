@@ -1,7 +1,11 @@
 //used for the product-details.html page
 import { getLocalStorage, setLocalStorage, alertMessage } from "./utils.js";
 import { displayCart } from "./cart-superscript.js";
-import { loadHeaderFooter, loadTemplate, renderListWithTemplate } from "./utils.js";
+import {
+  loadHeaderFooter,
+  loadTemplate,
+  renderListWithTemplate,
+} from "./utils.js";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -12,7 +16,7 @@ export default class ProductDetails {
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
-    console.log(this.product);
+    // console.log(this.product);
     //console.log(this.product.Count);
 
     this.renderProductDetails();
@@ -73,7 +77,7 @@ export default class ProductDetails {
     //display the page with any changes
     displayCart();
     //display an alert to let the user know an item was added to the cart
-    alertMessage("Item added to Cart! ", "added-item")
+    alertMessage("Item added to Cart! ", "added-item");
   }
 
   renderProductDetails() {
@@ -94,10 +98,16 @@ export default class ProductDetails {
     product_name.innerHTML = this.product.NameWithoutBrand;
     product_img.setAttribute("alt", this.product.NameWithoutBrand);
     product_img.setAttribute("src", this.product.Images.PrimaryLarge);
-    discount_flag.alt = "discount flag star"
+    discount_flag.alt = "discount flag star";
     discount_flag.src = "../images/discount.svg";
-    discount_percent.innerHTML = 100 - Math.ceil(((this.product.ListPrice / this.product.SuggestedRetailPrice)) * 100);
-    product_original_price.innerHTML += this.product.SuggestedRetailPrice.toFixed(2);
+    discount_percent.innerHTML =
+      100 -
+      Math.ceil(
+        (this.product.ListPrice / this.product.SuggestedRetailPrice) * 100
+      );
+    product_original_price.innerHTML += this.product.SuggestedRetailPrice.toFixed(
+      2
+    );
     product_discount.innerHTML +=
       (this.product.SuggestedRetailPrice - this.product.ListPrice).toFixed(2) +
       "!!!";
@@ -127,15 +137,15 @@ export default class ProductDetails {
 
   prepareTemplate(templateClone, color) {
     console.log(color);
-    const color_img = templateClone.querySelector("img")
+    const color_img = templateClone.querySelector("img");
     color_img.src = color.ColorChipImageSrc;
     color_img.alt = color.ColorName;
-    
+
     color_img.onclick = () => {
       let product_img = document.querySelector(".product-detail>img");
       product_img.src = color.ColorPreviewImageSrc;
-    }
-    
+    };
+
     return templateClone;
   }
 }

@@ -11,14 +11,12 @@ document
   .addEventListener("blur", register.additionsTotal.bind(register));
 // listen for the submit button
 
-document
-  .getElementById("checkedout")
-  .addEventListener("click", (ev) => {
-    ev.preventDefault();
-    let orderForm = document.forms[0];
-    let statusCheck = orderForm.checkValidity();
-    orderForm.reportValidity();
-    if(statusCheck) {
+document.getElementById("checkedout").addEventListener("click", (ev) => {
+  ev.preventDefault();
+  let orderForm = document.forms[0];
+  let statusCheck = orderForm.checkValidity();
+  orderForm.reportValidity();
+  if (statusCheck) {
     register.checkout();
-    }
-  });
+  }
+});

@@ -365,18 +365,18 @@ ul.color__pick > li {
 .product-card__discount {
   color: red;
   text-decoration: solid 3px underline;
-  text-shadow:1px 1px 10px white, 1px 1px 10px white;
+  text-shadow: 1px 1px 10px white, 1px 1px 10px white;
 }
 
 .product-card__price {
   color: green;
   text-decoration: solid 3px underline;
-  text-shadow:1px 1px 10px var(--primary-color), 1px 1px 10px #ffff00;
+  text-shadow: 1px 1px 10px var(--primary-color), 1px 1px 10px #ffff00;
   margin-left: 6px;
 }
 
 .container__origin-price {
-  text-shadow:1px 1px 10px white, -1px -1px 10px white;
+  text-shadow: 1px 1px 10px white, -1px -1px 10px white;
   margin-left: 15px;
 }
 
@@ -385,29 +385,28 @@ ul.color__pick > li {
 }
 
 div.pricing-container {
-
   border: 5px solid rgb(255, 102, 0);
-  border-radius: .5rem;
-  background-color: rgba(255, 255, 0, .2);
-  width:fit-content;
-  padding: 0 1rem; 
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 0, 0.2);
+  width: fit-content;
+  padding: 0 1rem;
   margin-top: 20px;
- }
- 
- .descriptor-label {
-   font-weight: 600;  
- }
+}
+
+.descriptor-label {
+  font-weight: 600;
+}
 
 /**************************** END OF ADDED FOR DISCOUNT EMPHESIS **************************/
 
 /************** START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS PAGE*********************/
 img#product-img {
-  position: relative; 
+  position: relative;
 }
 div.flag-container {
   position: absolute;
   top: 25%;
-  left: 35%;  
+  left: 35%;
 }
 img.discount-flag {
   position: relative;
@@ -421,7 +420,7 @@ p.flag-amount {
   font-weight: 900;
   font-size: 1.75rem;
   text-align: center;
-  line-height: 1.1;  
+  line-height: 1.1;
 }
 
 /* Changes specificall for the Modal Pop-up */
@@ -429,12 +428,12 @@ p.flag-amount {
 
 /**** START OF MODAL POP-UP FOR THE PRODUCT-LISTING PAGE'S DETAILS QUICK ACCESS BUTTON ****/
 /* Changes to the Discount Flag Placement */
-div.flag-container.pop-up{ 
+div.flag-container.pop-up {
   top: 47%;
-  left: 38%;  
+  left: 38%;
 }
-p.flag-amount.pop-up { 
-  top: 17%;  
+p.flag-amount.pop-up {
+  top: 17%;
 }
 img#product-img.pop-up {
   width: 50%;
@@ -450,8 +449,8 @@ img#product-img.pop-up {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
@@ -483,13 +482,11 @@ img#product-img.pop-up {
 button.details-btn {
   margin: -30px 6px 0 auto;
   padding: 3px 10px;
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
 /*************************** END OF CSS ADDED FOR DETAILS QUICK ACCESS BUTTON ************************/
- 
 
 /************** START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS PAGE*********************/
-
 
 /*************************** START OF ADDED FOR CHECKOUT BUTTON ********************************/
 button.cart-checkout {
@@ -621,9 +618,9 @@ p.alert {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
- }
- /**************************** END OF ALERT STYLING ********************************************/
- 
+}
+/**************************** END OF ALERT STYLING ********************************************/
+
 /**************************** END OF SMALL SIZE SCREEN CSS ********************************************/
 
 /**************************** START OF MEDIUM SIZE SCREEN CSS *****************************************/
