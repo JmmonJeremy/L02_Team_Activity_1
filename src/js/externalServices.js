@@ -2,7 +2,7 @@
 const baseURL = "http://157.201.228.93:2992/";
 
 function convertToJson(res) {
-  const jsonResponse = res.json()
+  const jsonResponse = res.json();
   if (res.ok) {
     return jsonResponse;
   } else {

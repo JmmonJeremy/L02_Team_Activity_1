@@ -120,24 +120,23 @@ export function alertMessage(message, id, scroll = true) {
   alert.className = "alert";
   //add id for event listener
   //add alert message
-  alert.innerHTML = message + "<span class='x-out' id=" + id + ">X</span>" 
+  alert.innerHTML = message + "<span class='x-out' id=" + id + ">X</span>";
   // add a listener to the alert to see if they clicked on the X
   // if they did then remove the child
-  alert.addEventListener("click", () => {    
-      main.removeChild(alert);
-    })
-   // add the alert to the top of main
+  alert.addEventListener("click", () => {
+    main.removeChild(alert);
+  });
+  // add the alert to the top of main
   const main = document.querySelector("main");
-  main.prepend(alert); 
+  main.prepend(alert);
   // make sure they see the alert by scrolling to the top of the window
   //we may not always want to do this...so default to scroll=true, but allow it to be passed in and overridden.
-  if(scroll) {
-    window.scrollTo(0,0);
+  if (scroll) {
+    window.scrollTo(0, 0);
   }
- 
 }
 
 export function removeAllAlerts() {
   const alerts = document.querySelectorAll(".alert");
-  alerts.forEach(alert => document.querySelector("main").removeChild(alert));
+  alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
