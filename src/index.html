@@ -6,8 +6,43 @@
     <title>Sleep Outside | Home</title>
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/main.js" type="module" defer></script>
+    <script src="./js/popup.js" defer></script>
   </head>
   <body>
+
+    <div class="popup-blur">
+    <div class="popup-screen">
+      <div class="popup-box">
+        <i class="close-btn">X</i>
+        <h2>Don't Forget to Subscribe!</h2>
+        <form name="news-signup" id="news-signup">
+          <div class="newsletter-container">
+            <div class="newsletter-fields">
+              <input
+                type="text"
+                autofocus
+                placeholder="Name"
+                name="name"
+                maxlength="50"
+                required
+              />
+              <input
+                type="email"
+                autofocus
+                placeholder="Email"
+                name="email"
+                maxlength="50"
+                required
+              />
+            </div>
+            <div>
+              <button id="submit">Subscribe</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
     <header class="divider" id="main-header"></header>
     <main class="divider">
       <div class="hero">
