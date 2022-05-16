@@ -92,8 +92,13 @@ export default class ShoppingCart {
 
   displayCartTotal(cartItems) {
     let cart_total = document.querySelector(".cart-footer");
+    let zero_cart = document.querySelector(".zero-cart");
+    let zero_cart1 = document.querySelector(".zero-cart1");
+    let checkout = document.querySelector(".checkout");
+
     if (cartItems.length > 0) {
       cart_total.classList.remove("hide");
+      checkout.classList.remove("hide");
       // Update the total when item is removed
       cart_total.firstChild.innerHTML = "Total:";
       cart_total.firstChild.innerHTML = `${
@@ -101,8 +106,16 @@ export default class ShoppingCart {
       } $${this.getCartTotal(cartItems)}`;
     } else {
       cart_total.classList.add("hide");
+      checkout.classList.remove("hide");
     }
+
+    if (cartItems.length == 0) {
+      zero_cart.classList.remove("hide");
+      zero_cart1.classList.remove("hide");
+    } else {
+      zero_cart.classList.add("hide");
   }
+}
 
   getCartTotal(cart) {
     let quantity = 0;
