@@ -27,7 +27,7 @@ function handleForm(ev) {
     method: "POST",
   });
 
-  console.log(req.json());
+  // console.log(req.json());
   alert("Thanks for subscribing!");
   newsLetterForm.reset();
 

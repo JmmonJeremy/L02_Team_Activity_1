@@ -65,7 +65,7 @@ function convertToText(res) {
       throw new Error("Bad Response");
     }
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 }
 
@@ -103,15 +103,15 @@ export async function loadHeaderFooter(isHomePath) {
   displayCart();
 }
 
-export function filterList(list) {
-  const filteredList = [];
-  list.forEach((tent) => {
-    if (tent.Id != "989CG" && tent.Id != "880RT") {
-      filteredList.push(tent);
-    }
-  });
-  return filteredList;
-}
+// export function filterList(list) {
+//   const filteredList = [];
+//   list.forEach((tent) => {
+//     if (tent.Id != "989CG" && tent.Id != "880RT") {
+//       filteredList.push(tent);
+//     }
+//   });
+//   return filteredList;
+// }
 
 export function alertMessage(message, id, scroll = true) {
   //create element to hold the alert

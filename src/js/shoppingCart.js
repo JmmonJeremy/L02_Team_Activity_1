@@ -72,7 +72,7 @@ export default class ShoppingCart {
 
         //decrease the Count in the object of the list identified
         list[itemId].Count--;
-        console.log(list[itemId]);
+        // console.log(list[itemId]);
         //if the Count is below 1, remove it from the list
         if (list[itemId].Count < 1) {
           list.splice(itemId, 1);
