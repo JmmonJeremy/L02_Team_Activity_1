@@ -12,6 +12,7 @@ export default class ProductList {
 
   async init(isPriceSorted = false) {
     //dataSource will return a Promise...so we can use await to resolve it
+
     const unsortedList = await this.dataSource.getData(this.category);
 
     // Sort the list alphabetically
@@ -23,14 +24,14 @@ export default class ProductList {
         a.NameWithoutBrand.localeCompare(b.NameWithoutBrand)
       );
     }
-    // document.querySelector(".products>h2").innerHTML += `: ${(
-    //   this.category.charAt(0).toUpperCase() + this.category.slice(1)
-    // ).replace("-b", " B")}`;
 
     document.querySelector(".products>h2").innerHTML = `Top Products: ${(
 
       this.category.charAt(0).toUpperCase() + this.category.slice(1)
     ).replace("-b", " B")}`;
+
+
+    document.querySelector(".product-breadcrumb").innerHTML = `${this.category.charAt(0).toUpperCase() + this.category.slice(1)} (${list.length} items)`
 
     //render the list
     this.renderList(list)

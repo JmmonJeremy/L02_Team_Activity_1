@@ -16,10 +16,21 @@ export default class ProductDetails {
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
+
     // console.log(this.product);
+
     //console.log(this.product.Count);
 
     this.renderProductDetails();
+
+    // Put the path into the breadcrumbs
+    document.querySelector(".product-breadcrumb")
+      .innerHTML = `${this.product.Category.charAt(0).toUpperCase() + this.product.Category.slice(1)}`
+      let hrefPath = `../product-listing?category=${this.product.Category}`;
+    document.querySelector(".product-breadcrumb").href = hrefPath;
+    // product-listing?category=hammocks
+
+
 
     // code to add items to the cart
     let addButt = document.getElementById("addToCart");
