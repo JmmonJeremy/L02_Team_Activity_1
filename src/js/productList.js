@@ -30,7 +30,7 @@ export default class ProductList {
     ).replace("-b", " B")}`;
 
 
-    document.querySelector(".product-breadcrumb").innerHTML = `${this.category.charAt(0).toUpperCase() + this.category.slice(1)} -> ${list.length}`
+    document.querySelector(".product-breadcrumb").innerHTML = `${this.category.charAt(0).toUpperCase() + this.category.slice(1)} (${list.length} items)`
 
     //render the list
     this.renderList(list)
