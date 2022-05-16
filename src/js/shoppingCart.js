@@ -114,8 +114,8 @@ export default class ShoppingCart {
       zero_cart1.classList.remove("hide");
     } else {
       zero_cart.classList.add("hide");
+    }
   }
-}
 
   getCartTotal(cart) {
     let quantity = 0;
