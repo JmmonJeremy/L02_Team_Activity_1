@@ -24,13 +24,13 @@ export default class ProductDetails {
     this.renderProductDetails();
 
     // Put the path into the breadcrumbs
-    document.querySelector(".product-breadcrumb")
-      .innerHTML = `${this.product.Category.charAt(0).toUpperCase() + this.product.Category.slice(1)}`
-      let hrefPath = `../product-listing?category=${this.product.Category}`;
+    document.querySelector(".product-breadcrumb").innerHTML = `${
+      this.product.Category.charAt(0).toUpperCase() +
+      this.product.Category.slice(1)
+    }`;
+    let hrefPath = `../product-listing?category=${this.product.Category}`;
     document.querySelector(".product-breadcrumb").href = hrefPath;
     // product-listing?category=hammocks
-
-
 
     // code to add items to the cart
     let addButt = document.getElementById("addToCart");

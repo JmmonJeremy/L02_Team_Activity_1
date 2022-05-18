@@ -38,7 +38,7 @@ export default class Admin {
     //grab the button for the form;
     let loginBttn = document.getElementById("login");
 
-    console.log(loginBttn);
+    // console.log(loginBttn);
     //grab the value entered into the email box
 
     // console.log(email);
@@ -46,7 +46,7 @@ export default class Admin {
     // console.log(password);
     //add a click event listener that runs the login method
     loginBttn.addEventListener("click", () => {
-      removeAllAlerts() 
+      removeAllAlerts();
       let email = document.getElementById("myEmail").value;
       let password = document.getElementById("myPassword").value;
       this.login({ email, password }, this.showOrders.bind(this));
@@ -140,8 +140,9 @@ export default class Admin {
           orderList.appendChild(clonedTemplateNode);
         }
       } catch (err) {
-        console.log(order);
-        console.log(err);
+        // console.log(order);
+        // console.log(err);
+        alertMessage(err.message, "myLogin");
       }
     });
   }

@@ -516,13 +516,15 @@ a.checkout-button-link {
   min-width: 400px;
   margin: 2em auto;
 }
-form fieldset, fieldset {
+form fieldset,
+fieldset {
   margin: 2rem 0;
   border: 2px solid var(--primary-color);
   border-radius: 10px;
   padding: 0.5rem 2%;
 }
-form legend, legend {
+form legend,
+legend {
   /* font-weight: 900; */
   font-size: 1.5rem;
   color: rgba(40, 79, 51, 0.912);
@@ -533,17 +535,18 @@ form legend, legend {
   padding: 0.25rem 1rem;
 }
 form label.top,
-form div, label.top {
+form div,
+label.top {
   display: block;
   padding-top: 1rem;
   color: var(--dark-grey);
   padding: 2px;
   font-size: 0.8rem;
 }
-form label.top input, 
-form label.top select, 
-form label.top textarea, 
-#myEmail, 
+form label.top input,
+form label.top select,
+form label.top textarea,
+#myEmail,
 #myPassword {
   -webkit-appearance: none;
   display: block;
@@ -568,12 +571,12 @@ form label.top textarea,
 /* width: 93%; */
 /* max-width: 19.85rem;  */
 /* } */
-form label.top input:required, 
-label.top input:required#myPassword, 
+form label.top input:required,
+label.top input:required#myPassword,
 label.top input:required#myEmail {
   border-left: red solid 6px;
 }
-form label.top input:required:valid, 
+form label.top input:required:valid,
 label.top input:required:valid#myEmail,
 label.top input:required:valid#myPassword {
   border-left: green solid 6px;
@@ -641,7 +644,7 @@ p.alert {
   color: white;
   border: 5px solid var(--dark-grey);
   /* outline: 5px solid var(--primary-color); */
-  padding: 20px; 
+  padding: 20px;
 }
 #background {
   background-color: var(--primary-color);
@@ -659,13 +662,13 @@ p.alert {
   background-color: var(--primary-color);
   border-top: 5px solid var(--secondary-color);
   border-bottom: 5px solid var(--secondary-color);
-  padding: 10px; 
+  padding: 10px;
 }
 #orders {
   /* width: 90%; */
   margin: 0 auto;
   outline: 5px solid var(--secondary-color);
-  border: 2px solid  var(--primary-color);
+  border: 2px solid var(--primary-color);
   border-collapse: collapse;
   /* max-width: 500px; */
 }
@@ -674,12 +677,12 @@ p.alert {
   background-color: #e3f0ff;
   background-color: var(--secondary-color);
   color: white;
-  border: 2px solid  var(--primary-color);
+  border: 2px solid var(--primary-color);
   padding: 5px;
 }
 .order-list td {
   text-align: center;
-  border: 2px solid  var(--primary-color);
+  border: 2px solid var(--primary-color);
   border-collapse: collapse;
   padding-left: 15px;
   padding-right: 15px;
@@ -693,7 +696,6 @@ p.alert {
   background-color: white;
 }
 /******************* END ADMIN ORDER LIST STYLES ********************************/
-
 
 /**************************** END OF SMALL SIZE SCREEN CSS ********************************************/
 
@@ -786,7 +788,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-
 /* CSS for product details page breadcrumbs */
 .breadcrumbs {
   padding: 10px 18px;
@@ -795,32 +796,32 @@ input:checked + .slider:before {
   text-align: center;
 }
 
-.breadcrumbs>li {
+.breadcrumbs > li {
   display: inline-block;
 }
-.breadcrumbs>li>a {
-color: var(--dark-grey);
+.breadcrumbs > li > a {
+  color: var(--dark-grey);
   text-decoration: none;
 }
 
-.breadcrumbs>li>a:hover {
+.breadcrumbs > li > a:hover {
   text-decoration: underline;
   background-color: var(--primary-color);
   padding: 0.3em;
 }
 
-.breadcrumbs li+li:before {
+.breadcrumbs li + li:before {
   padding: 4px;
   content: "/";
 }
 
 /******************** START OF MEDIUM & UP FORM CSS FOR CHECKOUT PAGE *******************************/
-form input.submitBtn {
-  /* margin: 0 0 0 2%; */
-  /* font-size: 20px; */
-  /* padding: 0.85rem 1.5rem; */
-  /* border: 0; */
-}
+/* form input.submitBtn { */
+/* margin: 0 0 0 2%; */
+/* font-size: 20px; */
+/* padding: 0.85rem 1.5rem; */
+/* border: 0; */
+/* } */
 #send2 {
   margin-left: 2%;
 }
