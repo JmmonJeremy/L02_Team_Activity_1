@@ -665,12 +665,10 @@ p.alert {
   padding: 10px;
 }
 #orders {
-  /* width: 90%; */
   margin: 0 auto;
   outline: 5px solid var(--secondary-color);
   border: 2px solid var(--primary-color);
   border-collapse: collapse;
-  /* max-width: 500px; */
 }
 #orders th {
   background-color: var(--tertiary-color);
@@ -694,6 +692,14 @@ p.alert {
 .order-list tr:nth-child(odd) {
   background-color: var(--light-grey);
   background-color: white;
+}
+#siteLogin {
+  max-width: 350px;
+  margin: auto;
+}
+
+#siteLogin button {
+  margin: .5em auto;
 }
 /******************* END ADMIN ORDER LIST STYLES ********************************/
 
@@ -814,6 +820,8 @@ input:checked + .slider:before {
   padding: 4px;
   content: "/";
 }
+
+
 
 /******************** START OF MEDIUM & UP FORM CSS FOR CHECKOUT PAGE *******************************/
 /* form input.submitBtn { */
