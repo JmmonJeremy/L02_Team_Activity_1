@@ -411,8 +411,8 @@ img#product-img {
 }
 div.flag-container {
   position: absolute;
-  top: 25%;
-  left: 35%;
+  top: 35%;
+  left: 30%;
 }
 img.discount-flag {
   position: relative;
@@ -516,13 +516,15 @@ a.checkout-button-link {
   min-width: 400px;
   margin: 2em auto;
 }
-form fieldset {
+form fieldset,
+fieldset {
   margin: 2rem 0;
   border: 2px solid var(--primary-color);
   border-radius: 10px;
   padding: 0.5rem 2%;
 }
-form legend {
+form legend,
+legend {
   /* font-weight: 900; */
   font-size: 1.5rem;
   color: rgba(40, 79, 51, 0.912);
@@ -533,7 +535,8 @@ form legend {
   padding: 0.25rem 1rem;
 }
 form label.top,
-form div {
+form div,
+label.top {
   display: block;
   padding-top: 1rem;
   color: var(--dark-grey);
@@ -542,7 +545,9 @@ form div {
 }
 form label.top input,
 form label.top select,
-form label.top textarea {
+form label.top textarea,
+#myEmail,
+#myPassword {
   -webkit-appearance: none;
   display: block;
   font-size: 1rem;
@@ -566,10 +571,14 @@ form label.top textarea {
 /* width: 93%; */
 /* max-width: 19.85rem;  */
 /* } */
-form label.top input:required {
+form label.top input:required,
+label.top input:required#myPassword,
+label.top input:required#myEmail {
   border-left: red solid 6px;
 }
-form label.top input:required:valid {
+form label.top input:required:valid,
+label.top input:required:valid#myEmail,
+label.top input:required:valid#myPassword {
   border-left: green solid 6px;
 }
 #top_line {
@@ -626,6 +635,73 @@ p.alert {
   justify-content: space-between;
 }
 /**************************** END OF ALERT STYLING ********************************************/
+
+/******************* START ADMIN ORDER LIST STYLES ********************************/
+#admin-title {
+  text-align: center;
+  font-size: 3rem;
+  background-color: var(--tertiary-color);
+  color: white;
+  border: 5px solid var(--dark-grey);
+  /* outline: 5px solid var(--primary-color); */
+  padding: 20px;
+}
+#background {
+  background-color: var(--primary-color);
+  border-top: 5px solid var(--secondary-color);
+  border-bottom: 5px solid var(--secondary-color);
+}
+#filler {
+  background-color: #2196f3;
+  background-color: rgba(240, 168, 104, 0.5);
+  border-left: 5px solid var(--secondary-color);
+  border-right: 5px solid var(--secondary-color);
+}
+#order-title {
+  text-align: center;
+  background-color: var(--primary-color);
+  border-top: 5px solid var(--secondary-color);
+  border-bottom: 5px solid var(--secondary-color);
+  padding: 10px;
+}
+#orders {
+  margin: 0 auto;
+  outline: 5px solid var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  border-collapse: collapse;
+}
+#orders th {
+  background-color: var(--tertiary-color);
+  background-color: #e3f0ff;
+  background-color: var(--secondary-color);
+  color: white;
+  border: 2px solid var(--primary-color);
+  padding: 5px;
+}
+.order-list td {
+  text-align: center;
+  border: 2px solid var(--primary-color);
+  border-collapse: collapse;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.order-list tr:nth-child(even) {
+  background-color: var(--light-grey);
+  background-color: #e3f0ff;
+}
+.order-list tr:nth-child(odd) {
+  background-color: var(--light-grey);
+  background-color: white;
+}
+#siteLogin {
+  max-width: 350px;
+  margin: auto;
+}
+
+#siteLogin button {
+  margin: 0.5em auto;
+}
+/******************* END ADMIN ORDER LIST STYLES ********************************/
 
 /**************************** END OF SMALL SIZE SCREEN CSS ********************************************/
 
@@ -718,7 +794,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-
 /* CSS for product details page breadcrumbs */
 .breadcrumbs {
   padding: 10px 18px;
@@ -727,32 +802,32 @@ input:checked + .slider:before {
   text-align: center;
 }
 
-.breadcrumbs>li {
+.breadcrumbs > li {
   display: inline-block;
 }
-.breadcrumbs>li>a {
-color: var(--dark-grey);
+.breadcrumbs > li > a {
+  color: var(--dark-grey);
   text-decoration: none;
 }
 
-.breadcrumbs>li>a:hover {
+.breadcrumbs > li > a:hover {
   text-decoration: underline;
   background-color: var(--primary-color);
   padding: 0.3em;
 }
 
-.breadcrumbs li+li:before {
+.breadcrumbs li + li:before {
   padding: 4px;
   content: "/";
 }
 
 /******************** START OF MEDIUM & UP FORM CSS FOR CHECKOUT PAGE *******************************/
-form input.submitBtn {
-  /* margin: 0 0 0 2%; */
-  /* font-size: 20px; */
-  /* padding: 0.85rem 1.5rem; */
-  /* border: 0; */
-}
+/* form input.submitBtn { */
+/* margin: 0 0 0 2%; */
+/* font-size: 20px; */
+/* padding: 0.85rem 1.5rem; */
+/* border: 0; */
+/* } */
 #send2 {
   margin-left: 2%;
 }
