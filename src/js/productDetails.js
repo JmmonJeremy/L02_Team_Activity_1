@@ -46,7 +46,18 @@ export default class ProductDetails {
       setTimeout(buttBack, 250);
     });
 
-    
+    //code to add a comment
+    const insertCommentElement = document.querySelector("#comment-section");
+    const liveComment = document.createElement("div");
+    liveComment.className = "comment-line"
+    liveComment.innerHTML = 
+    `<input>><p/> id=button-box><button type='button' id='postComment'>Post</button>
+    <button type='button' id='deleteComment'>Delete</button></div>
+    `;
+    const commentBttn = document.getElementById("comment");
+    commentBttn.addEventListener("click", () => {     
+      insertCommentElement.appendChild(liveComment);
+    })
   }
 
   addToCart() {
@@ -144,7 +155,7 @@ export default class ProductDetails {
   }
 
   prepareTemplate(templateClone, color) {
-    console.log(color);
+    // console.log(color);
     const color_img = templateClone.querySelector("img");
     color_img.src = color.ColorChipImageSrc;
     color_img.alt = color.ColorName;

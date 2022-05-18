@@ -412,8 +412,8 @@ img#product-img {
 }
 div.flag-container {
   position: absolute;
-  top: 25%;
-  left: 35%;
+  top: 35%;
+  left: 30%;
 }
 img.discount-flag {
   position: relative;
@@ -690,15 +690,33 @@ p.alert {
 /******************* END ADMIN ORDER LIST STYLES ********************************/
 
 /******************* START COMMENT ON PRODUCT STYLES ********************************/
+/* Comment paragraph element */
+.comment-line {
+  background-color: #2196f3;
+}
+
+#button-box{ 
+  background-color: #525b0f;  
+  display: inline-flex;
+ 
+}
 /* Comment Button */
 #orange-flex-container {
   display: flex;
 }
-#comment {
+#comment,
+#postComment, 
+#deleteComment{
   background-color: orange;
   padding: 8px;
- /* margin-top: -100px;
- margin-left: 300px; */
+}
+
+#postComment {
+  background-color: rgb(136, 200, 41);
+}
+
+#deleteComment {
+  background-color: rgb(206, 79, 79);
 }
 /******************* START COMMENT ON PRODUCT STYLES ********************************/
 
