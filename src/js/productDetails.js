@@ -16,11 +16,8 @@ export default class ProductDetails {
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
-
     // console.log(this.product);
-
     //console.log(this.product.Count);
-
     this.renderProductDetails();
 
     // Put the path into the breadcrumbs
@@ -29,8 +26,6 @@ export default class ProductDetails {
       let hrefPath = `../product-listing?category=${this.product.Category}`;
     document.querySelector(".product-breadcrumb").href = hrefPath;
     // product-listing?category=hammocks
-
-
 
     // code to add items to the cart
     let addButt = document.getElementById("addToCart");
@@ -43,13 +38,15 @@ export default class ProductDetails {
         getPicDiv.setAttribute("id", "cart__icon");
       }
       setTimeout(delayedEnding, 4000);
-      // code to make the add to cart button animated
+      // code to make the add to cart button animated 
       addButt.className = "enlarge";
       function buttBack() {
         addButt.className = "resume";
       }
       setTimeout(buttBack, 250);
     });
+
+    
   }
 
   addToCart() {
@@ -159,6 +156,13 @@ export default class ProductDetails {
 
     return templateClone;
   }
+
+  addComment() {
+    const insertionSpot = document.querySelector(".product-detail");
+    console.log(insertionSpot);  
+  }
 }
+
+
 
 loadHeaderFooter();
