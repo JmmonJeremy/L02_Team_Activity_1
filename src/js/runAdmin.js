@@ -1,4 +1,4 @@
-import { loadHeaderFooter, alertMessage } from "./utils.js";
+import { loadHeaderFooter } from "./utils.js";
 import Admin from "./admin.js";
 
 loadHeaderFooter();

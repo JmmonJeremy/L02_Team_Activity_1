@@ -44,7 +44,7 @@ export default class Admin {
             type="email" 
             name="email" 
             placeholder="someone@gmail.com"
-            value="user1@email.com"
+            value="user@email.com"
             title="The email must follow approved email formats."
             required
             /></label>
