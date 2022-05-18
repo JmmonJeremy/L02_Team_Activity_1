@@ -60,7 +60,8 @@ export default class Admin {
       let orders = await this.request.getOrders(this.token);
       // console.log(orders);
       //create the base HTML code that the template for the orders goes into
-      this.main.innerHTML = `<div id="filler">
+      this.main.innerHTML = `<h2 id="admin-title">Site Administration Page</h2>
+      <div id="filler">
             <h2 id="order-title">Current Orders</h2>
             <div id="background">
             <table id="orders">
@@ -148,7 +149,8 @@ export default class Admin {
   }
 }
 function loginForm() {
-  return `<div id="siteLogin">
+  return `<h2 id="admin-title">Site Administration Page</h2>
+  <div id="siteLogin">
   <fieldset>         
         <legend>Login</legend>
         <label class="top"
