@@ -6,4 +6,4 @@ loadHeaderFooter();
 let main = document.querySelector("main");
 // console.log(main);
 let admin = new Admin(main);
-admin.showLogin(main);
+admin.showLogin();

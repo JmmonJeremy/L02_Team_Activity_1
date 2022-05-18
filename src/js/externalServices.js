@@ -74,8 +74,8 @@ export default class ExternalServices {
   };
     console.log(login);
     const response = await fetch(baseURL + "login", login).then(convertToJson);
-    console.log(response);
-    console.log(response.accessToken)
+    // console.log(response);
+    // console.log(response.accessToken)
     return response.accessToken; 
   }
 

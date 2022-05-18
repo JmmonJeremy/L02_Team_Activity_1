@@ -411,8 +411,8 @@ img#product-img {
 }
 div.flag-container {
   position: absolute;
-  top: 25%;
-  left: 35%;
+  top: 35%;
+  left: 30%;
 }
 img.discount-flag {
   position: relative;
@@ -516,13 +516,13 @@ a.checkout-button-link {
   min-width: 400px;
   margin: 2em auto;
 }
-form fieldset {
+form fieldset, fieldset {
   margin: 2rem 0;
   border: 2px solid var(--primary-color);
   border-radius: 10px;
   padding: 0.5rem 2%;
 }
-form legend {
+form legend, legend {
   /* font-weight: 900; */
   font-size: 1.5rem;
   color: rgba(40, 79, 51, 0.912);
@@ -533,16 +533,18 @@ form legend {
   padding: 0.25rem 1rem;
 }
 form label.top,
-form div {
+form div, label.top {
   display: block;
   padding-top: 1rem;
   color: var(--dark-grey);
   padding: 2px;
   font-size: 0.8rem;
 }
-form label.top input,
-form label.top select,
-form label.top textarea {
+form label.top input, 
+form label.top select, 
+form label.top textarea, 
+#myEmail, 
+#myPassword {
   -webkit-appearance: none;
   display: block;
   font-size: 1rem;
@@ -566,10 +568,14 @@ form label.top textarea {
 /* width: 93%; */
 /* max-width: 19.85rem;  */
 /* } */
-form label.top input:required {
+form label.top input:required, 
+label.top input:required#myPassword, 
+label.top input:required#myEmail {
   border-left: red solid 6px;
 }
-form label.top input:required:valid {
+form label.top input:required:valid, 
+label.top input:required:valid#myEmail,
+label.top input:required:valid#myPassword {
   border-left: green solid 6px;
 }
 #top_line {
