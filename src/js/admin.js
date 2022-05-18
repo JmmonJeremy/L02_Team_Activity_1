@@ -34,7 +34,7 @@ export default class Admin {
     //fill in the res of the form's HTML
     // loginForm.innerHTML = ;
     //append the form to the page
-    this.main.innerHTML += loginForm(); //(loginForm);
+    this.main.innerHTML = loginForm(); //(loginForm);
     //grab the button for the form;
     let loginBttn = document.getElementById("login");
 
@@ -60,7 +60,7 @@ export default class Admin {
       let orders = await this.request.getOrders(this.token);
       // console.log(orders);
       //create the base HTML code that the template for the orders goes into
-      this.main.innerHTML += `<div id="filler">
+      this.main.innerHTML = `<div id="filler">
             <h2 id="order-title">Current Orders</h2>
             <div id="background">
             <table id="orders">
