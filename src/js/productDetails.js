@@ -110,7 +110,7 @@ export default class ProductDetails {
         //  console.log(commentLine.innerText);
         //do not post empty comments
         if (commentLine.innerText !== "") {
-          console.log("I'm posting!");
+          // console.log("I'm posting!");
           //set variable equal to the text of the post
           let post = commentLine.innerText;
           //set a variable equal to the comment number
@@ -234,7 +234,7 @@ export default class ProductDetails {
       .setAttribute("data-id", this.product.Id);
 
     const commentedProduct = document.querySelector("h2.divider").innerHTML;
-    console.log(commentedProduct);
+    // console.log(commentedProduct);
     let storageTest = getLocalStorage("comments for: " + commentedProduct);
     if (Array.isArray(storageTest)) {
       this.commentsList = storageTest;
