@@ -36,7 +36,7 @@ export default class ProductList {
     //render the list
     this.renderList(list)
       //run the quick display modal with detail button
-      .then((html) => this.runModal());
+      .then((res) => this.runModal());
   }
 
   async renderList(list) {
@@ -60,7 +60,8 @@ export default class ProductList {
     templateClone.querySelector(".card__name").innerHTML =
       product.NameWithoutBrand;
     //repeated in modal pop-up
-    templateClone.querySelector(".base_discount-flag").alt = "discount flag star";
+    templateClone.querySelector(".base_discount-flag").alt =
+      "discount flag star";
     templateClone.querySelector(".base_discount-flag").src =
       "../images/discount.svg";
     templateClone.querySelector(".base_flag-percent").innerHTML =

@@ -370,7 +370,8 @@ ul.color__pick > li {
 
 /**************************** START OF ADDED FOR DISCOUNT EMPHESIS **************************/
 .product-card__discount,
-.base__discount { /*PRODUCT-LISTING PAGE*/
+.base__discount {
+  /*PRODUCT-LISTING PAGE*/
   color: red;
   text-decoration: solid 3px underline;
   text-shadow: 1px 1px 10px white, 1px 1px 10px white;
@@ -389,7 +390,8 @@ ul.color__pick > li {
 }
 
 .product-card__orginal-price,
-.base__orginal-price {  /*PRODUCT-LISTING PAGE*/
+.base__orginal-price {
+  /*PRODUCT-LISTING PAGE*/
   text-decoration: line-through;
 }
 
@@ -409,7 +411,7 @@ div.pricing-container {
 /**************************** END OF ADDED FOR DISCOUNT EMPHESIS **************************/
 
 /******* START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS & PRODUCT lISTING PAGE******/
-img#product-img{
+img#product-img {
   position: relative;
 }
 
@@ -419,7 +421,8 @@ div.flag-container {
   left: 30%;
 }
 
-div.base_flag-container {  /*PRODUCT-LISTING PAGE*/
+div.base_flag-container {
+  /*PRODUCT-LISTING PAGE*/
   margin-left: 120px;
   margin-top: -180px;
 }
@@ -429,9 +432,9 @@ img.discount-flag {
   width: 100%;
 }
 
-img.base_discount-flag {  /*PRODUCT-LISTING PAGE*/
+img.base_discount-flag {
+  /*PRODUCT-LISTING PAGE*/
   width: 100px;
-
 }
 
 p.flag-amount {
@@ -445,7 +448,8 @@ p.flag-amount {
   line-height: 1.1;
 }
 
-p.base_flag-amount {  /*PRODUCT-LISTING PAGE*/
+p.base_flag-amount {
+  /*PRODUCT-LISTING PAGE*/
   margin-left: 33px;
   margin-top: -78px;
   padding-bottom: 100px;
