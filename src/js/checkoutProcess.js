@@ -102,7 +102,6 @@ export default class CheckoutProcess {
         alertMessage(errMessage[message], "main-header");
       }
       // console.log(err);
-
     }
   }
 }

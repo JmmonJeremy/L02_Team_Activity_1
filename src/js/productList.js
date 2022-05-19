@@ -26,12 +26,12 @@ export default class ProductList {
     }
 
     document.querySelector(".products>h2").innerHTML = `Top Products: ${(
-
       this.category.charAt(0).toUpperCase() + this.category.slice(1)
     ).replace("-b", " B")}`;
 
-
-    document.querySelector(".product-breadcrumb").innerHTML = `${this.category.charAt(0).toUpperCase() + this.category.slice(1)} (${list.length} items)`
+    document.querySelector(".product-breadcrumb").innerHTML = `${
+      this.category.charAt(0).toUpperCase() + this.category.slice(1)
+    } (${list.length} items)`;
 
     //render the list
     this.renderList(list)
@@ -90,6 +90,13 @@ export default class ProductList {
       product.Reviews.ReviewCount;
     templateClone.querySelector(".product__ratings").innerHTML +=
       product.Reviews.AverageRating;
+    let comment = templateClone.getElementById("comment");
+    console.log(comment);
+    //add link to the comments
+    comment.addEventListener("click", () => {
+      if (product.Id)
+        location.href = `../product_pages/product-details.html?product=${product.Id}`;
+    });
     return templateClone;
   }
 

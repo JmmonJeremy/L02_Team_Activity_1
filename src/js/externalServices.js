@@ -69,14 +69,14 @@ export default class ExternalServices {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-    },
-    body: JSON.stringify(creds),
-  };
+      },
+      body: JSON.stringify(creds),
+    };
     console.log(login);
     const response = await fetch(baseURL + "login", login).then(convertToJson);
     console.log(response);
-    console.log(response.accessToken)
-    return response.accessToken; 
+    console.log(response.accessToken);
+    return response.accessToken;
   }
 
   async getOrders(token) {
@@ -84,12 +84,11 @@ export default class ExternalServices {
     const options = {
       method: "GET",
       headers: {
-        "Authorization": `Bearer ${token}`,     
-      },     
+        Authorization: `Bearer ${token}`,
+      },
     };
     let response = await fetch(baseURL + "orders", options).then(convertToJson);
     console.log(response);
-    return response; 
+    return response;
   }
 }
-
