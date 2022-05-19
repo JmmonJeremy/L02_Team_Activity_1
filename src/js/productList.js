@@ -59,8 +59,19 @@ export default class ProductList {
     templateClone.querySelector(".card__brand").innerHTML = product.Brand.Name;
     templateClone.querySelector(".card__name").innerHTML =
       product.NameWithoutBrand;
-    templateClone.querySelector(".product-card__price").innerHTML +=
-      product.ListPrice;
+    //repeated in modal pop-up
+    templateClone.querySelector(".base_discount-flag").alt = "discount flag star";
+    templateClone.querySelector(".base_discount-flag").src =
+      "../images/discount.svg";
+    templateClone.querySelector(".base_flag-percent").innerHTML =
+      100 - Math.ceil((product.ListPrice / product.SuggestedRetailPrice) * 100);
+    templateClone.querySelector(
+      ".base__orginal-price"
+    ).innerHTML += product.SuggestedRetailPrice.toFixed(2);
+    templateClone.querySelector(".base__discount").innerHTML +=
+      (product.SuggestedRetailPrice - product.ListPrice).toFixed(2) + "!!!";
+    templateClone.querySelector(".base-highlight").innerHTML +=
+      product.FinalPrice;
     //code for the modal pop-up of product details from detail button
     templateClone.querySelector(".product-detail>h3").innerHTML =
       product.Brand.Name;

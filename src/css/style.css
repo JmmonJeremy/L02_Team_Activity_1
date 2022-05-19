@@ -369,7 +369,8 @@ ul.color__pick > li {
 /******************* END ADDED CSS FOR THE HOME PAGE 4 PRODUCT ICONS ********************************/
 
 /**************************** START OF ADDED FOR DISCOUNT EMPHESIS **************************/
-.product-card__discount {
+.product-card__discount,
+.base__discount { /*PRODUCT-LISTING PAGE*/
   color: red;
   text-decoration: solid 3px underline;
   text-shadow: 1px 1px 10px white, 1px 1px 10px white;
@@ -387,7 +388,8 @@ ul.color__pick > li {
   margin-left: 15px;
 }
 
-.product-card__orginal-price {
+.product-card__orginal-price,
+.base__orginal-price {  /*PRODUCT-LISTING PAGE*/
   text-decoration: line-through;
 }
 
@@ -406,19 +408,32 @@ div.pricing-container {
 
 /**************************** END OF ADDED FOR DISCOUNT EMPHESIS **************************/
 
-/************** START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS PAGE*********************/
-img#product-img {
+/******* START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS & PRODUCT lISTING PAGE******/
+img#product-img{
   position: relative;
 }
+
 div.flag-container {
   position: absolute;
   top: 35%;
   left: 30%;
 }
+
+div.base_flag-container {  /*PRODUCT-LISTING PAGE*/
+  margin-left: 120px;
+  margin-top: -180px;
+}
+
 img.discount-flag {
   position: relative;
   width: 100%;
 }
+
+img.base_discount-flag {  /*PRODUCT-LISTING PAGE*/
+  width: 100px;
+
+}
+
 p.flag-amount {
   position: absolute;
   top: 9%;
@@ -430,8 +445,22 @@ p.flag-amount {
   line-height: 1.1;
 }
 
-/* Changes specificall for the Modal Pop-up */
-/************** START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS PAGE*********************/
+p.base_flag-amount {  /*PRODUCT-LISTING PAGE*/
+  margin-left: 33px;
+  margin-top: -78px;
+  padding-bottom: 100px;
+  color: white;
+  font-weight: 700;
+}
+/******* END OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS & PRODUCT lISTING PAGE******/
+
+/*************************** START OF CSS ADDED FOR DETAILS QUICK ACCESS BUTTON ************************/
+button.details-btn {
+  margin: -25px 6px 0 auto;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+}
+/*************************** END OF CSS ADDED FOR DETAILS QUICK ACCESS BUTTON ************************/
 
 /**** START OF MODAL POP-UP FOR THE PRODUCT-LISTING PAGE'S DETAILS QUICK ACCESS BUTTON ****/
 /* Changes to the Discount Flag Placement */
@@ -483,17 +512,7 @@ img#product-img.pop-up {
   text-decoration: none;
   cursor: pointer;
 }
-/**** START OF MODAL POP-UP FOR THE PRODUCT-LISTING PAGE'S DETAILS QUICK ACCESS BUTTON ****/
-
-/*************************** START OF CSS ADDED FOR DETAILS QUICK ACCESS BUTTON ************************/
-button.details-btn {
-  margin: -30px 6px 0 auto;
-  padding: 3px 10px;
-  font-size: 0.75rem;
-}
-/*************************** END OF CSS ADDED FOR DETAILS QUICK ACCESS BUTTON ************************/
-
-/************** START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS PAGE*********************/
+/**** END OF MODAL POP-UP FOR THE PRODUCT-LISTING PAGE'S DETAILS QUICK ACCESS BUTTON ****/
 
 /*************************** START OF ADDED FOR CHECKOUT BUTTON ********************************/
 button.cart-checkout {
