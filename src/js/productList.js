@@ -91,7 +91,7 @@ export default class ProductList {
     templateClone.querySelector(".product__ratings").innerHTML +=
       product.Reviews.AverageRating;
     let comment = templateClone.getElementById("comment");
-    console.log(comment);
+    // console.log(comment);
     //add link to the comments
     comment.addEventListener("click", () => {
       if (product.Id)
