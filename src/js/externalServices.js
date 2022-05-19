@@ -72,15 +72,15 @@ export default class ExternalServices {
       },
       body: JSON.stringify(creds),
     };
-    console.log(login);
+    // console.log(login);
     const response = await fetch(baseURL + "login", login).then(convertToJson);
-    console.log(response);
-    console.log(response.accessToken);
+    // console.log(response);
+    // console.log(response.accessToken)
     return response.accessToken;
   }
 
   async getOrders(token) {
-    console.log(token);
+    // console.log(token);
     const options = {
       method: "GET",
       headers: {
@@ -88,7 +88,7 @@ export default class ExternalServices {
       },
     };
     let response = await fetch(baseURL + "orders", options).then(convertToJson);
-    console.log(response);
+    // console.log(response);
     return response;
   }
 }

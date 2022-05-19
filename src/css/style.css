@@ -517,13 +517,15 @@ a.checkout-button-link {
   min-width: 400px;
   margin: 2em auto;
 }
-form fieldset {
+form fieldset,
+fieldset {
   margin: 2rem 0;
   border: 2px solid var(--primary-color);
   border-radius: 10px;
   padding: 0.5rem 2%;
 }
-form legend {
+form legend,
+legend {
   /* font-weight: 900; */
   font-size: 1.5rem;
   color: rgba(40, 79, 51, 0.912);
@@ -534,7 +536,8 @@ form legend {
   padding: 0.25rem 1rem;
 }
 form label.top,
-form div {
+form div,
+label.top {
   display: block;
   padding-top: 1rem;
   color: var(--dark-grey);
@@ -543,7 +546,9 @@ form div {
 }
 form label.top input,
 form label.top select,
-form label.top textarea {
+form label.top textarea,
+#myEmail,
+#myPassword {
   -webkit-appearance: none;
   display: block;
   font-size: 1rem;
@@ -567,10 +572,14 @@ form label.top textarea {
 /* width: 93%; */
 /* max-width: 19.85rem;  */
 /* } */
-form label.top input:required {
+form label.top input:required,
+label.top input:required#myPassword,
+label.top input:required#myEmail {
   border-left: red solid 6px;
 }
-form label.top input:required:valid {
+form label.top input:required:valid,
+label.top input:required:valid#myEmail,
+label.top input:required:valid#myPassword {
   border-left: green solid 6px;
 }
 #top_line {
@@ -657,12 +666,10 @@ p.alert {
   padding: 10px;
 }
 #orders {
-  /* width: 90%; */
   margin: 0 auto;
   outline: 5px solid var(--secondary-color);
   border: 2px solid var(--primary-color);
   border-collapse: collapse;
-  /* max-width: 500px; */
 }
 #orders th {
   background-color: var(--tertiary-color);
@@ -687,7 +694,10 @@ p.alert {
   background-color: var(--light-grey);
   background-color: white;
 }
-/******************* END ADMIN ORDER LIST STYLES ********************************/
+#siteLogin {
+  max-width: 350px;
+  margin: auto;
+}
 
 /******************* START COMMENT ON PRODUCT STYLES ********************************/
 /* div around comment and buttons for positioning */
@@ -748,6 +758,10 @@ p.alert {
   border: 1px solid black;
 }
 /******************* START COMMENT ON PRODUCT STYLES ********************************/
+#siteLogin button {
+  margin: 0.5em auto;
+}
+/******************* END ADMIN ORDER LIST STYLES ********************************/
 
 /**************************** END OF SMALL SIZE SCREEN CSS ********************************************/
 
@@ -868,12 +882,12 @@ input:checked + .slider:before {
 }
 
 /******************** START OF MEDIUM & UP FORM CSS FOR CHECKOUT PAGE *******************************/
-form input.submitBtn {
-  /* margin: 0 0 0 2%; */
-  /* font-size: 20px; */
-  /* padding: 0.85rem 1.5rem; */
-  /* border: 0; */
-}
+/* form input.submitBtn { */
+/* margin: 0 0 0 2%; */
+/* font-size: 20px; */
+/* padding: 0.85rem 1.5rem; */
+/* border: 0; */
+/* } */
 #send2 {
   margin-left: 2%;
 }
