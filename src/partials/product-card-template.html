@@ -1,16 +1,35 @@
-<!-- Listing of all the products in a category -->
+<!-- Listing of all the products in a category used in product-details page-->
 <li class="product-card">
   <a href="../product_pages/product-details.html?product=">
-    <img src="" alt="Image of" />
-    <h3 class="card__brand"></h3>
-    <h2 class="card__name"></h2>
+    <img src="" alt="Image of" class="base_product-img" />
+    <div class="base_flag-container">
+      <img class="base_discount-flag" />
+      <p class="base_flag-amount">
+        <span class="base_flag-percent">50</span>%<br />Off!
+      </p>
+    </div>
   </a>
-  <p class="product-card__price">$</p>
+  <h3 class="card__brand"></h3>
   <!-- Trigger/Open The Modal -->
   <button type="button" class="details-btn">Details</button>
-  <!-- The Modal -->
+  <h2 class="card__name"></h2>
+  <div class="pricing-container">
+    <u
+      ><p class="container__origin-price">
+        Originally: <span class="base__orginal-price">$</span>
+      </p></u
+    >
+    <p class="base__discount">Discounted: $</p>
+    <p class="product-card__price">
+      Final Price: <span class="base-highlight">$</span>
+    </p>
+  </div>
+
+  <!--_______________________________________ *** The Modal *** _________________________ -->
+  <!--                                   |||                     |||                      -->
+  <!--__________________________________ YYY Modal content Below YYY _____________________-->
+
   <div id="myModal" class="modal">
-    <!-- Modal content -->
     <div class="modal-content">
       <span class="close">&times;</span>
       <section class="product-detail">
@@ -53,4 +72,5 @@
       </section>
     </div>
   </div>
+  <!-- ***************************** End of modal pop up HTML **************************** -->
 </li>
