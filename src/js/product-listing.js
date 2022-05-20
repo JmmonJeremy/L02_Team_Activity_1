@@ -5,7 +5,7 @@ import { loadHeaderFooter, getParam } from "./utils.js";
 const dataSource = new ExternalServices();
 const listElement = document.querySelector(".product-list");
 const category = getParam("category");
-const dataList = new ProductList(category, dataSource, listElement);
+let dataList = new ProductList(category, dataSource, listElement);
 
 dataList.init();
 
@@ -21,3 +21,18 @@ slider.addEventListener("change", () => {
 
 // add the header and footer to main page
 loadHeaderFooter();
+
+
+const form = document.forms["search"];
+const input = form["searchInput"];
+input.addEventListener("change", () => form.reset(), false);
+
+// const form = document.forms['search'];
+form.addEventListener ("submit", search, false);
+
+function search() {
+  alert(" Form Submitted");
+  // let filteredDataSource = dataSource.filter()
+  // console.log(filteredDataSource)
+  // dataList = new ProductList(category, filteredDataSource, listElement);
+}

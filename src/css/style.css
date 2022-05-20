@@ -722,6 +722,8 @@ p.alert {
   margin: auto;
 }
 
+
+
 /******************* START COMMENT ON PRODUCT STYLES ********************************/
 /* div around comment and buttons for positioning */
 #comment-bttn-box {
@@ -828,6 +830,15 @@ footer {
   width: 0;
   height: 0;
 }
+
+/* Product listing pages search css */
+.product-listing-controls {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  /* grid-template-columns: 20% auto 20%; */
+}
+
 
 /* The slider */
 .slider {
