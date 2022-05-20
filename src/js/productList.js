@@ -90,6 +90,13 @@ export default class ProductList {
       product.Reviews.ReviewCount;
     templateClone.querySelector(".product__ratings").innerHTML +=
       product.Reviews.AverageRating;
+    let comment = templateClone.getElementById("comment");
+    // console.log(comment);
+    //add link to the comments
+    comment.addEventListener("click", () => {
+      if (product.Id)
+        location.href = `../product_pages/product-details.html?product=${product.Id}`;
+    });
     return templateClone;
   }
 

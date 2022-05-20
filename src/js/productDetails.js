@@ -12,15 +12,14 @@ export default class ProductDetails {
     this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
+    this.postedComments = document.getElementById("posted-comments");
+    this.commentsList = [];
   }
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
-
     // console.log(this.product);
-
     //console.log(this.product.Count);
-
     this.renderProductDetails();
 
     // Put the path into the breadcrumbs
@@ -49,6 +48,108 @@ export default class ProductDetails {
         addButt.className = "resume";
       }
       setTimeout(buttBack, 250);
+    });
+
+    //run the code for placing comments
+    this.addProductComment();
+  }
+
+  addProductComment() {
+    //code to add a comment
+    //get the element for the permanently added comments
+    const addComment = document.querySelector("#comment-section");
+    //get the element for the place to type in a comment & create entry space
+    const liveComment = document.createElement("div");
+    liveComment.id = "comment-bttn-box";
+    liveComment.innerHTML = `&nbsp;<span id="red-x"
+     >X</span><b id="comment-label">&nbsp; Add Comment: </b>&nbsp;
+     <p class="comment-line" contenteditable="true"></p>
+     <button type='button' id='postComment'>Post</button>
+     <button type='button' id='deleteComment'>Clear</button>
+     `;
+    //set a temporary value for thes variables
+    let deleteBttn = "No button yet";
+    let clearBttn = "No button yet";
+    let postBttn = "No button yet";
+    let commentLine = "No comment line yet";
+    // console.log(liveComment);
+    //add the comment entry space when the button is clicked
+    const commentBttn = document.getElementById("comment");
+    commentBttn.addEventListener("click", () => {
+      // console.log("I'm working!");
+      addComment.appendChild(liveComment);
+      //scroll to the bottom where the entry space is after clicking the button
+      window.scrollTo(0, document.body.scrollHeight);
+      //if there are no comments, do not show the added orange line
+      if (this.postedComments.childElementCount == 0) {
+        this.postedComments.className = "noLine";
+      }
+      //grab the delet button element
+      deleteBttn = document.getElementById("red-x");
+      //delete the entry space if they click the red x in a box
+      deleteBttn.addEventListener("click", () => {
+        liveComment.remove();
+      });
+      //  console.log(this.postedComments)
+      //grab the comment line element
+      commentLine = document.querySelector(".comment-line");
+      // console.log(commentLine);
+      //grab the clear button element
+      clearBttn = document.getElementById("deleteComment");
+      // console.log(clearBttn);
+      //clear the entry if the clear button is clicked
+      clearBttn.addEventListener("click", () => {
+        // console.log("I'm deleting!");
+        commentLine.innerHTML = "";
+      });
+      //grab the element for the post button
+      postBttn = document.getElementById("postComment");
+      //  console.log(postBttn);
+      //post the comment permenantly (to local storage) if the click the post button
+      postBttn.addEventListener("click", () => {
+        //  console.log(commentLine.innerText);
+        //do not post empty comments
+        if (commentLine.innerText !== "") {
+          // console.log("I'm posting!");
+          //set variable equal to the text of the post
+          let post = commentLine.innerText;
+          //set a variable equal to the comment number
+          let commentNumber =
+            "<B>&nbsp; Comment #" +
+            (parseInt(this.postedComments.childElementCount) + 1) +
+            ": </b>";
+          //combine the comment number with the comment
+          let finisedPost = commentNumber.concat(post);
+          //add to the comment list on the page
+          this.postedComments.innerHTML += `<p>${finisedPost}</p>`;
+          //empty the input field for comments
+          commentLine.innerHTML = "";
+          //remove the comment entry field
+          liveComment.remove();
+          //add a line over the comments
+          this.postedComments.className = "topLine";
+          //  console.log(this.postedComments);
+          //grab the the products name from the element on the page
+          const commentedProduct = document.querySelector("h2.divider")
+            .innerHTML;
+          //  console.log(commentedProduct);
+          //set a variable equal to the local storage
+          let storageTest = getLocalStorage(
+            "comments for: " + commentedProduct
+          );
+          //if the local storage is a list then set this.commentsList equal to it
+          if (Array.isArray(storageTest)) {
+            this.commentsList = storageTest;
+          }
+          //push the comment into a partially full or empty list
+          this.commentsList.push(finisedPost);
+          //set the loca storage equal to the new list of comments
+          setLocalStorage(
+            "comments for: " + commentedProduct,
+            this.commentsList
+          );
+        }
+      });
     });
   }
 
@@ -131,6 +232,17 @@ export default class ProductDetails {
     document
       .getElementById("addToCart")
       .setAttribute("data-id", this.product.Id);
+
+    const commentedProduct = document.querySelector("h2.divider").innerHTML;
+    // console.log(commentedProduct);
+    let storageTest = getLocalStorage("comments for: " + commentedProduct);
+    if (Array.isArray(storageTest)) {
+      this.commentsList = storageTest;
+      this.postedComments.className = "topLine";
+    }
+    this.commentsList.forEach((comment) => {
+      this.postedComments.innerHTML += `<p>${comment}</p>`;
+    });
   }
 
   async renderProductColors(list, listElement) {
@@ -147,7 +259,7 @@ export default class ProductDetails {
   }
 
   prepareTemplate(templateClone, color) {
-    console.log(color);
+    // console.log(color);
     const color_img = templateClone.querySelector("img");
     color_img.src = color.ColorChipImageSrc;
     color_img.alt = color.ColorName;
@@ -158,6 +270,11 @@ export default class ProductDetails {
     };
 
     return templateClone;
+  }
+
+  addComment() {
+    const insertionSpot = document.querySelector(".product-detail");
+    console.log(insertionSpot);
   }
 }
 

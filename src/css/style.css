@@ -105,6 +105,7 @@ button {
   border: 0;
   border-radius: 0.75rem;
   font-size: var(--large-font);
+  cursor: pointer;
 }
 
 /*********************  START OF ADDED CSS TO ANIMATE THE CART AND BUTTON WHEN CLICKED   **************************/
@@ -698,6 +699,65 @@ p.alert {
   margin: auto;
 }
 
+/******************* START COMMENT ON PRODUCT STYLES ********************************/
+/* div around comment and buttons for positioning */
+#comment-bttn-box {
+  width: 100%;
+  display: flex;
+  justify-items: flex-end;
+  align-items: center;
+  border-top: 2px solid var(--primary-color);
+}
+
+.topLine {
+  border-top: 2px solid var(--primary-color);
+}
+
+/* Comment paragraph element */
+#red-x {
+  margin-left: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  color: red;
+  font-size: 1.5rem;
+  font-weight: 900;
+  border: 5px groove red;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+#comment-label {
+  width: 228px;
+}
+.comment-line {
+  width: 85%;
+}
+
+[contenteditable]:focus {
+  outline: 0px solid transparent;
+}
+
+/* Comment Button */
+#orange-flex-container {
+  display: flex;
+}
+#comment,
+#postComment,
+#deleteComment {
+  background-color: orange;
+  padding: 8px;
+}
+
+#postComment {
+  background-color: rgb(136, 200, 41);
+  border: 1px solid black;
+}
+
+#deleteComment {
+  background-color: rgb(206, 79, 79);
+  border: 1px solid black;
+}
+/******************* START COMMENT ON PRODUCT STYLES ********************************/
 #siteLogin button {
   margin: 0.5em auto;
 }
