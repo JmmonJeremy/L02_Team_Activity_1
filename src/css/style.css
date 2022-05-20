@@ -644,6 +644,95 @@ fieldset hr {
 }
 /**************************** END OF FORM CSS FOR CHECKOUT PAGE *******************************/
 
+/****************************** START POP-UP SUBSCRIBE **********************************/
+
+.popup-blur {
+  z-index: 99;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100vh;
+  visibility: hidden;
+  transition: 0.5s ease;
+  transition-property: visibility;
+}
+
+.popup-screen {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-blur.active .popup-screen.active {
+  visibility: visible;
+}
+
+.popup-box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 5px 23px rgb(0 0 0 / 20%);
+  transform: scale(0);
+  transition: 0.5s ease;
+  transition-property: transform;
+}
+
+.popup-screen.active .popup-box,
+.popup-blur .popup-box {
+  transform: scale(1);
+}
+
+.popup-box h2 {
+  font-size: 2.1em;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.popup-box p {
+  font-size: 1em;
+  margin-bottom: 30px;
+}
+
+.popup-box .btn {
+  color: white;
+  background-color: #525b0f;
+  font-size: 1.1em;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 7px 27px;
+  border-radius: 3px;
+}
+
+.close-btn {
+  position: absolute;
+  font-size: 1em;
+  top: 0;
+  right: 0;
+  margin: 15px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 1.3s ease;
+  transition-property: opacity;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
 /**************************** START OF ALERT STYLING ********************************************/
 p.alert {
   background-color: var(--primary-color);
@@ -801,6 +890,11 @@ p.alert {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
   }
+
+  .popup-screen {
+    width: 100%;
+    height: 100vh;
+  }
 }
 
 footer {
@@ -916,3 +1010,14 @@ input:checked + .slider:before {
 }
 /********************* END OF MEDIUM & UP FORM CSS FOR CHECKOUT PAGE ********************************/
 /**************************** END OF MEDIUM SIZE SCREEN CSS *****************************************/
+
+@media screen and (min-width: 1080px) {
+  .popup-screen {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .popup-box {
+    margin-right: 45%;
+  }
+}
