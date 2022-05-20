@@ -1,13 +1,16 @@
 const mainElement = document.querySelector("main")
 const section = document.createElement("section")
+
+section.setAttribute("id", "callToActionForm")
+section.innerHTML = popupHtml()
+mainElement.prepend(section);
+
 const popupScreen = document.querySelector(".popup-screen");
 const popupBlur = document.querySelector(".popup-blur");
 const closebtn = document.querySelector(".close-btn");
 
 
-section.setAttribute("id", "callToActionForm")
-section.innerHTML = popupHtml()
-mainElement.prepend(section);
+
 
 // Functions from util.js becuase they are not in a module
 function getLocalStorage(key) {
@@ -17,19 +20,29 @@ function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
 
-
 // Check how many visits the user has made and store a new one for every visit.
 let visits =  getLocalStorage("numberOfVisits");
 if (visits == null) {
   visits = 0;
 }
 
+if (visits <= 0) {
+  popupScreen.style.visibility = "visible"
+  populatePopup
+} 
+
 setLocalStorage("numberOfVisits", visits + 1)
 
+// if (visits < 1) {
+//   // Hide the popup screen if the cookie in not expired.
+//   // popupScreen.style.display = "none";
+//   // popupScreen.style.display = "flex";
+//   popupScreen.style.visibility = "visible"
+//   populatePopup()
+// } else {
+//   popupScreen.style.visibility = "hidden"
+// }
 
-if (visits < 1) {
-  popupScreen.style.visibility = "visible"
-} 
 
 async function populatePopup() {
   // Popup Screen in 10 seconds after the page is loaded
