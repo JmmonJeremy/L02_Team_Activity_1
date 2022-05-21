@@ -18,8 +18,6 @@ export default class ProductDetails {
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
-    // console.log(this.product);
-    //console.log(this.product.Count);
     this.renderProductDetails();
 
     // Put the path into the breadcrumbs
@@ -72,11 +70,9 @@ export default class ProductDetails {
     let clearBttn = "No button yet";
     let postBttn = "No button yet";
     let commentLine = "No comment line yet";
-    // console.log(liveComment);
     //add the comment entry space when the button is clicked
     const commentBttn = document.getElementById("comment");
     commentBttn.addEventListener("click", () => {
-      // console.log("I'm working!");
       addComment.appendChild(liveComment);
       //scroll to the bottom where the entry space is after clicking the button
       window.scrollTo(0, document.body.scrollHeight);
@@ -90,27 +86,20 @@ export default class ProductDetails {
       deleteBttn.addEventListener("click", () => {
         liveComment.remove();
       });
-      //  console.log(this.postedComments)
       //grab the comment line element
       commentLine = document.querySelector(".comment-line");
-      // console.log(commentLine);
       //grab the clear button element
       clearBttn = document.getElementById("deleteComment");
-      // console.log(clearBttn);
       //clear the entry if the clear button is clicked
       clearBttn.addEventListener("click", () => {
-        // console.log("I'm deleting!");
         commentLine.innerHTML = "";
       });
       //grab the element for the post button
       postBttn = document.getElementById("postComment");
-      //  console.log(postBttn);
       //post the comment permenantly (to local storage) if the click the post button
       postBttn.addEventListener("click", () => {
-        //  console.log(commentLine.innerText);
         //do not post empty comments
         if (commentLine.innerText !== "") {
-          // console.log("I'm posting!");
           //set variable equal to the text of the post
           let post = commentLine.innerText;
           //set a variable equal to the comment number
@@ -128,11 +117,9 @@ export default class ProductDetails {
           liveComment.remove();
           //add a line over the comments
           this.postedComments.className = "topLine";
-          //  console.log(this.postedComments);
           //grab the the products name from the element on the page
           const commentedProduct = document.querySelector("h2.divider")
             .innerHTML;
-          //  console.log(commentedProduct);
           //set a variable equal to the local storage
           let storageTest = getLocalStorage(
             "comments for: " + commentedProduct
@@ -162,22 +149,18 @@ export default class ProductDetails {
     }
     // if cart is not empty do the following
     if (checkoutItems.length != 0) {
-      //console.log("list length over 0: " + checkoutItems.length);
       // if product is in the cart already change boolean to true & add 1 to the count
       checkoutItems.forEach((item) => {
         if (item.Id == this.product.Id) {
           //change the products InCart boolean to true for both items
           item.InCart = true;
           this.product.InCart = true;
-          //console.log("List item's InCart boolean = " + item.InCart);
-          //console.log("There is a match for " + this.product.Id + ": " + this.product.InCart);
           //add one to the count of the product object in the list
           item.Count++;
         }
       });
     }
     //if the item is not in the cart
-    //console.log("Is there a match for " + this.product.Id + ": " + this.product.InCart);
     if (!this.product.InCart) {
       //add 1 to the count of the product being added
       this.product.Count++;
@@ -234,7 +217,6 @@ export default class ProductDetails {
       .setAttribute("data-id", this.product.Id);
 
     const commentedProduct = document.querySelector("h2.divider").innerHTML;
-    // console.log(commentedProduct);
     let storageTest = getLocalStorage("comments for: " + commentedProduct);
     if (Array.isArray(storageTest)) {
       this.commentsList = storageTest;
@@ -259,7 +241,6 @@ export default class ProductDetails {
   }
 
   prepareTemplate(templateClone, color) {
-    // console.log(color);
     const color_img = templateClone.querySelector("img");
     color_img.src = color.ColorChipImageSrc;
     color_img.alt = color.ColorName;
@@ -274,7 +255,6 @@ export default class ProductDetails {
 
   addComment() {
     const insertionSpot = document.querySelector(".product-detail");
-    console.log(insertionSpot);
   }
 }
 
