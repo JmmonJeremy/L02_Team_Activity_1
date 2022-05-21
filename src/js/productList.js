@@ -1,8 +1,5 @@
 //Used for product-listing pages
-import {
-  loadTemplate,
-  renderListWithTemplate
-} from "./utils.js";
+import { loadTemplate, renderListWithTemplate } from "./utils.js";
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {

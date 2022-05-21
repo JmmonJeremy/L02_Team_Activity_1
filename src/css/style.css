@@ -722,8 +722,6 @@ p.alert {
   margin: auto;
 }
 
-
-
 /******************* START COMMENT ON PRODUCT STYLES ********************************/
 /* div around comment and buttons for positioning */
 #comment-bttn-box {
@@ -813,7 +811,8 @@ footer {
 /* CSS for switch on product listing page */
 #searchBar {
   margin: auto 10px;
-  height:30px; width:190px;
+  height: 30px;
+  width: 190px;
 }
 
 .switch {
@@ -837,7 +836,6 @@ footer {
   margin: auto;
   /* grid-template-columns: 20% auto 20%; */
 }
-
 
 /* The slider */
 .slider {
