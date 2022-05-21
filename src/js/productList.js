@@ -1,9 +1,12 @@
 //Used for product-listing pages
-import { loadTemplate, renderListWithTemplate } from "./utils.js";
+import {
+  loadTemplate,
+  renderListWithTemplate
+} from "./utils.js";
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {
-    // passing in this infor makes the class as reusable as possible
+    // passing in this information makes the class as reusable as possible
     // being able to define these things when we use the class will make it very flexible
     this.category = category;
     this.dataSource = dataSource;
@@ -172,4 +175,17 @@ export default class ProductList {
       }
     };
   }
+
+  // search() {
+  //   // console.log(list)
+  //   // alert(`You Searched for: ${input.value}`);
+  //   event.preventDefault();
+  //   console.log("Hello")
+  //   // let userSearch = input.value.toLowerCase();
+  //   // let filteredDataSource = list.filter(item => {
+  //     // let searchItem = item.Name.toLowerCase();
+  //     // return searchItem.includes(userSearch);
+  //   // });
+  //   // console.log(filteredDataSource)
+  // }
 }
