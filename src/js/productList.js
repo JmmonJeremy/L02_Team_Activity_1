@@ -3,7 +3,7 @@ import { loadTemplate, renderListWithTemplate } from "./utils.js";
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {
-    // passing in this infor makes the class as reusable as possible
+    // passing in this information makes the class as reusable as possible
     // being able to define these things when we use the class will make it very flexible
     this.category = category;
     this.dataSource = dataSource;
