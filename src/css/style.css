@@ -811,11 +811,10 @@ footer {
 }
 
 /* CSS for switch on product listing page */
-/* The switch - the box around the slider */
-/* .slider-div {
+#searchBar {
+  margin: auto 10px;
+  height:30px; width:190px;
 }
-.slider-elements {
-} */
 
 .switch {
   position: relative;

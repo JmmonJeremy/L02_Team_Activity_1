@@ -175,17 +175,4 @@ export default class ProductList {
       }
     };
   }
-
-  // search() {
-  //   // console.log(list)
-  //   // alert(`You Searched for: ${input.value}`);
-  //   event.preventDefault();
-  //   console.log("Hello")
-  //   // let userSearch = input.value.toLowerCase();
-  //   // let filteredDataSource = list.filter(item => {
-  //     // let searchItem = item.Name.toLowerCase();
-  //     // return searchItem.includes(userSearch);
-  //   // });
-  //   // console.log(filteredDataSource)
-  // }
 }
