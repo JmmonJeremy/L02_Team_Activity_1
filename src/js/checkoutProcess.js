@@ -90,6 +90,7 @@ export default class CheckoutProcess {
     try {
       const res = await services.checkout(jsonObject);
       // console.log(res);
+
       setLocalStorage("so-cart", []);
       window.location.href = "checkedout.html";
     } catch (err) {

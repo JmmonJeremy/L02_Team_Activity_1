@@ -1,3 +1,4 @@
+<!-- ProductDetails has mosto of the JavaScript for this page & uses product-card-temp-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,6 +10,10 @@
   </head>
   <body>
     <header class="divider" id="main-header"></header>
+    <ul class="breadcrumbs">
+      <li><a href="../index.html">Home</a></li>
+      <li><a class="product-breadcrumb" href="#"></a></li>
+    </ul>
     <main class="divider">
       <section class="product-detail">
         <h3></h3>
@@ -20,20 +25,25 @@
             <span class="flag-percent">50</span>%<br />Off!
           </p>
         </div>
-        <div class="pricing-container">
-          <u
-            ><p class="container__origin-price">
-              Originally: <span class="product-card__orginal-price">$</span>
-            </p></u
-          >
-          <p class="product-card__discount">Discounted: $</p>
-          <p class="product-card__price">
-            Final Price: <span class="price-highlight">$</span>
-          </p>
+        <div id="orange-flex-container">
+          <div class="pricing-container">
+            <u
+              ><p class="container__origin-price">
+                Originally: <span class="product-card__orginal-price">$</span>
+              </p></u
+            >
+            <p class="product-card__discount">Discounted: $</p>
+            <p class="product-card__price">
+              Final Price: <span class="price-highlight">$</span>
+            </p>
+          </div>
+          <button type="button" id="comment">Comment</button>
         </div>
-        <p class="product__color">
-          <u class="descriptor-label">Color:</u>&nbsp; &nbsp;
-        </p>
+        <div class="product__color">
+          <u class="descriptor-label">Color:</u>
+          <ul class="color__pick">
+            ...
+          </ul>
         </div>
         <p class="product__description">
           <u class="descriptor-label">Description:</u>&nbsp; &nbsp;
@@ -42,6 +52,8 @@
           <button id="addToCart" data-id="344YJ">Add to Cart</button>
         </div>
       </section>
+      <section id="comment-section"></section>
+      <section id="posted-comments"></section>
     </main>
     <footer id="main-footer"></footer>
   </body>
