@@ -1,6 +1,7 @@
 //used for the product-details.html page
 import { getLocalStorage, setLocalStorage, alertMessage } from "./utils.js";
 import { displayCart } from "./cart-superscript.js";
+
 import {
   loadHeaderFooter,
   loadTemplate,
@@ -18,7 +19,7 @@ export default class ProductDetails {
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
-    // console.log(this.product);
+    console.log(this.product);
     //console.log(this.product.Count);
     this.renderProductDetails();
 
@@ -195,7 +196,7 @@ export default class ProductDetails {
   renderProductDetails() {
     let product_title = document.querySelector(".product-detail>h3");
     let product_name = document.querySelector(".product-detail>h2");
-    let product_img = document.querySelector(".product-detail>img");
+
     let discount_flag = document.querySelector(".discount-flag");
     let discount_percent = document.querySelector(".flag-percent");
     let product_price = document.querySelector(".price-highlight");
@@ -208,8 +209,7 @@ export default class ProductDetails {
 
     product_title.innerHTML = this.product.Brand.Name;
     product_name.innerHTML = this.product.NameWithoutBrand;
-    product_img.setAttribute("alt", this.product.NameWithoutBrand);
-    product_img.setAttribute("src", this.product.Images.PrimaryLarge);
+
     discount_flag.alt = "discount flag star";
     discount_flag.src = "../images/discount.svg";
     discount_percent.innerHTML =
@@ -227,6 +227,7 @@ export default class ProductDetails {
 
     // This will need to be dynamic later
     this.renderProductColors(this.product.Colors, product_color);
+    this.renderProductImages(this.product.Images);
     product_description.innerHTML += this.product.DescriptionHtmlSimple;
 
     document
@@ -243,6 +244,66 @@ export default class ProductDetails {
     this.commentsList.forEach((comment) => {
       this.postedComments.innerHTML += `<p>${comment}</p>`;
     });
+  }
+
+  async renderProductImages(images) {
+    let imgElement = document.querySelector("img#product-img");
+    let imgCarrousel = document.querySelector(".carousel__viewport");
+
+    if (images.ExtraImages == null) {
+      imgCarrousel.parentNode.style.display = "none";
+      imgElement.setAttribute("alt", this.product.NameWithoutBrand);
+      imgElement.setAttribute("src", this.product.Images.PrimaryLarge);
+      return;
+    }
+
+    imgElement.style.display = "none";
+
+    const carrouselTemplate = await loadTemplate(
+      "../partials/product-img-carrousel-template.html"
+    );
+
+    const firstImage = {
+      Title: images.NameWithoutBrand,
+      Src: images.PrimaryLarge,
+    };
+    let listExtra = [firstImage].concat(images.ExtraImages);
+    renderListWithTemplate(
+      carrouselTemplate,
+      imgCarrousel,
+      listExtra,
+      this.prepareImages
+    );
+  }
+
+  prepareImages(templateClone, image) {
+    // console.log(color);
+    const product_img = templateClone.querySelector("img");
+    const aPrev = templateClone.querySelector("a.carousel__prev");
+    console.log(aPrev);
+    const aNext = templateClone.querySelector("a.carousel__next");
+    const liList = document.querySelectorAll(".carousel__viewport li");
+    const liCounter = liList.length + 1;
+
+    const domElement = templateClone.querySelector("#carousel__slide_0");
+
+    domElement.setAttribute("id", `carousel__slide${liCounter}`);
+    aPrev.href = `#carousel__slide${liCounter - 1}`;
+    aNext.href = `#carousel__slide1`;
+
+    product_img.src = image.Src;
+    product_img.alt = image.Title;
+
+    if (1 == liCounter) return templateClone;
+
+    liList[0].querySelector(
+      ".carousel__slide a.carousel__prev"
+    ).href = `#carousel__slide${liCounter}`;
+    liList[liCounter - 2].querySelector(
+      ".carousel__slide a.carousel__next"
+    ).href = `#carousel__slide${liCounter}`;
+
+    return templateClone;
   }
 
   async renderProductColors(list, listElement) {
@@ -265,7 +326,7 @@ export default class ProductDetails {
     color_img.alt = color.ColorName;
 
     color_img.onclick = () => {
-      let product_img = document.querySelector(".product-detail>img");
+      let product_img = document.querySelector("img#product-img");
       product_img.src = color.ColorPreviewImageSrc;
     };
 
