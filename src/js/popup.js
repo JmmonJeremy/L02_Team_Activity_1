@@ -5,8 +5,6 @@ section.setAttribute("id", "callToActionForm");
 section.innerHTML = popupHtml();
 mainElement.prepend(section);
 
-
-
 // Functions from util.js becuase they are not in a module
 function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
@@ -23,8 +21,6 @@ if (visits == null) {
 }
 
 const popupScreen = document.querySelector(".popup-screen");
-// const popupBlur = document.querySelector(".popup-blur");
-
 
 if (visits <= 0) {
   popupScreen.style.visibility = "visible";
@@ -34,22 +30,17 @@ if (visits <= 0) {
 setLocalStorage("numberOfVisits", visits + 1);
 
 function populatePopup() {
-
   // Close the popup Screen
-  document
-    .querySelector(".close-btn")
-    .addEventListener("click", () => {
-      popupScreen.classList.remove("active");
-      popupScreen.style.visibility = "hidden";
-    });
+  document.querySelector(".close-btn").addEventListener("click", () => {
+    popupScreen.classList.remove("active");
+    popupScreen.style.visibility = "hidden";
+  });
 
-  document
-    .querySelector("#submit-popup")
-    .addEventListener("submit", () => {
-      popupScreen.classList.remove("active");
-      popupScreen.style.visibility = "hidden";
-      alert("Thanks for subscribing!");
-    });
+  document.querySelector("#submit-popup").addEventListener("submit", () => {
+    popupScreen.classList.remove("active");
+    popupScreen.style.visibility = "hidden";
+    alert("Thanks for subscribing!");
+  });
 }
 
 function popupHtml() {
