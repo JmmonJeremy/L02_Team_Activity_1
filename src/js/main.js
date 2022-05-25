@@ -6,7 +6,8 @@ loadHeaderFooter(true);
 function newsLetter() {
   document.addEventListener("DOMContentLoaded", () => {
     document
-      .getElementById("news-signup")
+      // .getElementById("news-signup")
+      .getElementById("submit")
       .addEventListener("submit", handleForm);
   });
 }
