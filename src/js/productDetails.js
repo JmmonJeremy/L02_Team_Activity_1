@@ -274,7 +274,7 @@ export default class ProductDetails {
 
     domElement.setAttribute("id", `carousel__slide${liCounter}`);
     aPrev.href = `#carousel__slide${liCounter - 1}`;
-    aNext.href = `#carousel__slide1`;
+    aNext.href = "#carousel__slide1";
 
     product_img.src = image.Src;
     product_img.alt = image.Title;

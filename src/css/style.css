@@ -407,7 +407,7 @@ div.pricing-container {
 /**************************** END OF ADDED FOR DISCOUNT EMPHESIS **************************/
 
 /******* START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS & PRODUCT lISTING PAGE******/
-img#product-img {
+img#product-img { 
   position: relative;
 }
 
@@ -759,6 +759,8 @@ p.alert {
 /* Comment Button */
 #orange-flex-container {
   display: flex;
+ /* margin-right: -14rem;
+ margin-bottom: 3rem; */
 }
 #comment,
 #postComment,
@@ -1091,12 +1093,16 @@ li {
 
 .carousel::before,
 .carousel__prev {
+  /* right:6rem; */
   left: -1rem;
+  /* top: 13rem; */
 }
 
 .carousel::after,
 .carousel__next {
+  /* right: 2rem; */
   right: -1rem;
+  /* top: 13rem; */
 }
 
 .carousel::before,
@@ -1121,8 +1127,8 @@ li {
 .carousel::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
 }
-
+/* 
 .product_img_container a {
   text-decoration: ;
-}
+} */
 /**************************** END OF IMAGE CARROUSEL OF PAGE PRODUCT DETAIL *****************************************/
