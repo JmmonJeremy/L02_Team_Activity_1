@@ -1,8 +1,1 @@
-import t from "./productData.js";
-import o from "./productList.js";
-import { loadHeaderFooter as r, getParam as e } from "./utils.js";
-const a = new t(),
-  c = document.querySelector(".product-list"),
-  s = e("category"),
-  i = new o(s, a, c);
-i.init(), r();
+import d from"./externalServices.js";import u from"./productList.js";import{loadHeaderFooter as m,getParam as h}from"./utils.js";const L=new d,g=document.querySelector(".product-list"),o=h("category");let s=new u(o,L,g);s.init();let c=document.getElementById("sortByPrice");c.addEventListener("change",()=>{const r=document.querySelector("#searchBar");r.value="",c.checked==!0?s.init(!0):s.init()});function y(){const r=document.querySelector("#searchBar");r.placeholder=`Search for ${o}`,r.addEventListener("search",()=>{let l=document.querySelector(".product-list"),a=r.value.toLowerCase(),t=l.getElementsByTagName("li");for(let e=0;e<t.length;e++){t[e].classList.contains("hide")&&t[e].classList.remove("hide");let n=t[e].getElementsByTagName("h2")[0].textContent.toLocaleLowerCase(),i=t[e].getElementsByTagName("h3")[0].textContent.toLocaleLowerCase();!n.includes(a)&&!i.includes(a)&&t[e].classList.add("hide")}})}m(),y();

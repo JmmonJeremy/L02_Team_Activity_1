@@ -1,14 +1,72 @@
-<!-- Listing of all the products in a category -->
-<html>
-  <head></head>
-  <body>
-    <li class="product-card">
-      <a href="../product_pages/product-details.html?product=">
-        <img src alt="Image of" />
-        <h3 class="card__brand"></h3>
-        <h2 class="card__name"></h2>
-        <p class="product-card__price">$</p></a
-      >
-    </li>
-  </body>
-</html>
+<!-- Listing of all the products in a category used in product-listing page--><html><head></head><body><li class="product-card">
+  <a href="../product_pages/product-details.html?product=">
+    <img src alt="Image of" class="base_product-img">
+    <div class="base_flag-container">
+      <img class="base_discount-flag">
+      <p class="base_flag-amount">
+        <span class="base_flag-percent">50</span>%<br>Off!
+      </p>
+    </div>
+  </a>
+  <h3 class="card__brand"></h3>
+  <!-- Trigger/Open The Modal -->
+  <button type="button" class="details-btn">Details</button>
+  <h2 class="card__name"></h2>
+  <div class="pricing-container">
+    <u><p class="container__origin-price">
+        Originally: <span class="base__orginal-price">$</span>
+      </p></u>
+    <p class="base__discount">Discounted: $</p>
+    <p class="product-card__price">
+      Final Price: <span class="base-highlight">$</span>
+    </p>
+  </div>
+
+  <!--_______________________________________ *** The Modal *** _________________________ -->
+  <!--                                   |||                     |||                      -->
+  <!--__________________________________ YYY Modal content Below YYY _____________________-->
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&#xD7;</span>
+      <section class="product-detail">
+        <h3></h3>
+        <h2 class="divider"></h2>
+        <img id="product-img" class="pop-up">
+        <div class="flag-container pop-up">
+          <img class="discount-flag">
+          <p class="flag-amount pop-up">
+            <span class="flag-percent">50</span>%<br>Off!
+          </p>
+        </div>
+        <div class="pricing-container">
+          <u><p class="container__origin-price">
+              Originally: <span class="product-card__orginal-price">$</span>
+            </p></u>
+          <p class="product-card__discount">Discounted: $</p>
+          <p class="product-card__price">
+            Final Price: <span class="price-highlight">$</span>
+          </p>
+        </div>
+        <p class="product__color">
+          <u class="descriptor-label">Color:</u>&#xA0; &#xA0;
+        </p>
+        <p class="product__description">
+          <u class="descriptor-label">Description:</u>&#xA0; &#xA0;
+        </p>
+        <p class="product__reviews">
+          <u class="descriptor-label">Reviews:</u>&#xA0; &#xA0;
+        </p>
+        <div id="orange-flex-container">
+          <p class="product__ratings">
+            <u class="descriptor-label">Scale of 5 ~ Average Rating:</u>&#xA0;
+            &#xA0;
+          </p>
+          <button type="button" id="comment">Comments</button>
+        </div>
+      </section>
+    </div>
+  </div>
+  <!-- ***************************** End of modal pop up HTML **************************** -->
+</li>
+</body></html>

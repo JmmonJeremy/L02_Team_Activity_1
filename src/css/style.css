@@ -407,7 +407,7 @@ div.pricing-container {
 /**************************** END OF ADDED FOR DISCOUNT EMPHESIS **************************/
 
 /******* START OF STYLING FOR DISCOUNT FLAG ON PRODUCT DETAILS & PRODUCT lISTING PAGE******/
-img#product-img { 
+img#product-img {
   position: relative;
 }
 
@@ -848,7 +848,7 @@ p.alert {
 /* Comment Button */
 #orange-flex-container {
   display: flex;
- /* margin-right: -14rem;
+  /* margin-right: -14rem;
  margin-bottom: 3rem; */
 }
 #comment,

@@ -1,7 +1,1 @@
-import t from "./productData.js";
-import o from "./productDetails.js";
-import { getParam as r } from "./utils.js";
-const c = new t(),
-  a = r("product"),
-  d = new o(a, c);
-d.init();
+import t from"./externalServices.js";import r from"./productDetails.js";import{getParam as o}from"./utils.js";const e=new t,c=o("product"),s=new r(c,e);s.init();

@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- ProductList.js contains most of the JavaScript used for this page --><!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sleep Outside | Home</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
     <header class="divider" id="main-header"></header>
+    <ul class="breadcrumbs">
+      <li><a href="../index.html">Home</a></li>
+      <li><a class="product-breadcrumb" href="#"></a></li>
+    </ul>
     <main class="divider">
       <section class="mission">
         <p>No wonder we are a mess!</p>
@@ -19,10 +21,29 @@
       </section>
       <section class="products">
         <h2>Top Products</h2>
+        <div class="product-listing-controls">
+          <div class="slider-div">
+            <p>Sort by:</p>
+            <div class="slider-elements">
+              <span>Product Name</span>
+              <label for="sortByPrice" class="switch"><input type="checkbox" id="sortByPrice"><span class="slider round"></span></label>
+              <span>Price</span>
+            </div>
+          </div>
+          <!-- <form name="search">
+            <input name="searchInput" />
+            <button type="submit">Search</button>
+          </form> -->
+          <input id="searchBar" type="search" placeholder="Search" name="searchInput">
+          <!-- <button type="submit">Search</button> -->
+        </div>
+        <!--  All the products get listed in this list -->
         <ul class="product-list"></ul>
+        <!-- End of the list of products -->
       </section>
     </main>
     <footer id="main-footer"></footer>
-    <script src="../js/product-listing.js" type="module" defer></script>
-  </body>
-</html>
+    <script src="../js/product-listing.js" type="module"></script>
+  
+
+</body></html>

@@ -265,7 +265,7 @@ export default class ProductDetails {
     // console.log(color);
     const product_img = templateClone.querySelector("img");
     const aPrev = templateClone.querySelector("a.carousel__prev");
-    console.log(aPrev);
+    // console.log(aPrev);
     const aNext = templateClone.querySelector("a.carousel__next");
     const liList = document.querySelectorAll(".carousel__viewport li");
     const liCounter = liList.length + 1;

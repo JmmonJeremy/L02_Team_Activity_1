@@ -1,2 +1,1 @@
-import { loadHeaderFooter as o } from "./utils.js";
-o();
+import{loadHeaderFooter as d}from"./utils.js";import i from"./checkoutProcess.js";d();let e=new i;e.init(),document.getElementById("zip").addEventListener("blur",e.additionsTotal.bind(e)),document.getElementById("checkedout").addEventListener("click",o=>{o.preventDefault();let t=document.forms[0],r=t.checkValidity();t.reportValidity(),r&&e.checkout()});
